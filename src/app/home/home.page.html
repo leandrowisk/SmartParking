@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+      <div class="arrow-container"> 
+      <p class="city">São Paulo<p>
+  </div>
+  <div class="filter-container">
+</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar animated="true" placeholder="Qual sua próxima parada?"></ion-searchbar>
+
+  <mat-tab-group  dynamicHeight mat-align-tabs="center">
+
+  <mat-tab> 
+
+    <ng-template mat-tab-label>
+      <ion-icon class="tab-icon" name="home-outline"></ion-icon>
+      <span>Todos</span>
+  </ng-template>
+
+  <ng-container *ngFor="let park of parking">
+  <div class="container" routerLink="/details/{{park.id}}">
+  <img src="{{park.image_url}}">
+    <h2>{{park.name}}</h2>
+    <div class="caracteristics" >
+    <p>Preço: <b>R$:{{park.price}}</b></p>
+    <div class="avaliation">
+    <p>Avaliação dos usuários</p>
+     <ion-icon *ngFor="let rating of ratings" class="star" name="star"></ion-icon>
+    </div>
+    <p>Vagas disponíveis: {{park.available_vacancies}}</p>
+  </div>
+  </div>
+  </ng-container>
+  </mat-tab>
+
+  <mat-tab> 
+    <ng-template mat-tab-label>
+      <ion-icon class="tab-icon" name="calendar-outline"></ion-icon>
+      <span>Mensais</span>
+  </ng-template>
+
+  <ng-container *ngFor="let park of parking">
+  <div class="container" routerLink="/details/{{park.id}}" *ngIf="park.monthly">
+    <img src="{{park.image_url}}">
+      <h2>{{park.name}}</h2>
+      <div class="caracteristics">
+      <p>Preço: <b>{{park.price}}</b></p>
+    
+      <div class="avaliation">
+      <p>Avaliação dos usuários</p>
+      <ion-icon *ngFor="let rating of ratings" class="star" name="star"></ion-icon>
+      </div>
+      <p>Vagas disponíveis: {{park.available_vacancies}}</p>
+    </div>
+    </div>
+  </ng-container>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <ion-icon class="tab-icon" name="star-outline"></ion-icon>
+      <span>5 estrelas</span>
+  </ng-template>
+
+  <ng-container *ngFor="let park of parking">
+  <div class="container" *ngIf="park.user_avaliation == 5" routerLink="/details/{{park.id}}">
+    <img src="{{park.image_url}}">
+      <h2>{{park.name}}</h2>
+      <div class="caracteristics" >
+      <p>Preço: <b>{{park.price}}</b></p>
+      <div class="avaliation">
+      <p>Avaliação dos usuários</p>
+      <ion-icon *ngFor="let rating of ratings" class="star" name="star"></ion-icon>
+      </div>
+      <p>Vagas disponíveis: {{park.available_vacancies}}</p>
+    </div>
+    </div>
+
+  </ng-container>
+
+  </mat-tab>
+
+ </mat-tab-group>
+
+</ion-content>

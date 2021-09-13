@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   
+    <ion-title>
+      <div class="header-title">
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+       Escanear QR Code
+      </div>
+    </ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <h2 class="title">Reserva de Vaga</h2>
+
+  <p>Utilize está tela para escanear o QR Code relativo a sua vaga assim que entrar e deixar o estabelecimento</p>
+
+  <div class="container-button">
+
+    <button (click)="Entrance()" [class.disable-button]="entrance">
+      <ion-icon name="scan-outline"></ion-icon>
+       Escanear Entrada
+      <ion-icon name="checkmark-outline" *ngIf="entrance"></ion-icon>
+    </button>
+
+    <button [class.disable-button]="!entrance">
+      <ion-icon name="scan-outline"></ion-icon>
+      Escanear Saída
+      <ion-icon name="checkmark-outline" *ngIf="exit"></ion-icon>
+    </button>
+  </div>
+</ion-content>

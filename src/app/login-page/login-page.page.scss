@@ -1,0 +1,126 @@
+.social-medias {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 20px;
+ }
+ .form-input{
+     border-radius: 8px;
+     height: 40px;
+     width: 80vw;
+     margin-left: auto;
+     margin-right: auto;
+ }
+.form-menu{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+ .enter{
+     width: 80vw;
+     height: 40px;
+     background-color: brown;
+     border-radius: 8px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ .forgot-password{
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: brown;
+}
+
+ .cadastro {
+    width: 80vw;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .divider {
+     height: 10px;
+     margin-top: 50px;
+ }
+
+ .or {
+    display: flex;
+    justify-content: center;
+ }
+ 
+ h1{
+     font-family: 'Roboto', sans-serif;
+     text-align: center;
+     margin-top: 60px;
+ }
+ .social-medias div{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 40px;
+     width: 220px;
+     border: 1px solid black;
+     border-radius: 5px;
+     margin-left: auto;
+     margin-right: auto;
+     cursor: pointer;
+     
+ }
+ .social-medias :hover {
+     border-color:grey;
+ }
+ 
+ .card-text {
+     margin-left: 5px;
+     width: 100%;
+     font-family: 'Barlow', sans-serif;
+     font-family: 'Open Sans Condensed', sans-serif;
+     margin-top: 10px;
+ }
+
+ 
+ .sign-in{
+     color:brown;
+     font-weight: bold;
+     cursor: pointer;
+ }
+ 
+ .sign-in:hover{
+     color: darkslategrey
+ }
+
+ .logo {
+     display: flex;
+     height: 160px;
+     width: 200px;
+     margin-left: auto;
+     margin-right:auto;
+ }
+
+ @media (min-width:426px){
+    .enter {
+        width: 60%;
+        margin-top: 20px;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60vw;
+    }
+
+    .form-input {
+       width: 60vw;
+    }
+
+    .divider {
+        margin: 0;
+    }
+}

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {ParkingDetailsPage} from '../parking-details/parking-details.page';
+
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
+  
+  @Input() rent: boolean;
+  
   constructor() {}
+  
+  ngOnInit() {
+    
+  }
 
 }

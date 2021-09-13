@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="header-title">
+        <ion-icon name="arrow-back-outline" class="arrow-back" routerLink="/tabs/home">
+        </ion-icon>
+        Avaliar Estabelecimento
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h2>Diga-nos o que achou do estabelecimento</h2>
+
+  <div class="rating-container">
+    <ngb-rating [(rate)]="currentRate" [max]="5">
+      <ng-template let-fill="fill" let-index="index">
+        <span class="star" [class.filled]="fill === 100">&#9733;</span>
+      </ng-template>
+    </ngb-rating>
+  </div>
+
+  <button mat-raised-button class="rating-button">Avaliar</button>
+
+  <div class="rating-list">
+    <div class="star-container">
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </div>
+      <div>
+        <p class="rating-title">Excelente</p>
+        <img src='../../assets/images/very-satisfy.png'>
+      </div>
+    </div>
+
+
+    <div class="star-container">
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </div>
+
+      <div>
+        <p class="rating-title">Bom</p>
+        <img src='../../assets/images/satisfied.png'>
+      </div>
+    </div>
+
+
+    <div class="star-container">
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </div>
+      <div>
+        <p class="rating-title">Mediano</p>
+        <img src='../../assets/images/good.png'>
+      </div>
+    </div>
+
+
+    <div class="star-container">
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </div>
+      <div>
+        <p class="rating-title">Ruim</p>
+        <img src='../../assets/images/bad.png'>
+      </div>
+    </div>
+
+
+    <div class="star-container">
+      <div class="stars">
+        <ion-icon name="star"></ion-icon>
+      </div>
+      <div>
+        <p class="rating-title">Pessímo</p>
+        <img src='../../assets/images/very_bad.png'>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

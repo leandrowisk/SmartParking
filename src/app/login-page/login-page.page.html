@@ -1,0 +1,54 @@
+<ion-content>
+
+  <img class="logo" src="../../assets/images/Logo.jpeg">
+
+
+<div class="form-menu">
+
+    <mat-form-field class="form-input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="form-input">
+        <mat-label>Senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    
+    
+    <button mat-raised-button color="primary" class="enter" routerLink="/tabs/home">Entrar</button>
+    </div>
+    <p class="forgot-password">Esqueci minha senha</p>
+    <mat-divider fxFlex="1 0" class="divider">
+        
+    </mat-divider>
+    <div class="or">ou</div>
+
+<div class='social-medias'>
+
+    <div>
+        <img src='../../assets//images/icons8-google-logo-22.png'>
+        <p class='card-text' routerLink="/main">Prossiga com o Gmail</p>
+    </div>
+
+    <div>
+        <img src='../assets/images/icons8-facebook-22.png'>
+        <p class='card-text'>Prossiga com o Facebook</p>
+    </div>
+
+    <div>
+        <img src='../../assets/images/icons8-twitter-22.png'>
+        <p class='card-text' routerLink="/main">Prossiga com o Twitter</p>
+    </div>
+
+    <div>
+        <img src='../../assets/images/icons8-mac-os-22.png'>
+        <p class='card-text' routerLink="/main">Prossiga com a Apple</p>
+    </div>
+
+</div>
+
+</ion-content>

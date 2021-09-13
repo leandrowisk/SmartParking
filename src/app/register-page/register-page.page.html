@@ -1,0 +1,58 @@
+<div class="register-container">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <div class="header-title">
+          <ion-icon name="arrow-back-outline" class="arrow-back" routerLink="/register-page">
+          </ion-icon>
+            Cadastre-se
+          </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+</div>
+
+<ion-content>
+<mat-form-field class="form-input name" appearance='outline' color="warn">
+    <mat-label>Nome:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.nome">
+</mat-form-field> 
+
+<mat-form-field class="form-input" appearance='outline' color="warn">
+    <mat-label>E-mail:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.email">
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color="warn">
+    <mat-label>Endereço:</mat-label>
+    <input type="text" matInput [(ngModel)]="user.endereco">
+</mat-form-field>
+
+
+<mat-form-field class="form-input" appearance='outline' color="warn">
+    <mat-label>CPF:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.cpf">
+</mat-form-field>
+
+<mat-form-field appearance="outline" color="warn">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Sexo</mat-label>
+    <mat-select [(value)]="user.sexo">
+      <mat-option value="Masculino">Masculino</mat-option>
+      <mat-option value="Feminino">Feminino</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  {{sex}}
+
+<button mat-fab class="next" (click)="passMessage()">
+   >
+</button>
+
+</ion-content>

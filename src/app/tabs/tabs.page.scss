@@ -1,1 +1,10 @@
+ion-icon {
+    color: black;
+}
 
+ion-tab-button:active{
+    ion-icon {
+        color: brown;
+    }
+    
+}

@@ -1,0 +1,46 @@
+.container-button {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    button {
+        width: 80vw;
+        height: 50px;
+        background-color: brown;
+        color: white;
+        border-radius: 40px;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.title {
+    margin-top: 25px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    padding: 8px;
+}
+
+.disable-button {
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+}
+
+.arrow-back {
+    margin-right: 16px;
+}
+
+.code-container {
+    label {
+        padding-left: 8px;
+    }
+    input {
+        margin-left:8px;
+    }
+}

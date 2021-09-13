@@ -1,0 +1,51 @@
+<h2>Filtrar Estacionamentos</h2>
+
+
+<div class="filter-container">
+<div class="search-container">
+<mat-label>Nome do estacionamento</mat-label>
+<ion-searchbar animated="true"></ion-searchbar>
+</div>
+
+<div class="locale-container">
+<mat-label>Região</mat-label>
+<mat-form-field appearance="standard">
+    <mat-select [(value)]="selected">
+      <mat-option value="Sul">Sul</mat-option>
+      <mat-option value="Leste">Leste</mat-option>
+      <mat-option value="Oeste">Oeste</mat-option>
+      <mat-option value="Norte">Norte</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+  <div class="price-container">
+      
+  <mat-label>Preço</mat-label>
+
+  <div class="prices-filters">
+
+    <mat-form-field>
+      <mat-label>Preço Mínimo</mat-label>
+      <input matInput>
+    </mat-form-field>
+ 
+  <mat-form-field>
+    <mat-label>Preço Máximo</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+</div>
+
+  <div class="avaliation-container">
+    <div>
+   <mat-label class="avaliation">Avaliação</mat-label>
+   <ngb-rating [(rate)]="currentRate" [max]="5">
+    <ng-template let-fill="fill" let-index="index">
+      <span class="star" [class.filled]="fill === 100">&#9733;</span>
+    </ng-template>
+  </ngb-rating>
+  </div>
+  </div>
+<button mat-raised-button color="primary" class="filter" >Pesquisar</button>
+</div>

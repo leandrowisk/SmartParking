@@ -1,7 +1,11 @@
 {
+  "compileOnSave": true,
   "name": "SmartParking",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular"
 }

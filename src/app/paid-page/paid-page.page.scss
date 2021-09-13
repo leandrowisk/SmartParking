@@ -1,0 +1,40 @@
+.checked-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    background-color: mediumseagreen;
+    border-radius: 40px;
+    margin-top: 40px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.rent-details {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: mediumseagreen;
+    color: white;
+    border-radius: 25px;
+    width: 80vw;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.return {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: snow;
+    color: mediumseagreen;
+    border-radius: 40px;
+    width: 80vw;
+    justify-content: center;
+    margin-top: 16px;
+}

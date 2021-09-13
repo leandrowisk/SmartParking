@@ -1,0 +1,73 @@
+h2 {
+    font-size: 26px;
+    text-align: center;
+}
+
+.register-title {
+    color: black;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    margin-bottom: 25px;
+}
+
+.mobile-image {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+mat-form-field {
+    display: block;
+    padding: 0 16px;
+}
+
+.next {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    margin: 8px;
+    font-size: 40px;
+    margin-left: auto;
+}
+
+.finish-register {
+    border-radius: 40px;
+    border:none;
+    background-color: black;
+    color:whitesmoke;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+mat-label {
+    font-weight: bold;
+}
+
+ion-toolbar {
+    .toolbar-background {
+        background: brown;
+        color: white;
+    }
+   
+}
+
+@media (min-width: 426px) {
+    .register-container {
+        width: 60vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h2 {
+        margin-top: 40px;
+    } 
+}
+
+.name {
+    margin-top: 50px;
+}

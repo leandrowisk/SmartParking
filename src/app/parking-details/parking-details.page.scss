@@ -1,0 +1,76 @@
+.services-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+}
+
+.img {
+    height: 200px;
+}
+
+.value {
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    h2 {
+        font-size: 18px;
+    }
+}
+
+.total-value {
+    color: brown;
+    margin-right: 8px;
+}
+
+.user-avaliation {
+    padding-left: 8px;
+}
+
+.parking-name {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+.disponible-services {
+    padding-left: 8px;
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.rent {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    width: 80vw;
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.arrow-back {
+    position: absolute;
+    padding: 8px;
+    font-size: 24px;
+}
+
+.avaliation {
+    display: flex;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.star {
+    color: brown;
+}
+
+.disponible-vacancies {
+    padding-left: 8px;
+    font-size: 16px;
+}

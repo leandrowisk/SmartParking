@@ -1,0 +1,50 @@
+<div class="register-container">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="header-title">
+        <ion-icon name="arrow-back-outline" class="arrow-back" routerLink="/register-page">
+        </ion-icon>
+          Finalizar Cadastro
+        </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <mat-form-field class="form-input" appearance='outline'>
+        <mat-label>Marca do carro:</mat-label>
+        <input matInput>
+    </mat-form-field>
+    
+    <mat-form-field class="form-input" appearance='outline'>
+        <mat-label>Modelo do carro:</mat-label>
+        <input matInput>
+    </mat-form-field>
+    
+    <mat-form-field class="form-input" appearance='outline'>
+        <mat-label>Cor do carro:</mat-label>
+        <input matInput>
+    </mat-form-field>
+    
+    <mat-form-field class="form-input" appearance='outline'>
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput>
+        <!-- [type]="hide ? 'password' : 'text'" -->
+        <button mat-icon-button matSuffix >
+          <!-- (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" -->
+          <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+        </button>
+      </mat-form-field>
+    
+    
+    <button mat-raised-button color="primary" class="finish-register" routerLink="/scan">Finalizar</button>
+    
+    <mat-checkbox class="terms">Declaro que li e concordo com os termos e condições</mat-checkbox>
+ 
+</ion-content>
+
+<app-register-page (message)='receiveMessage($event)'></app-register-page>
+
+</div>
