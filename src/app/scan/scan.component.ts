@@ -1,30 +1,32 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, Input} from '@angular/core';
-import { Router }                                  from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
+import { ActivatedRoute, Router }                                  from '@angular/router';
 import { Location }                                from '@angular/common';
 import jsQR                                        from 'jsqr';
 
-
 @Component({
-  selector: 'app-scan-page',
-  templateUrl: './scan-page.component.html',
-  styleUrls: ['./scan-page.component.scss'],
+  selector: 'app-scan',
+  templateUrl: './scan.component.html',
+  styleUrls: ['./scan.component.scss'],
 })
-export class ScanPageComponent implements OnInit {
+export class ScanComponent implements OnInit {
 
-  constructor(private router: Router,
-              private location: Location) { }
-
-  @Input() entrance: string;
-  public activeEntrance: string;
+  public entrance: boolean = false;
+  public activeEntrance: boolean = false;
   public activeExit: boolean = false;
   public exit: boolean = false;
   public scanResult = null;
+  public code: string = '';
   @ViewChild('video') video: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   videoElement: any;
   canvasElement: any;
   canvasContext: any;
 
+  constructor(private router: Router,
+              private location: Location,
+              public route: ActivatedRoute,
+              ) { }
+ 
 
   ngAfterViewInit() {
     this.videoElement = this.video.nativeElement;
@@ -32,17 +34,18 @@ export class ScanPageComponent implements OnInit {
     this.canvasContext = this.canvasElement.getContext('2d');
   }
 
-
   ngOnInit() {
-    console.log('entrance: ', this.entrance)
+    let activeEntrance = this.route.snapshot.paramMap.get('activeEntrance');
+    let activeExit = this.route.snapshot.paramMap.get('activeExit');
+    if (activeEntrance)
+      this.scanEntrance();
+    else if (activeExit)
+      this.scanExit();
+
   }
 
-  public recebeBoolean(message: string) {
-     console.log('output: ', message)
-  }
-
-  async scanEntrance(active) {
-    this.activeEntrance = active;
+  async scanEntrance() {
+    this.activeEntrance = true;
     const stream = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: 'environment'
@@ -95,14 +98,15 @@ export class ScanPageComponent implements OnInit {
       if (qrCode) {
 
         if (this.activeEntrance){
-          // this.activeEntrance = false;
-          // this.entrance = true;
-          this.router.navigate(['/tabs/QRCode']);
+          this.activeEntrance = false;
+          this.entrance = true;
+          this.router.navigate(['/tabs/QRCode', {entrance: this.entrance}]);
+          this.stopScan();
         }
         else if (this.activeExit){
            this.activeExit = false;
            this.exit = true;
-           this.router.navigate(['/tabs/QRCode']);
+           this.router.navigate(['/rating-page', {exit: this.exit}]);
         }
         
         this.scanResult = qrCode.data;
@@ -118,7 +122,11 @@ export class ScanPageComponent implements OnInit {
   }
 
   stopScan() {
-    // this.activeEntrance = false;
+    if (this.activeEntrance || this.code.length == 8)
+      this.router.navigate(['/tabs/QRCode', {entrance: true}]);
+    if (this.activeExit || this.code.length == 8)
+      this.router.navigate(['/rating-page', {exit: true}]);
+    this.activeEntrance = false;
     this.activeExit = false;
     this.reset();
   }
@@ -128,6 +136,11 @@ export class ScanPageComponent implements OnInit {
     this.videoElement = this.video.nativeElement;
     this.canvasElement = this.canvas.nativeElement;
     this.canvasContext = this.canvasElement.getContext('2d');
+  }
+
+  limitCharacters() {
+      if (this.code.length == 8)
+        return false
   }
 
   close() {

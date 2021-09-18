@@ -1,0 +1,17 @@
+<ion-content>
+  <div class="close-button">
+    <ion-icon name="close-outline" class="close" (click)="close()"></ion-icon>
+  </div>
+
+  <video #video [hidden]="!activeEntrance && !activeExit"></video>
+  <canvas #canvas hidden></canvas>
+
+  <div class="code-container">
+    <div class="input-container">
+        <mat-label>Digite o código</mat-label>
+        <input matInput type="number" placeholder="Ex: 54620007" [(ngModel)]="this.code" (keypress)="limitCharacters($event)"> 
+    </div>
+    <ion-icon name="checkmark-circle-outline" (click)="stopScan()"></ion-icon>
+  </div>
+
+</ion-content>

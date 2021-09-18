@@ -13,6 +13,7 @@
     justify-content: center;
     margin-top: 60px;
     margin-bottom: 40px;
+    font-size: 16px;
 }
 
 .star {
@@ -26,12 +27,13 @@
 
 .filter-container {
     padding-left: 8px;
-    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .price-container {
     display: flex;
     align-items: center;
+    margin-top: 18px;
 }
 
 h2 {
@@ -40,6 +42,7 @@ h2 {
 }
 
 .search-container {
+    margin-top: 18px;
     mat-label {
         padding-left: 8px;
         font-size: 16px;
@@ -60,6 +63,7 @@ h2 {
 
 .price-container {
     padding-left: 8px;
+    margin-top: 18px;
 }
 
 .prices-filters {
@@ -74,6 +78,7 @@ h2 {
     div {
         display: flex;
         align-items: center;
+        margin-top: 18px;
     }
 
     .avaliation {
@@ -84,5 +89,24 @@ h2 {
 
 mat-label {
     font-weight: 500;
+    font-size: 16px;
+}
+
+.input-value-container {
+    display: flex;
+}
+
+.circle-button {
+    font-size: 35px;
+    margin-top: 5px;
+}
+
+.add {
+    color: dodgerblue;
+}
+.minus {
+    margin-left: 8px;
+    margin-right: 16px;
+    color: red;
 }
 

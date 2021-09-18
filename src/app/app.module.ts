@@ -7,8 +7,8 @@ import { AppRoutingModule }                from './app-routing.module';
 import { AppComponent }                    from './app.component';
 import { BrowserAnimationsModule }         from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA }          from '@angular/core';
-
-
+import { QRCodePageModule }                from './QR-Code/qr-code.module';
+import { MaterialModule }                  from './material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +17,9 @@ import { CUSTOM_ELEMENTS_SCHEMA }          from '@angular/core';
             BrowserAnimationsModule,
             IonicModule.forRoot(),
             CommonModule, 
-            AppRoutingModule
+            AppRoutingModule,
+            QRCodePageModule,
+            MaterialModule
           ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

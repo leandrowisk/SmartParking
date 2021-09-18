@@ -21,15 +21,20 @@
   <div class="container-button">
 
     <button (click)="Entrance()" [class.disable-button]="entrance">
-      <ion-icon name="scan-outline"></ion-icon>
+      <div class="scan-button">
+      <ion-icon name="scan-outline" class="scan-icon"></ion-icon>
        Escanear Entrada
-      <ion-icon name="checkmark-outline" *ngIf="entrance"></ion-icon>
+      <ion-icon name="checkmark-outline" class="check" *ngIf="entrance"></ion-icon>
+      </div>
     </button>
 
-    <button [class.disable-button]="!entrance">
-      <ion-icon name="scan-outline"></ion-icon>
+    <button [class.disable-button]="!entrance" (click)="Exit()">
+      <div class="scan-button">
+      <ion-icon name="scan-outline" class="scan-icon"></ion-icon>
       Escanear Saída
-      <ion-icon name="checkmark-outline" *ngIf="exit"></ion-icon>
+      <ion-icon name="checkmark-outline" class="check" *ngIf="exit"></ion-icon>
+    </div>
     </button>
+    
   </div>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../interfaces/User';
+import { ActivatedRoute, Navigation, Router }           from '@angular/router';
+import { User }                     from '../interfaces/User';
 
 @Component({
   selector: 'app-finish-register',
@@ -8,15 +9,24 @@ import { User } from '../interfaces/User';
 })
 export class FinishRegisterPage implements OnInit {
   
-  @Input() user: User;
-  
-  constructor() { }
+  public user: User;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router
+    ) { }
 
   ngOnInit() {
+    this.user = JSON.parse(this.route.snapshot.params['user']);
+    this.user.password = '';
+    this.user.car = {
+      model: '',
+      color: '',
+      brand:  ''
+    }
   }
 
-  public receiveMessage($message){
-    console.log('chamou')
-    console.log($message)
+  finishRegister() {
+    this.router.navigate(['/tabs/home'])
   }
+
 }

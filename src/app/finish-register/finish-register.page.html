@@ -1,4 +1,4 @@
-<div class="register-container">
+
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -12,25 +12,25 @@
 </ion-header>
 
 <ion-content>
-  
+  <div class="register-container">
     <mat-form-field class="form-input" appearance='outline'>
         <mat-label>Marca do carro:</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="brand"> 
     </mat-form-field>
     
     <mat-form-field class="form-input" appearance='outline'>
         <mat-label>Modelo do carro:</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="model">
     </mat-form-field>
     
     <mat-form-field class="form-input" appearance='outline'>
         <mat-label>Cor do carro:</mat-label>
-        <input matInput>
+        <input matInput [(ngModel)]="color">
     </mat-form-field>
     
     <mat-form-field class="form-input" appearance='outline'>
         <mat-label>Senha</mat-label>
-        <input type="password" matInput>
+        <input type="password" matInput [(ngModel)]="password">
         <!-- [type]="hide ? 'password' : 'text'" -->
         <button mat-icon-button matSuffix >
           <!-- (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" -->
@@ -39,12 +39,9 @@
       </mat-form-field>
     
     
-    <button mat-raised-button color="primary" class="finish-register" routerLink="/scan">Finalizar</button>
+    <button mat-raised-button color="primary" class="finish-register" (click)="finishRegister()">Finalizar</button>
     
     <mat-checkbox class="terms">Declaro que li e concordo com os termos e condições</mat-checkbox>
- 
+  </div>
 </ion-content>
 
-<app-register-page (message)='receiveMessage($event)'></app-register-page>
-
-</div>

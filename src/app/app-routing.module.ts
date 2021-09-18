@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule }                                from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ScanPageComponent } from './scan-page/scan-page.component';
+import { ScanComponent }                           from './scan/scan.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'welcome-page',
     loadChildren: () => import('./welcome-page/welcome-page.module').then(m => m.WelcomePagePageModule)
   },
   {
@@ -36,12 +36,16 @@ const routes: Routes = [
     loadChildren: () => import('./paid-page/paid-page.module').then( m => m.PaidPagePageModule)
   },
   {
-    path: 'scan',
-    component: ScanPageComponent
+    path: 'rating-page',
+    loadChildren: () => import('./rating-page/rating-page.module').then( m => m.RatingPageModule)
   },
   {
-    path: 'rating-page',
-    loadChildren: () => import('./rating-page/rating-page.module').then( m => m.RatingPagePageModule)
+    path: 'scan',
+    component: ScanComponent
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
   }
 ];
 @NgModule({

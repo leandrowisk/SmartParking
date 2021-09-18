@@ -1,16 +1,17 @@
 export interface User {
     
-    nome: string;
+    name: string;
     email: string;
-    endereco: string;
+    address: string;
     cpf: string;
-    data_de_nascimento: string;
-    sexo: string;
-    senha: string;
+    birthday: string;
+    sex: string;
+    car: Car;
+    password: string;
 }
 
 export interface Car {
-    marca: string;
-    modelo: string;
-    cor: string;
+    color: string;
+    brand: string;
+    model: string;
 }

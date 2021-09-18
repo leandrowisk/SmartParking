@@ -21,6 +21,21 @@
     text-align: center;
 }
 
+.check {
+    margin-left: 16px;
+    font-size: 28px;
+}
+
+.scan-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scan-icon {
+    margin-right: 8px;
+}
+
 p {
     font-size: 18px;
     padding: 8px;

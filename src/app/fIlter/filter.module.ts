@@ -7,7 +7,8 @@ import { FilterPage }                  from './filter.page';
 import { FilterPageRoutingModule }     from './filter-routing.module';
 import { MaterialModule }              from '../material.module';
 import { NgbModule }                   from '@ng-bootstrap/ng-bootstrap';
-
+import { MatFormFieldModule }          from '@angular/material/form-field';
+ 
 @NgModule({
   imports: [
     IonicModule,
@@ -17,7 +18,9 @@ import { NgbModule }                   from '@ng-bootstrap/ng-bootstrap';
     MaterialModule,
     NgxCurrencyModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   declarations: [FilterPage]
 })

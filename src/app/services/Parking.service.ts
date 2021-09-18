@@ -18,7 +18,6 @@ export class ParkingService {
 
    getParking(id: number){
        const parking = parkings.find(park => park.id == id)
-       console.log('getParking',parking)
        return of(parking)
    }
 

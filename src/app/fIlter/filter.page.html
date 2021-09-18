@@ -1,10 +1,12 @@
+
+<ion-content>
 <h2>Filtrar Estacionamentos</h2>
 
 
 <div class="filter-container">
 <div class="search-container">
 <mat-label>Nome do estacionamento</mat-label>
-<ion-searchbar animated="true"></ion-searchbar>
+<ion-searchbar animated="true" [(ngModel)]="parkingNameSearch"></ion-searchbar>
 </div>
 
 <div class="locale-container">
@@ -25,15 +27,27 @@
 
   <div class="prices-filters">
 
-    <mat-form-field>
-      <mat-label>Preço Mínimo</mat-label>
-      <input matInput>
-    </mat-form-field>
- 
+    <div class="input-value-container">
+      <mat-form-field>
+        <mat-label>Preço Mínimo</mat-label>
+        <input matInput currencyMask [(ngModel)]="minValue" 
+              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
+      </mat-form-field>
+      
+      <mat-icon (click)="subtractMinValue()" class="circle-button minus">remove_circle</mat-icon>
+      <mat-icon (click)="addMinValue()" class="circle-button add">add_circle</mat-icon>
+    </div>
+  
+    <div class="input-value-container">
   <mat-form-field>
     <mat-label>Preço Máximo</mat-label>
-    <input matInput>
+    <input matInput currencyMask [(ngModel)]="maxValue" 
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
   </mat-form-field>
+
+  <mat-icon (click)="subtractMaxValue()" class="circle-button minus">remove_circle</mat-icon>
+  <mat-icon (click)="addMaxValue()" class="circle-button add">add_circle</mat-icon>
+  </div>
 </div>
 </div>
 
@@ -49,3 +63,5 @@
   </div>
 <button mat-raised-button color="primary" class="filter" >Pesquisar</button>
 </div>
+
+</ion-content>

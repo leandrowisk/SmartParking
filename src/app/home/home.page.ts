@@ -18,9 +18,11 @@ export class HomePage {
   public park: Parking;
   public ratings;
 
-  constructor(public parkingService: ParkingService,
-              public navController: NavController,
-              public router: Router) {}
+  constructor(
+    public parkingService: ParkingService,
+    public navController: NavController,
+    public router: Router,
+  ) {}
 
   ngOnInit(){
     this.getParkings();
@@ -30,11 +32,10 @@ export class HomePage {
   getParkings(): void{
     this.parkingService.getParkings().subscribe(response => {
 
-      response.forEach(rating => {
-        this.ratings = new Array(rating['user_avaliation']);
-        console.log(this.ratings)
-      })
-      this.parking = response;     
+      response.forEach(parking=> {
+          this.ratings = new Array(parking.user_avaliation)
+      });
+      this.parking = response;
     })
   }
 

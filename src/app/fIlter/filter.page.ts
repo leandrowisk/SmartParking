@@ -10,8 +10,29 @@ export class FilterPage {
   
   public selected: string = 'zona leste';
   currentRate: number = 0;
+  public minValue: number = 0;
+  public maxValue: number = 0;
+  public parkingNameSearch: string = '';
 
+  public subtractMinValue() {
+    if (this.minValue>=10)
+      this.minValue = this.minValue + -10;
+  }
 
+  public addMinValue() {
+    this.minValue = this.minValue + 10;
+  }
+
+  public subtractMaxValue() {
+    if (this.maxValue>=10)
+      this.maxValue = this.maxValue -10;
+  }
+
+  public addMaxValue() {
+    this.maxValue = this.maxValue + 10;
+  }
+  
+  
   constructor() {}
 
 }
