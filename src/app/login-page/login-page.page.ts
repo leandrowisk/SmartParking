@@ -9,7 +9,7 @@ export class LoginPagePage implements OnInit {
 
   constructor() { }
   
-  hide = true;
+  public hide: boolean = true;
 
   ngOnInit() {
   }

@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output }        from '@angular/core';
+import { Component, OnInit }        from '@angular/core';
 import { User }                     from '../interfaces/User';
 import { ParkingService }           from '../services/Parking.service';
 import { Users }                    from '../mocks/Parking-mock';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router }                   from '@angular/router';
 
 @Component({
   selector: 'app-register-page',

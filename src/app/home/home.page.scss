@@ -1,6 +1,6 @@
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
     padding-left: 8px;
     margin-bottom: 0;
 }
@@ -15,9 +15,14 @@ h2 {
     margin-bottom: 10px;
 }
 
+.mat-tab-label:active{
+   color: blue;
+}
+
 p {
     margin: 0;
     padding-left: 8px;
+    font-size: 16px;
 }
 
 .search-field {
@@ -75,10 +80,16 @@ img {
 
 .avaliation {
     display: flex;
+    align-items: center;
+
+    p {
+        margin-right: 5px;
+    }
 }
 
 .star {
     color: brown;
+    margin-left: 1px;
 }
 
 @media (min-width: 426px) {

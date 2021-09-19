@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
-import { ActivatedRoute, Router }                                  from '@angular/router';
-import { Location }                                from '@angular/common';
-import jsQR                                        from 'jsqr';
+import { ActivatedRoute, Router }                    from '@angular/router';
+import { Location }                                  from '@angular/common';
+import jsQR                                          from 'jsqr';
 
 @Component({
   selector: 'app-scan',
-  templateUrl: './scan.component.html',
-  styleUrls: ['./scan.component.scss'],
+  templateUrl: './scan.page.html',
+  styleUrls: ['./scan.page.scss'],
 })
-export class ScanComponent implements OnInit {
+export class ScanPage implements OnInit {
 
   public entrance: boolean = false;
   public activeEntrance: boolean = false;
@@ -25,7 +25,7 @@ export class ScanComponent implements OnInit {
   constructor(private router: Router,
               private location: Location,
               public route: ActivatedRoute,
-              ) { }
+  ) { }
  
 
   ngAfterViewInit() {
@@ -122,9 +122,9 @@ export class ScanComponent implements OnInit {
   }
 
   stopScan() {
-    if (this.activeEntrance || this.code.length == 8)
+    if (this.activeEntrance)
       this.router.navigate(['/tabs/QRCode', {entrance: true}]);
-    if (this.activeExit || this.code.length == 8)
+    if (this.activeExit)
       this.router.navigate(['/rating-page', {exit: true}]);
     this.activeEntrance = false;
     this.activeExit = false;
@@ -133,14 +133,18 @@ export class ScanComponent implements OnInit {
 
   reset() {
     this.scanResult = null;
-    this.videoElement = this.video.nativeElement;
+    this.videoElement = this.video.nativeElement.srcObject.getTracks()[0].stop();
     this.canvasElement = this.canvas.nativeElement;
     this.canvasContext = this.canvasElement.getContext('2d');
   }
 
-  limitCharacters() {
-      if (this.code.length == 8)
-        return false
+  aceptCode(event: any) {
+    if (event.target.value.length == 8) {
+      if (this.activeEntrance)
+        this.router.navigate(['/tabs/QRCode', {entrance: true}]);
+      if (this.activeExit)
+        this.router.navigate(['/rating-page', {exit: true}]);
+    }
   }
 
   close() {

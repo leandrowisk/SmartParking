@@ -13,35 +13,35 @@
 </div>
 
 <ion-content>
-<mat-form-field class="form-input name" appearance='outline' color="warn">
+<mat-form-field class="form-input name" appearance='outline' color="primary">
     <mat-label>Nome:</mat-label>
     <input type="email" matInput [(ngModel)]="user.name">
 </mat-form-field> 
 
-<mat-form-field class="form-input" appearance='outline' color="warn">
+<mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>E-mail:</mat-label>
     <input type="email" matInput [(ngModel)]="user.email">
 </mat-form-field>
 
-<mat-form-field class="form-input" appearance='outline' color="warn">
+<mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>Endereço:</mat-label>
     <input type="text" matInput [(ngModel)]="user.address">
 </mat-form-field>
 
 
-<mat-form-field class="form-input" appearance='outline' color="warn">
+<mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>CPF:</mat-label>
     <input type="email" matInput [(ngModel)]="user.cpf">
 </mat-form-field>
 
-<mat-form-field appearance="outline" color="warn">
+<mat-form-field appearance="outline" color="primary">
     <mat-label>Data de Nascimento</mat-label>
     <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthday">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker [color]="brown"></mat-datepicker>
   </mat-form-field>
 
-  <mat-form-field appearance="outline" color="warn">
+  <mat-form-field appearance="outline" color="primary">
     <mat-label>Sexo</mat-label>
     <mat-select [(value)]="user.sex">
       <mat-option value="Masculino">Masculino</mat-option>
@@ -49,10 +49,8 @@
     </mat-select>
   </mat-form-field>
 
-  {{sex}}
-
 <button mat-fab class="next" (click)="next()">
-   >
+  >
 </button>
 
 </ion-content>

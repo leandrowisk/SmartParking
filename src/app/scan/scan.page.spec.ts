@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ScanComponent } from './scan.component';
+import { ScanPage } from './scan.page';
 
-describe('ScanComponent', () => {
-  let component: ScanComponent;
-  let fixture: ComponentFixture<ScanComponent>;
+describe('ScanPage', () => {
+  let component: ScanPage;
+  let fixture: ComponentFixture<ScanPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScanComponent ],
+      declarations: [ ScanPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ScanComponent);
+    fixture = TestBed.createComponent(ScanPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

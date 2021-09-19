@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Navigation, Router }           from '@angular/router';
-import { User }                     from '../interfaces/User';
+import { Component, OnInit }                from '@angular/core';
+import { ActivatedRoute, Router }           from '@angular/router';
+import { User }                             from '../interfaces/User';
 
 @Component({
   selector: 'app-finish-register',
@@ -10,6 +10,8 @@ import { User }                     from '../interfaces/User';
 export class FinishRegisterPage implements OnInit {
   
   public user: User;
+  public hide: boolean = true;
+  public checked: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router

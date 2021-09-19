@@ -1,6 +1,5 @@
 import { NgModule }                                from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ScanComponent }                           from './scan/scan.component';
 
 const routes: Routes = [
   {
@@ -40,12 +39,12 @@ const routes: Routes = [
     loadChildren: () => import('./rating-page/rating-page.module').then( m => m.RatingPageModule)
   },
   {
-    path: 'scan',
-    component: ScanComponent
-  },
-  {
     path: 'splash',
     loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
+  },
+  {
+    path: 'scan',
+    loadChildren: () => import('./scan/scan.module').then( m => m.ScanPageModule)
   }
 ];
 @NgModule({

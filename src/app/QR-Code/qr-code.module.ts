@@ -1,11 +1,11 @@
 import { IonicModule }             from '@ionic/angular';
 import { RouterModule }            from '@angular/router';
-import { NgModule, NO_ERRORS_SCHEMA }                from '@angular/core';
+import { NgModule }                from '@angular/core';
 import { CommonModule }            from '@angular/common';
 import { FormsModule }             from '@angular/forms';
 import { QRCodePage }              from './qr-code.page';
 import { QRCodePageRoutingModule } from './qr-code-routing.module';
-import { ScanComponent }           from '../scan/scan.component';
+import { ScanPage }                from '../scan/scan.page';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ScanComponent }           from '../scan/scan.component';
   exports: [QRCodePage],
   declarations: [
     QRCodePage,
-    ScanComponent
+    ScanPage,
   ]
 })
 export class QRCodePageModule {}

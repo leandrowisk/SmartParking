@@ -12,36 +12,34 @@
 </ion-header>
 
 <ion-content>
-  <div class="register-container">
-    <mat-form-field class="form-input" appearance='outline'>
+    <mat-form-field class="form-input" appearance='outline' color='primary'>
         <mat-label>Marca do carro:</mat-label>
         <input matInput [(ngModel)]="brand"> 
     </mat-form-field>
     
-    <mat-form-field class="form-input" appearance='outline'>
+    <mat-form-field class="form-input" appearance='outline' color='primary'>
         <mat-label>Modelo do carro:</mat-label>
         <input matInput [(ngModel)]="model">
     </mat-form-field>
     
-    <mat-form-field class="form-input" appearance='outline'>
+    <mat-form-field class="form-input" appearance='outline' color='primary'>
         <mat-label>Cor do carro:</mat-label>
         <input matInput [(ngModel)]="color">
     </mat-form-field>
     
-    <mat-form-field class="form-input" appearance='outline'>
+    <mat-form-field class="form-input" appearance='outline' color='primary'>
         <mat-label>Senha</mat-label>
-        <input type="password" matInput [(ngModel)]="password">
-        <!-- [type]="hide ? 'password' : 'text'" -->
-        <button mat-icon-button matSuffix >
-          <!-- (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" -->
-          <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-        </button>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
       </mat-form-field>
     
     
-    <button mat-raised-button color="primary" class="finish-register" (click)="finishRegister()">Finalizar</button>
-    
-    <mat-checkbox class="terms">Declaro que li e concordo com os termos e condições</mat-checkbox>
-  </div>
+    <button mat-raised-button [class.disable-button]="!checked" color="primary" 
+            class="finish-register" (click)="finishRegister()">Finalizar</button>
+  
+    <mat-checkbox class="terms" [(ngModel)]="checked" color="primary">Declaro que li e concordo com os termos e condições</mat-checkbox>
 </ion-content>
 

@@ -22,6 +22,7 @@
     input {
         width: 80vw;
         height: 40px;
+        -webkit-appearance: none;
     }
 }
 
@@ -37,10 +38,14 @@
 }
 
 video {
-    width: 80vw;
-    height: 200px;
+    width: 80%;
+    height: 300px;
     position: absolute;
-    margin-left: 10vw;
+    margin-left: 10%;
     margin-top: 50%;
     margin-top: 100px;
+}
+
+.input-container {
+    width: 80vw;
 }

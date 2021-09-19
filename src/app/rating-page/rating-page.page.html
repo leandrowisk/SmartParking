@@ -27,11 +27,7 @@
   <div class="rating-list">
     <div class="star-container">
       <div class="stars">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star" *ngFor="let star of createStars(5)"></ion-icon>
       </div>
       <div>
         <p class="rating-title">Excelente</p>
@@ -42,10 +38,7 @@
 
     <div class="star-container">
       <div class="stars">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star" *ngFor="let star of createStars(4)"></ion-icon>
       </div>
 
       <div>
@@ -57,9 +50,7 @@
 
     <div class="star-container">
       <div class="stars">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star" *ngFor="let star of createStars(3)"></ion-icon>
       </div>
       <div>
         <p class="rating-title">Mediano</p>
@@ -70,8 +61,7 @@
 
     <div class="star-container">
       <div class="stars">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star" *ngFor="let star of createStars(2)"></ion-icon>
       </div>
       <div>
         <p class="rating-title">Ruim</p>

@@ -14,7 +14,7 @@ import { MatSnackBar,
 export class RatingPage{
 
   constructor(private router: Router,
-              private _congratulationMessage: MatSnackBar
+              private _userMessage: MatSnackBar,
   ) { }
 
   currentRate: number = 0;
@@ -24,13 +24,26 @@ export class RatingPage{
   public rate() {
     if(this.currentRate != 0){
       this.router.navigate(['/tabs/home']);
-      this._congratulationMessage.open('Obrigado pela sua avaliação!', '',{
+      this._userMessage.open('Obrigado pela sua avaliação!', '',{
+         horizontalPosition: this.horizontalPosition,
+         verticalPosition: this.verticalPosition,
+         duration: 5 * 1000
+      });
+    } else {
+      this._userMessage.open('Você não deixou uma avaliação', '',{
          horizontalPosition: this.horizontalPosition,
          verticalPosition: this.verticalPosition,
          duration: 5 * 1000
       });
     }
+  }
+
+  createStars(lenght: number): Array<number> {
+    if (lenght > 0) {
+      return new Array(lenght);
     }
+    
+  }
 } 
 
 

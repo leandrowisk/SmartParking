@@ -1,32 +1,33 @@
-
 <ion-content>
-  <div class="image-container" (click)="goBack()"> 
-    <ion-icon class="arrow-back" name="arrow-back-outline" ></ion-icon>
-  <img src="{{parking.image_url}}">
-   </div>
+  <div class="image-container" (click)="goBack()">
+    <ion-icon class="arrow-back" name="arrow-back-outline"></ion-icon>
+    <img src="{{parking.image_url}}">
+  </div>
 
 
   <div class="avaliation">
-  <ion-icon *ngFor="let rat of rating" class="star" name="star" ></ion-icon>
+    <ion-icon *ngFor="let rat of rating" class="star" name="star"></ion-icon>
   </div>
 
 
   <h2 class="parking-name">{{parking.name}}</h2>
 
   <h2 class="disponible-vacancies">Vagas disponíveis: {{parking. available_vacancies}}</h2>
-  
+
   <h2 class="disponible-services">Serviços dísponíveis</h2>
-  
-  
+
+
   <div class="services-container" *ngFor="let service of parking.services_available">
-  <mat-checkbox color="primary" (change)="addService($event)" value="{{service.service_price}}">{{service.service_name}} - R$: {{service.service_price}}</mat-checkbox>
+    <mat-checkbox color="primary" (change)="addService($event)" value="{{service.service_price}}">
+      {{service.service_name}} - R$: {{service.service_price}}</mat-checkbox>
   </div>
-  
-  
+
+
   <div class="value">
-  <h2 class="total-value">Valor Total:</h2>
-  <h2>R$:{{totalValue}}</h2>
+    <h2 class="total-value">Valor Total:</h2>
+    <h2>R$:{{totalValue}}</h2>
   </div>
-  
+
   <button mat-raised-button class="rent" routerLink="/paid">Alugar Vaga</button>
+  
 </ion-content>

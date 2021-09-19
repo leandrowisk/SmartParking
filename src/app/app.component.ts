@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { Router }    from '@angular/router';
+import { Platform }  from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
