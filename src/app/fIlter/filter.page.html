@@ -13,7 +13,7 @@
 <mat-label>Região</mat-label>
 <mat-form-field appearance="standard">
     <mat-select [(value)]="selected">
-      <mat-option value="Sul">Sul</mat-option>
+      <mat-option value="Sul" [(ngModel)]="selected">Sul</mat-option>
       <mat-option value="Leste">Leste</mat-option>
       <mat-option value="Oeste">Oeste</mat-option>
       <mat-option value="Norte">Norte</mat-option>

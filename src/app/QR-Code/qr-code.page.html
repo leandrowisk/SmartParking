@@ -20,18 +20,18 @@
 
   <div class="container-button">
 
-    <button (click)="Entrance()" [class.disable-button]="entrance">
+    <button (click)="openValidationChoices('activeEntrance')" [class.disable-button]="entrance">
       <div class="scan-button">
       <ion-icon name="scan-outline" class="scan-icon"></ion-icon>
-       Escanear Entrada
+       Validar Entrada
       <ion-icon name="checkmark-outline" class="check" *ngIf="entrance"></ion-icon>
       </div>
     </button>
 
-    <button [class.disable-button]="!entrance" (click)="Exit()">
+    <button [class.disable-button]="!entrance" (click)="openValidationChoices('activeExit')">
       <div class="scan-button">
       <ion-icon name="scan-outline" class="scan-icon"></ion-icon>
-      Escanear Saída
+      Validar Saída
       <ion-icon name="checkmark-outline" class="check" *ngIf="exit"></ion-icon>
     </div>
     </button>

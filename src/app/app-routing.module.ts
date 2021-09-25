@@ -1,3 +1,4 @@
+import { CodeComponent }                           from './code/code.component';
 import { NgModule }                                from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'scan',
     loadChildren: () => import('./scan/scan.module').then( m => m.ScanPageModule)
+  },
+  {
+    path: 'code',
+    component: CodeComponent
   }
 ];
 @NgModule({

@@ -1,0 +1,46 @@
+.code-container {
+    display: flex;
+    position: absolute;
+    margin-top: 50%;
+
+    mat-label {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 8px;
+        width: 80vw;
+    }
+}
+
+.code-container {
+    display: flex;
+
+    mat-label {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    mat-icon {
+        font-size: 42px;
+        margin-top: 10px;
+        padding-left: 16px;
+    }
+}
+
+.next-icon {
+    font-size: 48px;
+}
+
+.enter {
+    background-color: black;
+    margin-left: 80%;
+}
+
+.title {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 80px;
+}
