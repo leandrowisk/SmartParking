@@ -6,6 +6,7 @@ import { FormsModule }             from '@angular/forms';
 import { QRCodePage }              from './qr-code.page';
 import { QRCodePageRoutingModule } from './qr-code-routing.module';
 import { ScanPage }                from '../scan/scan.page';
+import { MaterialModule }          from '../material.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ScanPage }                from '../scan/scan.page';
     CommonModule,
     FormsModule,
     RouterModule.forChild([{ path: '', component: QRCodePage }]),
-    QRCodePageRoutingModule
+    QRCodePageRoutingModule,
+    MaterialModule
   ],
   exports: [QRCodePage],
   declarations: [

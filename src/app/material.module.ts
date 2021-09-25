@@ -15,6 +15,7 @@ import { MatMomentDateModule }             from '@angular/material-moment-adapte
 import { MatProgressSpinnerModule }        from '@angular/material/progress-spinner';
 import { MAT_DATE_LOCALE }                 from '@angular/material/core';
 import { MatSnackBarModule }               from '@angular/material/snack-bar';
+import { MatDialogModule }                 from '@angular/material/dialog';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatSnackBarModule }               from '@angular/material/snack-bar';
      MatNativeDateModule, 
      MatMomentDateModule,
      MatProgressSpinnerModule,
-     MatSnackBarModule
+     MatSnackBarModule,
+     MatDialogModule
     ],
     providers: [
       { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }

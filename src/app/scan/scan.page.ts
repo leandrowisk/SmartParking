@@ -15,7 +15,7 @@ export class ScanPage implements OnInit {
   public activeExit: boolean = false;
   public exit: boolean = false;
   public scanResult = null;
-  public code: string = '';
+  public loading = true;
   @ViewChild('video') video: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   videoElement: any;
@@ -55,6 +55,7 @@ export class ScanPage implements OnInit {
     this.videoElement.setAttribute('playsinline', true);
     this.videoElement.play();
     requestAnimationFrame(this.scan.bind(this))
+    this.loading = false;
   }
 
   async scanExit() {
@@ -68,6 +69,7 @@ export class ScanPage implements OnInit {
     this.videoElement.setAttribute('playsinline', true);
     this.videoElement.play();
     requestAnimationFrame(this.scan.bind(this));
+    this.loading = false;
   }
 
   scan() {
@@ -137,17 +139,9 @@ export class ScanPage implements OnInit {
     this.canvasElement = this.canvas.nativeElement;
     this.canvasContext = this.canvasElement.getContext('2d');
   }
-
-  aceptCode(event: any) {
-    if (event.target.value.length == 8) {
-      if (this.activeEntrance)
-        this.router.navigate(['/tabs/QRCode', {entrance: true}]);
-      if (this.activeExit)
-        this.router.navigate(['/rating-page', {exit: true}]);
-    }
-  }
-
+  
   close() {
+    this.reset();
     this.location.back();
   }
 

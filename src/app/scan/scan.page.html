@@ -3,16 +3,11 @@
     <ion-icon name="close-outline" class="close" (click)="close()"></ion-icon>
   </div>
 
+  <ion-spinner class="loading" *ngIf="loading"></ion-spinner>
+  <h2>Aponte a camera para o QRCode</h2>
+  <div id="video-container">
   <video #video [hidden]="!activeEntrance && !activeExit"></video>
-  <canvas #canvas hidden></canvas>
-
-  <div class="code-container">
-    <mat-form-field class="input-container" appearance="outline" color="primary">
-      <mat-label>Digite o código</mat-label>
-      <input matInput type="number" placeholder="Ex: 54620007" [(ngModel)]="this.code"
-        (keypress)="aceptCode($event)">
-    </mat-form-field>
-    <ion-icon name="checkmark-circle-outline" (click)="stopScan()"></ion-icon>
   </div>
-
+  <canvas #canvas hidden></canvas>
+  
 </ion-content>

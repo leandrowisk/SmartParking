@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, Output }  from '@angular/core';
-import { Location }                                from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavController, NavParams } from '@ionic/angular';
+import { Component }               from '@angular/core';
+import { Location }                from '@angular/common';
+import { ActivatedRoute, Router }  from '@angular/router';
+import { NavController }           from '@ionic/angular';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA }               from '@angular/material/dialog';
+import { ValidationChoicesModalComponent } from '../validation-choices-modal/validation-choices-modal.component';
 
 @Component({
   selector: 'qr-code',
@@ -14,6 +16,7 @@ export class QRCodePage {
               private router: Router,
               private navController: NavController,
               public route: ActivatedRoute,
+              public dialog: MatDialog
               ) {}
 
   public activeEntrance: boolean = false;
@@ -36,6 +39,17 @@ export class QRCodePage {
   public Exit(){
     this.activeExit = true;
     this.router.navigate(['/scan', {activeExit: this.activeExit}]);
+  }
+
+  public openValidationChoices(action: string) {
+    const dialogRef = this.dialog.open(ValidationChoicesModalComponent, {
+      panelClass: 'custom-dialog-container',
+      width: '300px',
+      height: '300px',
+      data: {
+          action: action
+      }
+    });
   }
 
   goBack() {
