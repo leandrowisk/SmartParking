@@ -1,0 +1,28 @@
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 16px;
+    margin-top: 24px;
+
+    .code-button {
+        margin-top: 16px;
+    }
+
+    button {
+        height: 64px;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+.close-button {
+    padding: 8px;
+    background-color: white; 
+    margin-left: 0;   
+}
+}
+
+ion-icon {
+    font-size: 42px;
+}

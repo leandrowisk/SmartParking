@@ -17,6 +17,7 @@ import { MAT_DATE_LOCALE }                 from '@angular/material/core';
 import { MatSnackBarModule }               from '@angular/material/snack-bar';
 import { MatTableModule }                  from '@angular/material/table';
 import { MatCardModule }                   from '@angular/material/card';
+import { MatDialogModule }                 from '@angular/material/dialog';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MatCardModule }                   from '@angular/material/card';
      MatProgressSpinnerModule,
      MatSnackBarModule,
      MatTableModule,
-     MatCardModule
+     MatCardModule,
+     MatDialogModule
     ],
     providers: [
       { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }

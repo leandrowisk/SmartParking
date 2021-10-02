@@ -1,3 +1,4 @@
+import { CodeComponent }                           from './code/code.component';
 import { NgModule }                                from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: 'register-card',
     loadChildren: () => import('./register-card/register-card.module').then( m => m.RegisterCardPageModule)
+  },
+  {
+    path: 'code',
+    component: CodeComponent
   }
 ];
 @NgModule({

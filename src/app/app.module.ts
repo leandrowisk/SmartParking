@@ -9,10 +9,10 @@ import { BrowserAnimationsModule }         from '@angular/platform-browser/anima
 import { CUSTOM_ELEMENTS_SCHEMA }          from '@angular/core';
 import { QRCodePageModule }                from './QR-Code/qr-code.module';
 import { HttpClientModule }                from '@angular/common/http';
-
+import { CodeComponent }                   from './code/code.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CodeComponent],
   entryComponents: [],
   imports: [BrowserModule,
             BrowserAnimationsModule,

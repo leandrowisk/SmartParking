@@ -29,12 +29,26 @@
     margin-right: 16px;
 }
 
+.close-button {
+  display: flex;
+  margin-right: auto;
+  margin-left: 16px;
+  padding-top: 8px;
+  background-color: white;
+}
+
+.close {
+  margin-right: auto;
+  font-size: 42px;
+}
+
 .header-title {
     display: flex;
     align-items: center;
     height: 50px;
 }
 
+<<<<<<< HEAD
 td.mat-cell:last-of-type {
     padding-right: 0;
 }
@@ -44,3 +58,8 @@ mat-checkbox-inner-container {
     width: 25px;
 }
 
+=======
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}
+>>>>>>> main

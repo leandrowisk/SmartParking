@@ -1,0 +1,11 @@
+<ion-content>
+<button class="close-button" (click)="close()">
+  <ion-icon name="close-outline"></ion-icon>
+</button>
+
+<div class="modal-content" mat-dialog-content>
+  <button mat-button (click)="activeByQrCode()">Escanear QrCode</button>
+  <button mat-button class="code-button" (click)="activeByCode()">Digitar código</button>
+</div>
+
+</ion-content>
