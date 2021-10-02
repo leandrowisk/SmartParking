@@ -6,7 +6,7 @@
 <div class="filter-container">
 <div class="search-container">
 <mat-label>Nome do estacionamento</mat-label>
-<ion-searchbar animated="true" [(ngModel)]="parkingNameSearch"></ion-searchbar>
+<ion-searchbar animated="true" [(ngModel)]="filterValues.name"></ion-searchbar>
 </div>
 
 <div class="locale-container">
@@ -54,14 +54,14 @@
   <div class="avaliation-container">
     <div>
    <mat-label class="avaliation">Avaliação</mat-label>
-   <ngb-rating [(rate)]="currentRate" [max]="5">
+   <ngb-rating [(rate)]="filterValues.user_avaliation" [max]="5">
     <ng-template let-fill="fill" let-index="index">
       <span class="star" [class.filled]="fill === 100">&#9733;</span>
     </ng-template>
   </ngb-rating>
   </div>
   </div>
-<button mat-raised-button color="primary" class="filter" >Pesquisar</button>
+<button mat-raised-button color="primary" class="filter" (click)="filter()">Pesquisar</button>
 </div>
 
 </ion-content>

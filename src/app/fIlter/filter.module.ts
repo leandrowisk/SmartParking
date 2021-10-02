@@ -8,7 +8,9 @@ import { FilterPageRoutingModule }     from './filter-routing.module';
 import { MaterialModule }              from '../material.module';
 import { NgbModule }                   from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule }          from '@angular/material/form-field';
- 
+import { NativePageTransitions }       from'@ionic-native/native-page-transitions/ngx';
+
+
 @NgModule({
   imports: [
     IonicModule,
@@ -22,6 +24,7 @@ import { MatFormFieldModule }          from '@angular/material/form-field';
     MatFormFieldModule,
     FormsModule
   ],
-  declarations: [FilterPage]
+  declarations: [FilterPage],
+  providers: [NativePageTransitions]
 })
 export class FilterPageModule {}

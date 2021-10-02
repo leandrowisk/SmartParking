@@ -1,9 +1,11 @@
 <ion-content>
   <div class="image-container" (click)="goBack()">
-    <ion-icon class="arrow-back" name="arrow-back-outline"></ion-icon>
+    <mat-icon class="arrow-back" >arrow_circle_left</mat-icon>
+    <!-- <ion-icon class="arrow-back" name="arrow-back-outline"></ion-icon> -->
     <img src="{{parking.image_url}}">
   </div>
 
+  <div class="details-container">
 
   <div class="avaliation">
     <ion-icon *ngFor="let rat of rating" class="star" name="star"></ion-icon>
@@ -12,22 +14,36 @@
 
   <h2 class="parking-name">{{parking.name}}</h2>
 
-  <h2 class="disponible-vacancies">Vagas disponíveis: {{parking. available_vacancies}}</h2>
+  <ion-item-divider></ion-item-divider>
 
-  <h2 class="disponible-services">Serviços dísponíveis</h2>
+  <div class="vacancies-title">
+  <mat-icon class="car-icon"> directions_car_filled</mat-icon>
+  <h2 class="disponible-vacancies">
+    Vagas disponíveis: {{parking. available_vacancies}}</h2>
+  </div>
 
+  <ion-item-divider></ion-item-divider>
+
+  <div class="services-title">
+    <mat-icon class="car-icon"> local_car_wash </mat-icon>
+  <h2 class="disponible-services">Serviços dísponíveis:</h2>
+</div>
 
   <div class="services-container" *ngFor="let service of parking.services_available">
+    <mat-icon class="vertical-line">horizontal_rule</mat-icon>
+    <span class="service-title">{{service.service_name}} - R$ {{service.service_price}}</span>
     <mat-checkbox color="primary" (change)="addService($event)" value="{{service.service_price}}">
-      {{service.service_name}} - R$: {{service.service_price}}</mat-checkbox>
+     </mat-checkbox>
   </div>
 
-
+  <ion-item-divider></ion-item-divider>
   <div class="value">
     <h2 class="total-value">Valor Total:</h2>
-    <h2>R$:{{totalValue}}</h2>
+    <h2 class="price"><span class="prefix">R$</span>{{totalValue}}</h2>
   </div>
 
-  <button mat-raised-button class="rent" routerLink="/paid">Alugar Vaga</button>
+  <button mat-raised-button class="rent" routerLink="/payment-options">Alugar Vaga</button>
+
+</div>
   
 </ion-content>

@@ -18,7 +18,8 @@ export const parkings: Parking[] = [
         }, {
             'service_name': 'Cera',
             'service_price': 20
-        }]
+        }],
+        zone: 'oeste'
     },
     {
         'id': 2,
@@ -32,7 +33,8 @@ export const parkings: Parking[] = [
         'services_available': [{
             'service_name': 'Cera',
             'service_price': 15
-        }]
+        }],
+        zone: ''
     },
     {
         'id': 3,
@@ -46,12 +48,28 @@ export const parkings: Parking[] = [
         'services_available': [{
             'service_name': 'Lavagem',
             'service_price': 35
-        }]
+        }],
+        zone: 'sul'
     }
 
 ]
 
-export const Users: User[] = [
-]
+export const user: User =
+    {
+
+    "name": 'Leandro Tecioni',
+    "email": 'leandrotdrumond@gmail.com',
+    "address": "Rua São Jorge",
+    "cpf": "506785188-07",
+    "birthday": "13/05/1999",
+    "sex": "Masculino",
+    "car": {
+        "color": "Preto Fosco",
+        "brand": "Ford",
+        "model": "Mustang"
+    },
+    "password": "************"
+}   
+
 
 

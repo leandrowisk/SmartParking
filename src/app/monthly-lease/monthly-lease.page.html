@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>
+      <div class="header-title">
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+      Contratos mensais
+      </div>
+    </ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <mat-tab-group dynamicHeight mat-align-tabs="center">
+
+    <mat-tab>
+
+      <ng-template mat-tab-label>
+        <span>Ativos</span>
+      </ng-template>
+      
+      <div>
+        <h1>Ativo</h1>
+      </div>
+
+  </mat-tab>
+
+
+  <mat-tab>
+      <ng-template mat-tab-label>
+        <span>Outros</span>
+      </ng-template>
+
+      <div>
+          <h1>Histórico de contratos</h1>
+      </div>
+      
+
+    </mat-tab>
+  </mat-tab-group>
+</ion-content>

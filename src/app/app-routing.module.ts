@@ -48,6 +48,38 @@ const routes: Routes = [
     loadChildren: () => import('./scan/scan.module').then( m => m.ScanPageModule)
   },
   {
+    path: 'filter-result',
+    loadChildren: () => import('./filter-result/filter-result.module').then( m => m.FilterResultPageModule)
+  },
+  {
+    path: 'historic',
+    loadChildren: () => import('./historic/historic.module').then( m => m.HistoricPageModule)
+  },
+  {
+    path: 'payment-options',
+    loadChildren: () => import('./payment-options/payment-options.module').then( m => m.PaymentOptionsPageModule)
+  },
+  {
+    path: 'payment-management',
+    loadChildren: () => import('./payment-management/payment-management.module').then( m => m.PaymentManagementPageModule)
+  },
+  {
+    path: 'monthly-lease',
+    loadChildren: () => import('./monthly-lease/monthly-lease.module').then( m => m.MonthlyLeasePageModule)
+  },
+  {
+    path: 'register-informations',
+    loadChildren: () => import('./register-informations/register-informations.module').then( m => m.RegisterInformationsPageModule)
+  },
+  {
+    path: 'perfil-edit',
+    loadChildren: () => import('./perfil-edit/perfil-edit.module').then( m => m.PerfilEditPageModule)
+  },
+  {
+    path: 'register-card',
+    loadChildren: () => import('./register-card/register-card.module').then( m => m.RegisterCardPageModule)
+  },
+  {
     path: 'code',
     component: CodeComponent
   }
