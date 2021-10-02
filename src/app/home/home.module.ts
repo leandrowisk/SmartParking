@@ -3,9 +3,10 @@ import { RouterModule }   from '@angular/router';
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { HomePage }       from '../home/home.page';
+import { HomePage }              from '../home/home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { MaterialModule } from '../material.module';
+import { MaterialModule }        from '../material.module';
+import { HttpClientModule }      from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { MaterialModule } from '../material.module';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   declarations: [HomePage]
 })

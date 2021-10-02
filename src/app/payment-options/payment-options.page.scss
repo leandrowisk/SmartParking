@@ -1,0 +1,91 @@
+.title {
+    padding: 16px;
+    margin-top: 32px;
+}
+
+.credit-cards-container {
+    margin-left: 10vw;
+    width: 80vw;
+    background: azure;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.add-new-card {
+    display: flex;
+    margin-left: 50%;
+    background: steelblue;
+    padding: 8px;
+    border-radius: 40px;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    margin-top: 32px;
+}
+
+.add-icon {
+    margin-right: 4px;
+}
+
+.default-card {
+    font-size: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    ion-checkbox {
+        margin-left: auto;
+    }
+}
+
+.credit-cards {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 16px;
+    height: 80px;
+}
+
+.credit-cards-title {
+    display: flex;
+    img {
+        height: 32px;
+        margin: 0 8px;
+    }
+}
+
+.card-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-top: 10px;
+}
+
+.checkbox {
+    margin-left: auto;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+
+.payment-button {
+    position: absolute;
+    bottom: 40px;
+    font-size: 16px;
+    height: 64px;
+    background: black;
+    color: white;
+    border-radius: 40px;
+    width: 60vw;
+    margin-left: 20%;
+}
+
+.value {
+    margin-left: 8px;
+}
+
+ion-toggle {
+    margin-left: auto;
+}

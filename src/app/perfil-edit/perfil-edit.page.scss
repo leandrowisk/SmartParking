@@ -1,0 +1,30 @@
+.title {
+    padding-left: 16px;
+    margin-top: 32px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    width: 60vw;
+    height: 42px;
+    margin-left: auto;
+    font-size: 16px;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 50px;
+}

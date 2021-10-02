@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>
+      <div class="header-title">
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+      Opções de Pagamento
+      </div>
+    </ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h2 class="title">Escolha uma forma de pagamento</h2>
+   
+  <div class="credit-cards-container">
+    <div class="credit-cards-title">
+    <img src="../../assets/images/credit-cards.png">
+    <h2>Cartões cadastrados</h2>
+  </div>
+
+    <div class="credit-cards">
+      <img src="../../assets/images/visa.png">
+
+        <div class="card-name"> 
+          <span>Mastercard</span>
+          <span>final: 5210</span>
+        </div>
+       
+        <ion-checkbox class="checkbox"></ion-checkbox>
+       
+    </div>
+  </div>
+
+  <div class="add-new-card" routerLink="/register-card">
+    <mat-icon class="add-icon">add_circle_outline</mat-icon>
+    <span>Cadastrar novo cartão</span>
+  </div>
+
+  <div class="default-card">
+    <span>Salvar como Padrão</span>
+    <ion-toggle></ion-toggle>
+  </div>
+
+  <button mat-button class="payment-button" routerLink="/paid-page">
+    <span>Pagar</span>
+    <span class="value">R$100</span>
+  </button>
+  
+  
+</ion-content>

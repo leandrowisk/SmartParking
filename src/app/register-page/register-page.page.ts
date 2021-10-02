@@ -1,7 +1,6 @@
 import { Component, OnInit }        from '@angular/core';
 import { User }                     from '../interfaces/User';
 import { ParkingService }           from '../services/Parking.service';
-import { Users }                    from '../mocks/Parking-mock';
 import { Router }                   from '@angular/router';
 
 @Component({

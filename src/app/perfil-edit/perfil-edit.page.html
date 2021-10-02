@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>
+      <div class="header-title">
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+       Editar Informações
+      </div>
+    </ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<h2 class="title">Informações pessoais</h2>
+<div class="form-container">
+  <mat-form-field class="form-input name" appearance='outline' color="primary">
+    <mat-label>Nome:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.name">
+</mat-form-field> 
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>E-mail:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.email">
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>Endereço:</mat-label>
+    <input type="text" matInput [(ngModel)]="user.address">
+</mat-form-field>
+
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>CPF:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.cpf">
+</mat-form-field>
+
+<mat-form-field appearance="outline" color="primary">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthday">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [color]="brown"></mat-datepicker>
+</mat-form-field>
+
+</div>
+
+
+<h2 class="title">Informações do veículo</h2>
+
+<div class="form-container">
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Marca do carro:</mat-label>
+  <input matInput [(ngModel)]="brand"> 
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Modelo do carro:</mat-label>
+  <input matInput [(ngModel)]="model">
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Cor do carro:</mat-label>
+  <input matInput [(ngModel)]="color">
+</mat-form-field>
+
+</div>
+
+<button mat-raised-button class="edit-button">Salvar</button>
+  
+
+</ion-content>

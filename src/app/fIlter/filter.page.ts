@@ -1,5 +1,12 @@
-import { Component }            from '@angular/core';
-import { CurrencyMaskConfig }   from 'ngx-currency/src/currency-mask.config';
+import { Router } from '@angular/router';
+import { ParkingService } from './../services/Parking.service';
+import { Component }                from '@angular/core';
+import { CurrencyMaskConfig }       from 'ngx-currency/src/currency-mask.config';
+import { NativePageTransitions,
+         NativeTransitionOptions  } from '@ionic-native/native-page-transitions/ngx';
+import { FilterResultPage }         from '../filter-result/filter-result.page';
+import { NavController }            from '@ionic/angular';
+import { Filter } from '../interfaces/Parking';
 
 @Component({
   selector: 'app-filter',
@@ -13,6 +20,17 @@ export class FilterPage {
   public minValue: number = 0;
   public maxValue: number = 0;
   public parkingNameSearch: string = '';
+  public filterValues: Filter = {};
+
+  constructor(private transition: NativePageTransitions,
+              private navCtrl: NavController,
+              private _parkingService: ParkingService,
+              private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.initFilterValues();
+  }
 
   public subtractMinValue() {
     if (this.minValue>=10)
@@ -31,8 +49,30 @@ export class FilterPage {
   public addMaxValue() {
     this.maxValue = this.maxValue + 10;
   }
-  
-  
-  constructor() {}
+
+  public initFilterValues() {
+    this.filterValues.name = '';
+    this.filterValues.price = 0;
+    this.filterValues.user_avaliation = 0;
+    this.filterValues.zone = '';
+  }
+
+  public filter() {
+    this._parkingService.filter(this.filterValues).subscribe(results => {
+        this.router.navigate(['/filter-result', {parkings: results}]);
+    })
+    
+  }
+
+  public showResults() {
+    let options: NativeTransitionOptions = {
+      direction: 'left',
+      duration: 500,
+      slowdownfactor: -1,
+      iosdelay: 50
+    }
+    this.transition.slide(options);
+    this.navCtrl.navigateForward('/filter-result');
+  }
 
 }
