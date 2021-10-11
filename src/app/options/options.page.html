@@ -11,8 +11,8 @@
 
 
   <ion-item-divider></ion-item-divider>
-  <ion-item-divider>
-    <div class="name" routerLink="/register-informations">
+  <ion-item-divider  routerLink="/register-informations">
+    <div class="name">
       <ion-label>
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-label>
@@ -37,9 +37,9 @@
     </div>
   </ion-item-divider> -->
 
-  <ion-item-divider>
+  <ion-item-divider routerLink="/monthly-lease">
 
-    <div class="name" routerLink="/monthly-lease">
+    <div class="name">
       <ion-label>
         <ion-icon name="book-outline"></ion-icon>
       </ion-label>
@@ -51,9 +51,9 @@
     </div>
   </ion-item-divider>
 
-  <ion-item-divider>
+  <ion-item-divider routerLink="/payment-management"> 
 
-    <div class="name" routerLink="/payment-management">
+    <div class="name">
       <ion-label>
         <ion-icon name="card-outline"></ion-icon>
       </ion-label>
@@ -65,9 +65,9 @@
     </div>
   </ion-item-divider>
 
-  <ion-item-divider>
+  <ion-item-divider routerLink="/historic">
 
-    <div class="name" routerLink="/historic">
+    <div class="name">
       <ion-label>
         <ion-icon name="document-text-outline"></ion-icon>
       </ion-label>
@@ -80,8 +80,8 @@
 
   </ion-item-divider>
 
-  <ion-item-divider>
-    <div class="name" routerLink="/login-page">
+  <ion-item-divider (click)="logoutConfirmationMessage()">
+    <div class="name">
       <ion-label>
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-label>

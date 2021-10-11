@@ -10,6 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA }          from '@angular/core';
 import { QRCodePageModule }                from './QR-Code/qr-code.module';
 import { HttpClientModule }                from '@angular/common/http';
 import { CodeComponent }                   from './code/code.component';
+import { MaterialModule }                  from './material.module';
 
 @NgModule({
   declarations: [AppComponent, CodeComponent],
@@ -20,7 +21,8 @@ import { CodeComponent }                   from './code/code.component';
             CommonModule, 
             AppRoutingModule,
             QRCodePageModule,
-            HttpClientModule
+            HttpClientModule,
+            MaterialModule
           ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

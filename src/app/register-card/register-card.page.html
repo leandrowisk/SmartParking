@@ -10,4 +10,44 @@
 
 <ion-content>
 
+  <h2>Cadastrar cartão</h2>
+
+  <div class="form-container">
+     
+    <mat-form-field type="text" class="form-input card-name" appearance='outline' color="primary">
+      <mat-label>
+        <mat-icon>person_outline</mat-icon>
+        Nome escrito no cartão
+      </mat-label>
+      <input matInput>
+  </mat-form-field>
+  
+      <mat-form-field class="form-input card-number" appearance='outline' color="primary">
+        <mat-label>
+          <mat-icon>credit_card</mat-icon>
+          Numero
+        </mat-label>
+        <input matInput (keypress)="numberOnly($event)">
+      </mat-form-field>
+
+      <div class="flex-container">
+        <mat-form-field class="form-input expiry-input" appearance='outline' color="primary">
+          <mat-label>Data de vencimento</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="form-input code" appearance='outline' color="primary">
+          
+          <mat-label>
+            <mat-icon>lock</mat-icon>
+            Código de segurança
+          </mat-label>
+          <input matInput (keypress)="numberOnly($event)">
+        </mat-form-field>
+      </div>  
+  </div>
+
+  <button mat-raised-button class="add-new-card">Salvar Cartão</button>
 </ion-content>

@@ -14,7 +14,7 @@
 
 <ion-content>
     
-  <mat-tab-group dynamicHeight mat-align-tabs="center">
+  <mat-tab-group dynamicHeight mat-align-tabs="center" mat-stretch-tabs>
 
     <mat-tab>
 
@@ -22,10 +22,26 @@
         <span>Ativos</span>
       </ng-template>
       
-      <div>
-        <h1>Ativo</h1>
-      </div>
+     
+      <h1>Contratos ativos</h1>
+   
 
+      <mat-card>
+        <mat-card-title>Estacionamento Sol nascente</mat-card-title>
+        <mat-card-content>
+          <div class="card-content">
+            <span>Valido até: 05/08</span>
+            <span>Cartão final 5002</span>
+            <span class="value">R$100</span>
+          </div>
+
+
+          <div class="buttons">
+          <button mat-button class="renew">Renovar Contrato </button>
+          <button mat-button class="cancel">Cancelar Contrato</button>
+        </div>
+        </mat-card-content>
+      </mat-card>
   </mat-tab>
 
 
@@ -37,6 +53,23 @@
       <div>
           <h1>Histórico de contratos</h1>
       </div>
+
+
+      <mat-card>
+        <mat-card-title>Estacionamento Osasco</mat-card-title>
+        <mat-card-content>
+          <div class="card-content">
+            <span>Valido até: 04/01</span>
+            <span>Cartão final 4008</span>
+            <span class="value">R$60</span>
+          </div>
+
+          <div class="buttons">
+          <button mat-button class="renew">Renovar Contrato </button>
+          <button mat-button class="cancel">Cancelar Contrato</button>
+        </div>
+        </mat-card-content>
+      </mat-card>
       
 
     </mat-tab>

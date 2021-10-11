@@ -18,6 +18,7 @@ export class RegisterInformationsPage implements OnInit {
     ) { }
 
   public user: User;
+  public car: User;
 
   ngOnInit() {
     this.getUser();

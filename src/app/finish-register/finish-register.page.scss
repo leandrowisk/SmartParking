@@ -25,8 +25,14 @@ mat-form-field {
 }
 
 .terms {
+    display: flex;
+    align-items: center;
     margin-top: 25px;
     padding: 8px;
+
+    p {
+        margin-left: 8px;
+    }
 }
 
 ion-content {
@@ -64,7 +70,10 @@ ion-toolbar {
     .toolbar-background {
         background-color: brown;
         color: white;
-    }
-   
+    }  
+}
+
+mat-checkbox {
+    transform: scale(1.4);
 }
 

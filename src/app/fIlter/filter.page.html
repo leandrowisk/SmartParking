@@ -6,17 +6,17 @@
 <div class="filter-container">
 <div class="search-container">
 <mat-label>Nome do estacionamento</mat-label>
-<ion-searchbar animated="true" [(ngModel)]="filterValues.name"></ion-searchbar>
+<ion-searchbar animated="true"></ion-searchbar>
 </div>
 
 <div class="locale-container">
 <mat-label>Região</mat-label>
 <mat-form-field appearance="standard">
-    <mat-select [(value)]="selected">
-      <mat-option value="Sul" [(ngModel)]="selected">Sul</mat-option>
-      <mat-option value="Leste">Leste</mat-option>
-      <mat-option value="Oeste">Oeste</mat-option>
-      <mat-option value="Norte">Norte</mat-option>
+    <mat-select [(value)]="selected" name="selected" ngDefaultControl>
+      <mat-option value="Sul" [(ngModel)]="selected" ngDefaultControl>Sul</mat-option>
+      <mat-option value="Leste" [(ngModel)]="selected" ngDefaultControl>Leste</mat-option>
+      <mat-option value="Oeste" [(ngModel)]="selected" ngDefaultControl>Oeste</mat-option>
+      <mat-option value="Norte" [(ngModel)]="selected" ngDefaultControl>Norte</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -30,7 +30,7 @@
     <div class="input-value-container">
       <mat-form-field>
         <mat-label>Preço Mínimo</mat-label>
-        <input matInput currencyMask [(ngModel)]="minValue" 
+        <input matInput currencyMask [(ngModel)]="minValue" name="minValue" ngDefaultControl
               [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
       </mat-form-field>
       
@@ -41,7 +41,7 @@
     <div class="input-value-container">
   <mat-form-field>
     <mat-label>Preço Máximo</mat-label>
-    <input matInput currencyMask [(ngModel)]="maxValue" 
+    <input matInput currencyMask [(ngModel)]="maxValue" name="maxValue" ngDefaultControl
           [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
   </mat-form-field>
 

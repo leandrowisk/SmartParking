@@ -1,0 +1,71 @@
+.card {
+    height: 250px;
+    margin-top: 50px;
+    background: mediumslateblue;
+    width: 100vw;
+    border-radius: 20px;
+}
+
+.card-flag {
+    margin-left: auto;
+    margin-right: 16px;
+    margin-top: 8px;
+}
+
+.name-container {
+    position: absolute;
+    margin-left: 16px;
+    bottom: 32px;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.valid-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 40px;
+    margin-left: 75%;
+    font-weight: 500;
+}
+
+img {
+    height: 50px;
+}
+
+.add-button {
+    background: black;
+    position: absolute;
+    bottom: 50px;
+    margin-left: 45%;
+    margin-right: auto;
+}
+
+.card-name {
+    font-weight: bold;
+}
+
+.card-number {
+    font-weight: 500;
+}
+
+.remove-card {
+    margin-top: 25px;
+    margin-left: 16px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: black;
+}
+
+.checkbox {
+    transform: scale(1.2);
+}
+
+.checkbox:checked {
+    transition: 0.5s ease;
+}

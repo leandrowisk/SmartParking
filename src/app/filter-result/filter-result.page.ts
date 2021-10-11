@@ -14,10 +14,6 @@ export class FilterResultPage implements OnInit {
   constructor(public route: ActivatedRoute) { }
 
   ngOnInit() {
-    if(JSON.parse(this.route.snapshot.params['parkings'])){
-      this.parkings = JSON.parse(this.route.snapshot.params['parkings'])
-    }
-    console.log(this.parkings);
   }
 
 }

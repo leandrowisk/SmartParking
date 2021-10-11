@@ -1,0 +1,58 @@
+
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+mat-card {
+    width: 90vw;
+    margin-left: 5vw;
+    padding: 8px;
+    margin-top: 50px;
+}
+
+mat-card-title {
+    padding: 8px;
+    font-size: 18px;
+}
+
+mat-card-subtitle {
+    font-size: 16px;
+}
+
+mat-tab {
+   min-width: 50%;
+}
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 8px;
+
+    .renew {
+        background-color: lightblue;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .cancel {
+        background-color: #ff4747;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.value {
+    font-weight: 500;
+}
+
+.card-content {
+    font-size: 16px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}

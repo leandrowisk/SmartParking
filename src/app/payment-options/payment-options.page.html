@@ -19,20 +19,17 @@
   <div class="credit-cards-container">
     <div class="credit-cards-title">
     <img src="../../assets/images/credit-cards.png">
-    <h2>Cartões cadastrados</h2>
+    <h2 class="title">Cartões cadastrados</h2>
   </div>
 
-    <div class="credit-cards">
+    <ion-item class="credit-cards">
       <img src="../../assets/images/visa.png">
-
         <div class="card-name"> 
-          <span>Mastercard</span>
+          <span class="flag-name">Mastercard</span>
           <span>final: 5210</span>
         </div>
-       
-        <ion-checkbox class="checkbox"></ion-checkbox>
-       
-    </div>
+        <ion-checkbox class="checkbox" mode="ios"></ion-checkbox>
+      </ion-item>
   </div>
 
   <div class="add-new-card" routerLink="/register-card">
@@ -45,7 +42,7 @@
     <ion-toggle></ion-toggle>
   </div>
 
-  <button mat-button class="payment-button" routerLink="/paid-page">
+  <button mat-button class="payment-button" routerLink="/paid">
     <span>Pagar</span>
     <span class="value">R$100</span>
   </button>

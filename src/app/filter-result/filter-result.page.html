@@ -12,20 +12,5 @@
 
 <ion-content>
   <h1>Nenhum estacionamento foi encontrado para sua pesquisa</h1>
-   <img src="../../assets/images/no-results.jpg" class="not-found-image">
-
-   <ng-container *ngFor="let parking of parkings">
-    <div class="container" routerLink="/details/{{parking.id}}">
-      <img src="{{parking.image_url}}">
-      <h2>{{parking.name}}</h2>
-      <div class="caracteristics">
-        <p>Preço: <b>R$ {{parking.price}}</b></p>
-        <div class="avaliation">
-          <p>Avaliação dos usuários</p>
-          <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
-        </div>
-        <p>Vagas disponíveis: {{parking.available_vacancies}}</p>
-      </div>
-    </div>
-  </ng-container>
+   <img src="../../assets/images/no-results.png" class="not-found-image">
 </ion-content>

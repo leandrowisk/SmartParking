@@ -1,3 +1,4 @@
+import { AlertController }   from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
 
@@ -9,12 +10,23 @@ import { Location }          from '@angular/common';
 })
 export class PaymentManagementPage implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(
+    private location: Location,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
   }
 
   goBack() {
     this.location.back();
+  }
+
+  async removeCardConfirmation() {
+    const alert = await this.alertController.create({
+       message: 'Tem certeza que deseja remover este cartão?',
+       buttons: ['Não', 'Sim']
+     });
+     alert.present();
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController }   from '@ionic/angular';
 
 @Component({
   selector: 'app-options',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsPage implements OnInit {
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   ngOnInit() {
   }
 
+  async logoutConfirmationMessage() {
+   const alert = await this.alertController.create({
+      message: 'Tem certeza que deseja sair',
+      buttons: ['Cancelar', 'Sair']
+    });
+    alert.present();
+  }
 }
