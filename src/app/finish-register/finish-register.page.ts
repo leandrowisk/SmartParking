@@ -1,6 +1,7 @@
 import { Component, OnInit }                from '@angular/core';
 import { ActivatedRoute, Router }           from '@angular/router';
 import { User }                             from '../interfaces/User';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-finish-register',
@@ -14,7 +15,8 @@ export class FinishRegisterPage implements OnInit {
   public checked: boolean = false;
 
   constructor(private route: ActivatedRoute,
-              private router: Router
+              private router: Router,
+              private _userService: UserService
     ) { }
 
   ngOnInit() {
@@ -27,8 +29,14 @@ export class FinishRegisterPage implements OnInit {
     }
   }
 
+ 
   finishRegister() {
-    this.router.navigate(['/tabs/home'])
+    this._userService.register(this.user).subscribe(response => {
+    if (response == 'Cadastro criado com sucesso!') {
+       this.router.navigate(['/tabs/home']);
+    }
+    else
+       alert('erro ao cadastrar');
+    })
   }
-
 }

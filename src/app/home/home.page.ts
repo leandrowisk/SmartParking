@@ -36,10 +36,16 @@ export class HomePage {
   }
 
   getParking() {
-    this.parkingService.getParking(this.parkings['id']).subscribe(response =>{
-      this.park = response;
+    this.parkingService.getParking(this.parkings['id']).subscribe(parking => {
+       this.park = parking
     })
   }
+
+  // getParking() {
+  //   this.parkingService.getParking(this.parkings['id']).subscribe(response =>{
+  //     this.park = response;
+  //   })
+  // }
 
   rating(rating: number){
     return new Array(rating);
