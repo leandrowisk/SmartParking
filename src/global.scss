@@ -60,3 +60,22 @@ mat-checkbox-inner-container {
 .custom-dialog-container .mat-dialog-container {
   padding: 0;
 }
+
+h2 {
+  font-family: "Abel" !important;
+  font-weight: bold !important;
+}
+
+p, span, button {
+  font-family: "Abel";
+  font-weight: normal !important;
+}
+
+div {
+  font-family: "Abel" !important;
+  font-weight: bold !important;
+}
+
+button {
+  font-size: 16px;
+}

@@ -10,6 +10,10 @@ h2 {
     padding: 8px;
 }
 
+.welcome-message {
+    font-weight: normal !important;
+}
+
 .perfil-image-container {
     display: flex;
     flex-direction: column;
@@ -20,6 +24,7 @@ h2 {
 
 .title {
     font-size: 18px;
+    font-weight: normal !important;
 }
 
 .ion-label {

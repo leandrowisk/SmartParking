@@ -70,3 +70,13 @@ button {
     bottom: 0;
     justify-content: center;
 }
+
+.second {
+    transform: scale(2);
+}
+
+.first {
+    transform: scaleX(1.4);
+    width: auto;
+    border-radius: 20px;
+}

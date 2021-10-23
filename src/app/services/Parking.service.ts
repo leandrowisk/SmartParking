@@ -22,29 +22,29 @@ export class ParkingService {
                private _requests: RequestsService
    ){}
    
-   getParkings(): Observable<Parking[]> {
-       this.path = this._requests.api() + '/estacionamentos';
-       return this.httpClient.get<Parking[]>(this.path);
-   }
-
-   getParking(id: number): Observable<Parking> {
-       this.path = this._requests.api() + '/estacionamento';
-       let params = new HttpParams().set('id_estabelecimento', id)
-       return this.httpClient.get<Parking>(this.path, { params })
-   }
-
 //    getParkings(): Observable<Parking[]> {
-//        return of(parkings);
+//        this.path = this._requests.api() + '/estacionamentos';
+//        return this.httpClient.get<Parking[]>(this.path);
 //    }
 
-//    getParking(id: number){
-//        const parking = parkings.find(park => park.id == id)
-//        return of(parking)
+//    getParking(id: number): Observable<Parking> {
+//        this.path = this._requests.api() + '/estacionamento';
+//        let params = new HttpParams().set('id_estabelecimento', id)
+//        return this.httpClient.get<Parking>(this.path, { params })
 //    }
 
-//    getUser(): Observable<User> {
-//     return of(user);
-// }
+   getParkings(): Observable<Parking[]> {
+       return of(parkings);
+   }
+
+   getParking(id: number){
+       const parking = parkings.find(park => park.id == id)
+       return of(parking)
+   }
+
+   getUser(): Observable<User> {
+    return of(user);
+}
 
    public filter(filter: Filter) {
        const results = parkings.find(
