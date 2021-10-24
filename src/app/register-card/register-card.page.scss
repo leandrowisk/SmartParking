@@ -21,9 +21,7 @@ mat-icon {
 .flex-container {
     display: flex;
     margin: 8px;
-
     mat-form-field {
-        margin-left: 5vw;
         width: 150px;
     }
 }
@@ -59,4 +57,18 @@ mat-icon {
 .card-number {
     width: 80vw;
     margin-left: 10vw;
+}
+
+.expiry-input {
+    margin-left: 5vw;
+}
+
+.code {
+    margin-left: 18px;
+}
+
+@media (min-width: 380px) {
+    .expiry-input {
+        margin-left: 10vw;
+    }
 }

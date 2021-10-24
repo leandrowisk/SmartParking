@@ -30,13 +30,17 @@ export class FinishRegisterPage implements OnInit {
   }
 
  
+  // finishRegister() {
+  //   this._userService.register(this.user).subscribe(response => {
+  //   if (response == 'Cadastro criado com sucesso!') {
+  //      this.router.navigate(['/tabs/home']);
+  //   }
+  //   else
+  //      alert('erro ao cadastrar');
+  //   })
+  // }
+
   finishRegister() {
-    this._userService.register(this.user).subscribe(response => {
-    if (response == 'Cadastro criado com sucesso!') {
-       this.router.navigate(['/tabs/home']);
-    }
-    else
-       alert('erro ao cadastrar');
-    })
+    this.router.navigate(['/tabs/home']);
   }
 }
