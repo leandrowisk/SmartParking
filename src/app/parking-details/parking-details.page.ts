@@ -26,16 +26,22 @@ export class ParkingDetailsPage implements OnInit {
   rentSpace() {
     this.rent = true;
   }
-
+/*
   getParking() {
     const id : number = Number (this.route.snapshot.paramMap.get('id'));
-    this.parkingService.getParking(id).subscribe(parking => this.parking = parking);
-    this.rating = new Array(this.parking.user_avaliation)
+    this.parkingService.getParking(id).subscribe(response => {this.parking = response;});
+	console.log(this.parking);
+    this.rating = new Array(this.parking.user_avaliation);
     this.totalValue = this.parking.price;
   }
-  
+*/  
   ngOnInit() {
-    this.getParking();
+  //  this.getParking();
+	if (this.route.snapshot.params['parking']) 
+      this.parking = JSON.parse(this.route.snapshot.params['parking']);
+      this.rating = new Array(this.parking.user_avaliation);
+      this.totalValue = this.parking.price;
+	console.log('parking detail: ',this.parking);
   }
 
   addService($event) {

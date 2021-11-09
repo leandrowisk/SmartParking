@@ -12,8 +12,8 @@ export class LoginService {
               private _requests: RequestsService) { }
   
   
-  login(params) {
-    this.path = this._requests.api();
+  login(params: Object) {
+    this.path = this._requests.api() + '/login';
     return this.httpClient.post(this.path, params);
   }
 }

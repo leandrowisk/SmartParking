@@ -1,11 +1,15 @@
 {
-  "compileOnSave": true,
-  "name": "SmartParking",
-  "integrations": {
-    "capacitor": {
-      "enabled": false
-    },
-    "cordova": {}
-  },
-  "type": "angular"
+	"compileOnSave": true,
+	"name": "SmartParking",
+	"integrations": {
+		"capacitor": {
+		"enabled": false
+		},
+		"cordova": {}
+	},
+	"type": "angular",
+	"proxies": [{
+		"path": "/",
+		"proxyUrl": "http://127.0.0.1:5000"
+	}]
 }

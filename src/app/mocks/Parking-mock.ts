@@ -56,7 +56,6 @@ export const parkings: Parking[] = [
 
 export const user: User =
     {
-
     "name": 'Leandro Tecioni',
     "email": 'leandrotdrumond@gmail.com',
     "address": "Rua São Jorge",

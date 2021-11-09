@@ -1,6 +1,8 @@
 import { AlertController }   from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
+import { UserService }       from '../services/user.service';
+import { Router }            from '@angular/router';
 
 
 @Component({
@@ -12,10 +14,21 @@ export class PaymentManagementPage implements OnInit {
 
   constructor(
     private location: Location,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private userService : UserService,
+    private router : Router
   ) { }
 
+    public cards : String[];
+    
   ngOnInit() {
+    this.getCreditCard();
+  }
+
+  getCreditCard(): void{
+    this.userService.getCreditCards().subscribe(response => {
+      this.cards = response;
+    })
   }
 
   goBack() {

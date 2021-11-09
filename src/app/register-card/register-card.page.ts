@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
+import { UserService }       from '../services/user.service';
+import { Router }            from '@angular/router';
 
 @Component({
   selector: 'app-register-card',
@@ -8,11 +10,31 @@ import { Location }          from '@angular/common';
 })
 export class RegisterCardPage implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(
+    private location: Location,
+    private userService : UserService,
+    private router : Router
+  ) { }
+
+  ownerName: String;
+  numberCard: String;
+  expirationDate: Date;
+  secCode : number
+  public params: Object;
 
   ngOnInit() {
   }
 
+  save(){
+    this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
+    console.log('parametros enviados', this.params)
+    this.userService.addCreditCards(this.params).subscribe(response => {
+        if(response['mensagem'] == 'true')
+        alert('Cartão Adicionado')
+        else
+          alert('Erro ao inserir')
+    });
+  }
   goBack() {
     this.location.back();
   }

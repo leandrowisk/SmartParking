@@ -17,7 +17,20 @@ export class RegisterInformationsPage implements OnInit {
     private router: Router
     ) { }
 
-  public user: User;
+  public user: User =
+    {
+    "name": '',
+    "email": '',
+    "address": "",
+    "cpf": "",
+    "birthday": "",
+    "sex": "",
+    "car":{
+        "color": "",
+        "brand": "",
+        "model": "" },
+    "password": ""};
+	
   public car: User;
 
   ngOnInit() {

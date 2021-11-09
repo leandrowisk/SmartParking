@@ -13,7 +13,7 @@ export class CodeComponent implements OnInit {
   public activeExit: boolean = false;
   public entrance: boolean = false;
   public exit: boolean = false;
-  public code: string = '';
+  public code = 0;
 
   constructor(public location: Location,
               public route: ActivatedRoute,
