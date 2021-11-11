@@ -16,8 +16,9 @@
 
   <h2 class="title">Reserva de Vaga</h2>
 
-  <p>Utilize está tela para escanear o QR Code relativo a sua vaga assim que entrar e deixar o estabelecimento</p>
-
+  <p>Utilize esta tela para escanear o QR Code ou digitar o código que se encontram na entrada e saída de cada estacionamento cadastrado.<br>
+  <b>Obs: </b>A cancela só irá se abrir caso a locação seja validada por nosso sistema.</p>
+ 
   <div class="container-button">
 
     <button (click)="openValidationChoices('activeEntrance')" [class.disable-button]="entrance">
@@ -28,7 +29,7 @@
       </div>
     </button>
 
-    <button [class.disable-button]="!entrance" (click)="openValidationChoices('activeExit')">
+    <button (click)="openValidationChoices('activeExit')">
       <div class="scan-button">
       <ion-icon name="scan-outline" class="scan-icon"></ion-icon>
       Validar Saída

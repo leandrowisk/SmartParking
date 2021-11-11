@@ -1,66 +1,71 @@
 <ion-header>
   <ion-toolbar>
-   
+
     <ion-title>
       <div class="header-title">
-      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
-      </ion-icon>
-      Informações da conta
+        <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+        </ion-icon>
+        Informações da conta
       </div>
     </ion-title>
- 
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-
   <div class="perfil-image-container">
-    <ion-avatar>
-      <img src="../../assets/images/slack perfil.jpeg">
-    </ion-avatar>
+    <div class="image-container">
+      <ion-avatar>
+        <img src="{{imageUrl}}">
+      </ion-avatar>
+    </div>
     <div class="name-container">
-      <h2>{{user.name}}</h2>
+      <h2 class="user-name">{{user.name}}</h2>
       <span class="email">{{user.email}}</span>
     </div>
   </div>
-     
-      <div class="edit-container" (click)="editPage()">
-        <mat-icon>
-          mode_edit_outline
-        </mat-icon>
-        <span>Editar Informações</span>
-      </div>
+
+  <div class="edit-container" (click)="editPage()">
+    <mat-icon>
+      mode_edit_outline
+    </mat-icon>
+    <span>Editar Informações</span>
+  </div>
 
   <div *ngIf="user">
-  <div class="user-informations">
+    <div class="user-informations">
 
-  <div class="informations-title">
-    <mat-icon>
-      person_outline
-    </mat-icon>
-    <h2>Informações do usuário</h2>
-  </div>
+      <div class="informations-title">
+        <mat-icon>
+          person_outline
+        </mat-icon>
+        <h2>Informações do usuário</h2>
+      </div>
       <span>Nome: {{user.name}}</span>
       <span>Email: {{user.email}}</span>
-      <span>Cpf: {{user.cpf}}</span> 
+      <span>Cpf: {{user.cpf}}</span>
       <span>Sexo: {{user.sex}}</span>
       <span>Endereço: {{user.address}}</span>
+      <span>Telefone: {{user.phone}}</span>
+    </div>
+
+
+    <div class="car-informations">
+
+      <div class="informations-title">
+        <mat-icon>
+          directions_car_filled
+        </mat-icon>
+        <h2>Informações do veículo</h2>
+      </div>
+      <span>Marca: {{user.car.brand}}</span>
+      <span>Modelo: {{user.car.model}}</span>
+      <span>Cor: {{user.car.color}}</span>
+      <span>Chassi: {{user.car.chassi}}</span>
+      <span>Renavam: {{user.car.renavam}}</span>
+      <span>Placa: {{user.car.plaque}}</span>
+    </div>
+
   </div>
-
-
-<div class="car-informations">
-
-  <div class="informations-title">
-    <mat-icon>
-      directions_car_filled
-    </mat-icon>
-    <h2>Informações do veículo</h2>
-  </div>
-  <span>Marca: {{user.car.brand}}</span>
-  <span>Modelo: {{user.car.model}}</span>
-  <span>Cor: {{user.car.color}}</span>
-</div>
-
-</div>
 </ion-content>

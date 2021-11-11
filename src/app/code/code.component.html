@@ -9,9 +9,8 @@
   <div class="code-container">
     <mat-form-field class="input-container" appearance="outline" color="primary">
       <mat-label>Digite o código</mat-label>
-      <input matInput type="number" placeholder="Ex: 54620007" [(ngModel)]="code"
-        (keypress)="aceptCode($event)">
+      <input matInput type="number" placeholder="Ex: 54620007" [(ngModel)]="code">
     </mat-form-field>
-    <mat-icon>check_circle</mat-icon>
+    <mat-icon (click)="acceptCode()">check_circle</mat-icon>
   </div>
 </ion-content>

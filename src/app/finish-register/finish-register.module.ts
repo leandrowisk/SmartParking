@@ -1,11 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule }                        from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, 
+         NgModule }                        from '@angular/core';
 import { CommonModule }                    from '@angular/common';
-import { FormsModule }                     from '@angular/forms';
+import { FormsModule, 
+         ReactiveFormsModule }             from '@angular/forms';
 import { IonicModule }                     from '@ionic/angular';
 import { FinishRegisterPageRoutingModule } from './finish-register-routing.module';
 import { FinishRegisterPage }              from './finish-register.page';
 import { MaterialModule }                  from '../material.module';
-
+import { NgxMaskModule }                   from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import { MaterialModule }                  from '../material.module';
     FormsModule,
     IonicModule,
     FinishRegisterPageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [FinishRegisterPage],
   exports:[FinishRegisterPage],

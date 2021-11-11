@@ -18,6 +18,7 @@ import { MatSnackBarModule }               from '@angular/material/snack-bar';
 import { MatTableModule }                  from '@angular/material/table';
 import { MatCardModule }                   from '@angular/material/card';
 import { MatDialogModule }                 from '@angular/material/dialog';
+import { FormBuilder }                     from '@angular/forms';
 
 
 @NgModule({
@@ -39,10 +40,12 @@ import { MatDialogModule }                 from '@angular/material/dialog';
      MatSnackBarModule,
      MatTableModule,
      MatCardModule,
-     MatDialogModule
+     MatDialogModule,
+
     ],
     providers: [
-      { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+      { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+      FormBuilder
     ]
  
 })

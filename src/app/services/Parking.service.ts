@@ -42,16 +42,11 @@ export class ParkingService {
        return of(parking)
    }
 
-   getUser(): Observable<User> {
-    return of(user);
-}
-
    public filter(filter: Filter) {
        const results = parkings.find(
            parking => {
             parking.name == filter.name ||
-            parking.price == filter.price ||
-            parking.zone == filter.zone || 
+            parking.hour_price == filter.price ||
             parking.user_avaliation == filter.user_avaliation
            }
        )

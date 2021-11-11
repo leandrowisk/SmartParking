@@ -3,7 +3,7 @@
     <ion-toolbar>
       <ion-title>
         <div class="header-title">
-          <ion-icon name="arrow-back-outline" class="arrow-back" routerLink="/welcome-page">
+          <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
           </ion-icon>
             Cadastre-se
           </div>
@@ -13,42 +13,56 @@
 </div>
 
 <ion-content>
-<mat-form-field class="form-input name" appearance='outline' color="primary">
+
+  <form [formGroup]="form">
+<mat-form-field class="form-input name" appearance='outline' color="primary" >
     <mat-label>Nome:</mat-label>
-    <input type="email" matInput [(ngModel)]="user.name">
+    <input type="text" matInput formControlName="name">
+    <mat-error *ngIf="form.get('name').hasError('required')">O nome é obrigatório</mat-error>
+    <mat-error *ngIf="form.get('name').hasError('min')">É necessário ter pelo menos 3 caracteres</mat-error>
 </mat-form-field> 
 
 <mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>E-mail:</mat-label>
-    <input type="email" matInput [(ngModel)]="user.email">
+    <input type="email" matInput formControlName="email">
+    <mat-error *ngIf="form.get('email').hasError('pattern')">Formato de email inválido</mat-error>
 </mat-form-field>
 
 <mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>Endereço:</mat-label>
-    <input type="text" matInput [(ngModel)]="user.address">
+    <input type="text" matInput formControlName="endereco">
+</mat-form-field>
+
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+  <mat-label>Telefone:</mat-label>
+  <input matInput formControlName="phone" mask="(00) 00000-0000">
+  <mat-error *ngIf="form.get('phone').hasError('pattern')">Insira um telefone válido</mat-error>
 </mat-form-field>
 
 
 <mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>CPF:</mat-label>
-    <input type="email" matInput [(ngModel)]="user.cpf">
+    <input matInput formControlName="cpf" mask="000.000.000-00">
+    <mat-error *ngIf="form.get('name').hasError('required')">O Cpf é obrigatório</mat-error>
+    <mat-error *ngIf="form.get('name').hasError('min')">Insira um Cpf Válido</mat-error>
 </mat-form-field>
 
 <mat-form-field appearance="outline" color="primary">
     <mat-label>Data de Nascimento</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthday">
+    <input matInput [matDatepicker]="picker" formControlName="birthday">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker [color]="brown"></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field appearance="outline" color="primary">
     <mat-label>Sexo</mat-label>
-    <mat-select [(value)]="user.sex">
+    <mat-select [(value)]="user.sex" formControlName="sex">
       <mat-option value="Masculino">Masculino</mat-option>
       <mat-option value="Feminino">Feminino</mat-option>
     </mat-select>
   </mat-form-field>
-
+</form>
 <button mat-fab class="next" (click)="next()">
   >
 </button>

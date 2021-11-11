@@ -12,39 +12,80 @@
 </ion-header>
 
 <ion-content>
-    <mat-form-field class="form-input" appearance='outline' color='primary'>
-        <mat-label>Marca do carro:</mat-label>
-        <input matInput [(ngModel)]="user.car.brand"> 
+  <form [formGroup]="form">
+  <mat-form-field appearance="outline" class="form-input">
+    <mat-select name="category" placeholder="Categoria do veiculo" formControlName="category" > 
+      <mat-option *ngFor="let category of categories" [value]="category.name">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"  class="form-input" *ngIf="form.value.category">
+    <mat-select name="model" placeholder="Modelo do veiculo" formControlName="model"> 
+      <mat-option *ngFor="let model of models" [value]="model.name">
+        {{model.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-input">
+    <mat-select  name="brand" placeholder="Marca do veiculo" formControlName="brand"> 
+      <mat-option *ngFor="let brand of brands">
+        {{brand.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="form-input" appearance='outline' color='primary'>
+    <mat-label>Placa:</mat-label>
+    <input matInput  formControlName="plaque">
+  </mat-form-field>
+
+  
+    <mat-form-field class="form-input" appearance='outline' color='primary' mask="00000000-0">
+      <mat-label>Renavam:</mat-label>
+      <input matInput  formControlName="renavam">
+      <mat-error *ngIf="form.get('renavam').hasError('required')">Este campo é obrigatório</mat-error>
+      <mat-error *ngIf="form.get('renavam').hasError('min')">O número da renavam contém 11 caracteres</mat-error>
     </mat-form-field>
-    
-    <mat-form-field class="form-input" appearance='outline' color='primary'>
-        <mat-label>Modelo do carro:</mat-label>
-        <input matInput [(ngModel)]="user.car.model">
-    </mat-form-field>
-    
-    <mat-form-field class="form-input" appearance='outline' color='primary'>
-        <mat-label>Cor do carro:</mat-label>
-        <input matInput [(ngModel)]="user.car.color">
-    </mat-form-field>
+
+  <mat-form-field class="form-input" appearance='outline' color='primary'>
+    <mat-label>Nº do chassi:</mat-label>
+    <input matInput formControlName="chassi">
+    <mat-error *ngIf="form.get('chassi').hasError('required')">Este campo é obrigatório</mat-error>
+    <mat-error *ngIf="form.get('chassi').hasError('min')">O número do chassi contém 17 caracteres</mat-error>
+   </mat-form-field>
+
+
+   <mat-form-field class="form-input" appearance='outline' color='primary'>
+    <mat-label>Cor do carro:</mat-label>
+    <input type="text" matInput formControlName="color">
+    <mat-error *ngIf="form.get('color').hasError('required')">Este campo é obrigatório</mat-error>
+</mat-form-field>
     
     <mat-form-field class="form-input" appearance='outline' color='primary'>
         <mat-label>Senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <mat-error *ngIf="form.get('password').hasError('required')">Este campo é obrigatório</mat-error>
+        <mat-error *ngIf="form.get('password').hasError('pattern')">
+          <p>A senha deve conter no mínimo  8 digitos</p>
+          <p>A senha deve conter no mínimo 1 letra maiuscula</p>
+          <p>A senha deve no mínimo conter 1 caracter especial</p>
+          <p>A senha deve no mínimo conter 1 número</p>
+        </mat-error>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
       </mat-form-field>
-    
-    
+  </form>
     <button mat-raised-button [class.disable-button]="!checked" color="primary" 
             class="finish-register" (click)="finishRegister()">Finalizar</button>
   
     <div class="terms">
       <mat-checkbox  [(ngModel)]="checked" color="primary"></mat-checkbox>
-      <p class="terms-text">Declaro que li e concordo com os <span class="link">termos</span> e <span  class="link">condições</span></p>
-       
-     
+      <p class="terms-text">Declaro que li e concordo com os <span class="link" routerLink="/terms-and-conditions">termos e condições</span></p>
     </div>
   
 </ion-content>

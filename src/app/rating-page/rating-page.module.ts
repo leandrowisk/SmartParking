@@ -16,6 +16,6 @@ import { MaterialModule }              from '../material.module';
     NgbModule,
     MaterialModule
   ],
-  declarations: [RatingPage]
+  declarations: [RatingPage],
 })
 export class RatingPageModule {}

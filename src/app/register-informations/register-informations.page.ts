@@ -1,6 +1,6 @@
+import { UserService }       from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User }              from '../interfaces/User';
-import { ParkingService }    from '../services/Parking.service';
 import { Location }          from '@angular/common';
 import { Router }            from '@angular/router';
 
@@ -10,22 +10,24 @@ import { Router }            from '@angular/router';
   styleUrls: ['./register-informations.page.scss'],
 })
 export class RegisterInformationsPage implements OnInit {
+  public user: User;
+  public car: User;
+  public perfilImage: any = "";
+  public imageUrl: string = '../../assets/images/slack perfil.jpeg';
+  public selectedImage;
 
   constructor(
-    private parkingService: ParkingService,
+    private userService: UserService,
     private location: Location,
     private router: Router
     ) { }
-
-  public user: User;
-  public car: User;
 
   ngOnInit() {
     this.getUser();
   }
 
   getUser(): void{
-    this.parkingService.getUser().subscribe(response => {
+    this.userService.getUser().subscribe(response => {
       this.user = response;
     })
   }

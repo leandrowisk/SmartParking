@@ -17,7 +17,7 @@ export class QRCodePage {
               private navController: NavController,
               public route: ActivatedRoute,
               public dialog: MatDialog
-              ) {}
+  ) {}
 
   public activeEntrance: boolean = false;
   public activeExit: boolean = false;

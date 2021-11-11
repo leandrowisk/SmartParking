@@ -20,35 +20,7 @@
         </mat-form-field>
 
         <button mat-raised-button color="primary" class="enter" (click)="login()">Entrar</button>
+        <button mat-raised-button color="primary" class="register" routerLink="/register-page">Cadastre-se</button>
     </div> 
-    <p class="forgot-password">Esqueci minha senha</p>
-    <mat-divider fxFlex="1 0" class="divider">
-
-    </mat-divider>
-    <div class="or">ou</div>
-
-    <div class='social-medias'>
-
-        <div>
-            <img src='../../assets//images/icons8-google-logo-22.png'>
-            <p class='card-text' routerLink="/main">Prossiga com o Gmail</p>
-        </div>
-
-        <div>
-            <img src='../assets/images/icons8-facebook-22.png'>
-            <p class='card-text'>Prossiga com o Facebook</p>
-        </div>
-
-        <div>
-            <img src='../../assets/images/icons8-twitter-22.png'>
-            <p class='card-text' routerLink="/main">Prossiga com o Twitter</p>
-        </div>
-
-        <div>
-            <img src='../../assets/images/icons8-mac-os-22.png'>
-            <p class='card-text' routerLink="/main">Prossiga com a Apple</p>
-        </div>
-
-    </div>
-
+    <p class="forgot-password" routerLink="/forget-password">Esqueci minha senha</p>
 </ion-content>

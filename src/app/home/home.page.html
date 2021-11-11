@@ -16,8 +16,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-searchbar animated="true" placeholder="Qual sua próxima parada?"></ion-searchbar>
-
   <mat-tab-group dynamicHeight mat-align-tabs="center">
 
     <mat-tab>
@@ -32,11 +30,12 @@
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
+            <img class="monthly-icon" *ngIf="parking.monthly" src="../../assets/images/montly.png">
           </div>
           <h2>{{parking.name}}</h2>
           <div class="caracteristics">
             <p>Vagas disponíveis: {{parking.available_vacancies}}</p>
-            <p class="price"><b>R$ {{parking.price}}</b></p>
+            <p class="price"><b>R$ {{parking.hour_price}}/hora</b></p>
           </div>
         </div>
       </ng-container>
@@ -53,11 +52,12 @@
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
+            <img class="monthly-icon" *ngIf="parking.monthly" src="../../assets/images/montly.png">
           </div>
           <h2>{{parking.name}}</h2>
           <div class="caracteristics">
             <p>Vagas disponíveis: {{parking.available_vacancies}}</p>
-            <p class="price"><b>R$ {{parking.price}}</b></p>
+            <p class="price"><b>R$ {{parking.monthly_price}}/mês</b></p>
           </div>
         </div>
       </ng-container>
@@ -74,11 +74,15 @@
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
+            <img class="monthly-icon" *ngIf="parking.monthly" src="../../assets/images/montly.png">
           </div>
           <h2>{{parking.name}}</h2>
           <div class="caracteristics">
-            <p class="price"><b>R$ {{parking.price}}</b></p>
-            <p>Vagas disponíveis: {{parking.available_vacancies}}</p>
+            <p class="price"><b>R$ {{parking.hour_price}}/hora</b></p>
+            <div class="available-container">
+              <p>Vagas disponíveis: {{parking.available_vacancies}}</p>
+              <img *ngIf="parking.monthly" src="../../assets/images/montly.png">
+            </div>
           </div>
         </div>
       </ng-container>

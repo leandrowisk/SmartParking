@@ -1,8 +1,9 @@
 export interface User {
-    
+    id: number;
     name: string;
     email: string;
     address: string;
+    phone: string;
     cpf: string;
     birthday: string;
     sex: string;
@@ -12,8 +13,27 @@ export interface User {
 
 export interface Car {
     color: string;
-    brand: string;
-    model: string;
+    brand: carBrand;
+    model: carModel;
+    category: carCategory;
+    chassi: string;
+    renavam: number;
+    plaque: string;
+}
+
+export interface carCategory {
+    name: string;
+    id: number;
+}
+
+export interface carBrand {
+    name: string;
+    id: number;
+}
+
+export interface carModel {
+    name: string;
+    id: number;
 }
 
 export interface Historic {

@@ -13,13 +13,14 @@ import { MatSnackBar,
 
 export class RatingPage{
 
-  constructor(private router: Router,
-              private _userMessage: MatSnackBar,
-  ) { }
-
   currentRate: number = 0;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+
+  constructor(private router: Router,
+              private _userMessage: MatSnackBar
+  ) { }
 
   public rate() {
     if(this.currentRate != 0){

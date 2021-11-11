@@ -1,0 +1,22 @@
+.title {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    img {
+        height: 42px;
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    
+    h2 {
+       margin-top: 32px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
