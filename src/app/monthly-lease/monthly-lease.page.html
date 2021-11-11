@@ -25,14 +25,14 @@
      
       <h1>Contratos ativos</h1>
    
-
+    <div *ngFor="let monthlyLease of monthlyLeases">
       <mat-card>
-        <mat-card-title>Estacionamento Sol nascente</mat-card-title>
+        <mat-card-title>{{monthlyLease.parkingName}}</mat-card-title>
         <mat-card-content>
           <div class="card-content">
-            <span>Valido até: 05/08</span>
-            <span>Cartão final 5002</span>
-            <span class="value">R$100</span>
+            <span>Valido até:{{monthlyLease.expirationDate}}</span>
+            <span>Cartão final {{monthlyLease.lastNumberCreditCard}}</span>
+            <span class="value">R${{monthlyLease.value}}</span>
           </div>
 
 
@@ -42,6 +42,7 @@
         </div>
         </mat-card-content>
       </mat-card>
+    </div>
   </mat-tab>
 
 
@@ -54,14 +55,14 @@
           <h1>Histórico de contratos</h1>
       </div>
 
-
+    <div *ngFor="let monthlyLease of monthlyLeases">
       <mat-card>
-        <mat-card-title>Estacionamento Osasco</mat-card-title>
+        <mat-card-title>{{monthlyLease.parkingName}}</mat-card-title>
         <mat-card-content>
           <div class="card-content">
-            <span>Valido até: 04/01</span>
-            <span>Cartão final 4008</span>
-            <span class="value">R$60</span>
+            <span>Valido até:{{monthlyLease.expirationDate}}</span>
+            <span>Cartão final {{monthlyLease.lastNumberCreditCard}}</span>
+            <span class="value">R${{monthlyLease.value}}</span>
           </div>
 
           <div class="buttons">
@@ -70,7 +71,7 @@
         </div>
         </mat-card-content>
       </mat-card>
-      
+    </div>
 
     </mat-tab>
   </mat-tab-group>

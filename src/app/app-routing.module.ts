@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./finish-register/finish-register.module').then( m => m.FinishRegisterPageModule)
   },
   {
-    path: 'details/:id',
+    path: 'details',
     loadChildren: () => import('./parking-details/parking-details.module').then( m => m.ParkingDetailsPageModule)
   },
   {

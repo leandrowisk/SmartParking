@@ -26,12 +26,12 @@ export class HomePage {
 
   ngOnInit(){
     this.getParkings();
-    this.getParking();
   }
 
   getParkings(): void{
     this.parkingService.getParkings().subscribe(response => {
     this.parkings = response;
+	console.log("Liga só: ", this.parkings);
     })
   }
 
@@ -41,9 +41,11 @@ export class HomePage {
   //   })
   // }
 
-  getParking() {
-    this.parkingService.getParking(this.parkings['id']).subscribe(response =>{
+  getParking(parkingId : number) {
+    console.log("Id do home, está triste: ", parkingId)
+    this.parkingService.getParking(parkingId).subscribe(response =>{
       this.park = response;
+	  this.router.navigate(["/details",{parking:JSON.stringify(this.park)}])
     })
   }
 

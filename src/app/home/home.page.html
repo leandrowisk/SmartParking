@@ -28,7 +28,7 @@
       </ng-template>
 
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" routerLink="/details/{{parking.id}}">
+        <div class="container" (click)="getParking(parking.id)">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
@@ -49,7 +49,7 @@
       </ng-template>
 
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" routerLink="/details/{{parking.id}}" *ngIf="parking.monthly">
+        <div class="container" (click)="getParking(parking.id)" *ngIf="parking.monthly">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
@@ -70,7 +70,7 @@
       </ng-template>
 
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" *ngIf="parking.user_avaliation == 5" routerLink="/details/{{parking.id}}">
+        <div class="container" *ngIf="parking.user_avaliation == 5" (click)="getParking(parking.id)">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>

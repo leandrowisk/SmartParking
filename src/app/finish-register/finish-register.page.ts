@@ -28,19 +28,30 @@ export class FinishRegisterPage implements OnInit {
       brand:  ''
     }
   }
+  
+   
+   finishRegister() {
+     this._userService.register(this.user).subscribe(response => {
+     if (response['mensagem'] == 'true') {
+        this.router.navigate(['/tabs/home']);
+     }
+     else
+        alert(response['mensagem']);
+     })
+   }
 
- 
-  // finishRegister() {
-  //   this._userService.register(this.user).subscribe(response => {
-  //   if (response == 'Cadastro criado com sucesso!') {
-  //      this.router.navigate(['/tabs/home']);
-  //   }
-  //   else
-  //      alert('erro ao cadastrar');
-  //   })
-  // }
-
-  finishRegister() {
-    this.router.navigate(['/tabs/home']);
-  }
+/* 
+   finishRegister() {
+     this._userService.register(this.user).subscribe(response => {
+     if (response == 'Cadastro criado com sucesso!') {
+        this.router.navigate(['/tabs/home']);
+     }
+     else
+        alert('erro ao cadastrar');
+     })
+   }
+*/
+ // finishRegister() {
+ //   this.router.navigate(['/tabs/home']);
+ // }
 }

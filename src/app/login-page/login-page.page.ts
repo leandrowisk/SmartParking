@@ -22,16 +22,16 @@ export class LoginPagePage implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/tabs/home']);
+    //this.router.navigate(['/tabs/home']);
+ 
+    this.params = JSON.stringify({'email': this.email, 'password': this.password})
+    console.log('parametros enviados', this.params)
+    this.loginService.login(this.params).subscribe(response => {
+        if(response['mensagem'] == 'true')
+          this.router.navigate(['/tabs/home']);
+        else
+          alert('Usuário ou senha incorretos!')
+    });
   }
-  //   this.params = JSON.stringify({'email': this.email, 'password': this.password})
-  //   console.log('parametros enviados', this.params)
-  //   this.loginService.login(this.params).subscribe(response => {
-  //       if(response == 'Logado!')
-  //         this.router.navigate(['/tabs/home']);
-  //       else
-  //         alert('Usuário ou senha incorretos!')
-  //   });
-  // }
  
 }
