@@ -14,7 +14,12 @@ export class PerfilEditPage implements OnInit {
   constructor(private route: ActivatedRoute,
               private location: Location,
               private parkingService: ParkingService,) { }
+<<<<<<< Updated upstream
 
+=======
+              
+  public params: Object;
+>>>>>>> Stashed changes
   public user: User =
   {
   "name": '',
@@ -41,6 +46,16 @@ public car: User;
     this.parkingService.getUser().subscribe(response => {
       this.user = response;
     })
+<<<<<<< Updated upstream
+=======
+  }
+
+  savePerfilEdits(): void{
+    this.params = JSON.stringify(this.user);
+    this.parkingService.savePerfilEdits(this.params).subscribe(response => {
+      console.log(response);
+    })
+>>>>>>> Stashed changes
   }
 
   goBack() {

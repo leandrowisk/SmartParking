@@ -51,11 +51,24 @@ export class ParkingService {
        return of(parking)
    }
 */
+<<<<<<< Updated upstream
    getUser(): Observable<User> {
 	this.path = this._requests.api() + '/user';
     return this.httpClient.get<User>(this.path);
     //return of(user);
 }
+=======
+    getUser(): Observable<User> {
+    this.path = this._requests.api() + '/user';
+    return this.httpClient.get<User>(this.path);
+    //return of(user);
+    }
+
+    savePerfilEdits(params: Object){
+        this.path = this._requests.api() + '/updateUserData';
+        return this.httpClient.post(this.path, params);
+    }
+>>>>>>> Stashed changes
 
    public filter(filter: Filter) {
        const results = parkings.find(

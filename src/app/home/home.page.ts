@@ -42,7 +42,10 @@ export class HomePage {
   // }
 
   getParking(parkingId : number) {
+<<<<<<< Updated upstream
     console.log("Id do home, está triste: ", parkingId)
+=======
+>>>>>>> Stashed changes
     this.parkingService.getParking(parkingId).subscribe(response =>{
       this.park = response;
 	  this.router.navigate(["/details",{parking:JSON.stringify(this.park)}])
