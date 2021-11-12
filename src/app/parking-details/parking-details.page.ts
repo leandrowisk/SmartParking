@@ -4,6 +4,8 @@ import { Parking }           from '../interfaces/Parking';
 import { ParkingService }    from '../services/Parking.service';
 import { Location }          from '@angular/common';
 import { MatCheckbox }       from '@angular/material/checkbox';
+import { UserService }       from '../services/user.service';
+import { Lease }             from '../interfaces/Lease';
 
 
 @Component({
@@ -15,6 +17,7 @@ import { MatCheckbox }       from '@angular/material/checkbox';
 export class ParkingDetailsPage implements OnInit {
 
   constructor(public route: ActivatedRoute,
+              private _userService: UserService,
               public parkingService:ParkingService,
               public location: Location,
               private router: Router) { }
@@ -26,9 +29,18 @@ export class ParkingDetailsPage implements OnInit {
   public rating;
   public checked: boolean = false;
   public monthly: boolean = false;
+  public reserveStart: Date;
+  public reserveEnd: Date;
+  public userId: number;
+  public lease: Lease;
 
   ngOnInit() {
     this.getParking();
+    // if (this.route.snapshot.params['parking']) 
+    //     this.parking = JSON.parse(this.route.snapshot.params['parking']);
+    //     this.rating = new Array(this.parking.user_avaliation);
+    //     this.subtotal = this.parking.hour_price;
+    //     console.log('parking detail: ',this.parking);
   }
 
   rentSpace() {
@@ -49,8 +61,11 @@ export class ParkingDetailsPage implements OnInit {
       this.monthly = true;
     else
       this.monthly = false;
+  //   this.parkingService.getParking(id).subscribe(response => {this.parking = response;});
+	// console.log(this.parking);
+  //   this.rating = new Array(this.parking.user_avaliation);
+  //   this.totalValue = this.parking.price;
   }
-
 
   addService(event) {
     this.checked = true;
@@ -64,15 +79,33 @@ export class ParkingDetailsPage implements OnInit {
     } 
   }
 
+  getUser() {
+    this._userService.getUser().subscribe(user => {
+      this.userId = user.id;
+    })
+  }
   goBack(): void {
     this.location.back();
   }
 
   rentVacancy() {
     if (this.monthly)
-      this.router.navigate(['/payment-options', { monthly: this.monthly, value: this.subtotal }])
-    else
-      this.router.navigate(['/tabs/QRCode'])
+      this.router.navigate(['/payment-options', { monthly: this.monthly, value: this.subtotal, leaseValue: this.parking.monthly_price }])
+    else {
+      this.reserveStart = new Date();
+      this.reserveStart = new Date();
+      this.reserveStart.setMinutes(this.reserveStart.getMinutes() + 15);
+      this.router.navigate(['/reserve'])
+    }
   }
 
+  reserveVacancy() {
+    let reserveLease = {
+      'user_id': this.userId,
+      'reserve_start': this.reserveStart,
+      'reserve_end': this.reserveStart,
+    }
+    console.log('reserva normal', reserveLease);
+  }
+ 
 }

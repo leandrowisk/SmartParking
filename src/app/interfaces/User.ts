@@ -13,27 +13,12 @@ export interface User {
 
 export interface Car {
     color: string;
-    brand: carBrand;
-    model: carModel;
-    category: carCategory;
+    brand: string;
+    model: string;
+    category: string;
     chassi: string;
     renavam: number;
     plaque: string;
-}
-
-export interface carCategory {
-    name: string;
-    id: number;
-}
-
-export interface carBrand {
-    name: string;
-    id: number;
-}
-
-export interface carModel {
-    name: string;
-    id: number;
 }
 
 export interface Historic {

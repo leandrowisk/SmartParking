@@ -4,12 +4,10 @@ import { Location }                                  from '@angular/common';
 import jsQR                                          from 'jsqr';
 import { UserService }                               from '../services/user.service';
 import { ParkingService }                            from '../services/Parking.service';
-import { MatSnackBar, 
-         MatSnackBarHorizontalPosition, 
-         MatSnackBarVerticalPosition }               from '@angular/material/snack-bar';
 import { RequestsService }                           from '../services/requests.service';
 import { HttpClient, HttpParams }                    from '@angular/common/http';
 import { FinancialService }                          from '../services/financial.service';
+import { MessageService }                            from '../services/message.service';
 
 @Component({
   selector: 'app-scan',
@@ -25,24 +23,28 @@ export class ScanPage implements OnInit {
   public scanResult = null;
   public loading = true;
   public today = new Date();
-  public userName: string;
+  public userId: number;
   public entranceQrCode: string;
   public exitQrCode: string;
   public qrCode: string;
   public lease: string;
+  public messageBlock: string = `Você não tem uma locação ativa, verifique seus dados!
+  no caso de mais 2 tentativas de acesso seu usuário será bloqueado por 15 dias`;
+  public messageRevision: string = `Verifique se o código escaneado está correto ou tente de um novo angulo e iluminação! 
+  Caso o erro persista dirija se ao atendimento para liberarem o acesso. Obrigado.`;
+  public tryNumber: number = 0;
   @ViewChild('video') video: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   videoElement: any;
   canvasElement: any;
   canvasContext: any;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
 
   constructor(private router: Router,
               private location: Location,
               public route: ActivatedRoute,
               public _user: UserService,
-              private _userMessage: MatSnackBar,
+              private _messageService: MessageService,
               private apiService: RequestsService,
               private httpClient: HttpClient,
               private _financialService: FinancialService
@@ -68,7 +70,7 @@ export class ScanPage implements OnInit {
 
   getUser() {
     this._user.getUser().subscribe(user => {
-      this.userName = user.name;
+      this.userId = user.id;
     });
   }
 
@@ -127,9 +129,10 @@ export class ScanPage implements OnInit {
 
       if (qrCode) {
         this.qrCode = qrCode.data;
-        let scanDate = `${this.today.getHours()}':'${this.today.getMinutes()}':'${this.today.getSeconds()}`;
+        let scanDate = new Date();
+        console.log('data do scan', scanDate)
         let QRData = {
-          'user_name': this.userName,
+          'user_id': this.userId,
           'date': scanDate,
           'QrCode': qrCode.data
         }
@@ -171,21 +174,12 @@ export class ScanPage implements OnInit {
 
 
   blockMessage() {
-    this._userMessage.open(`Você não tem uma locação ativa, verifique seus dados!
-     no caso de mais 2 tentativas de acesso seu usuário será bloqueado por 15 dias`, '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration:  10000
-   });
+    this.tryNumber += 1;
+    this._messageService.showMessage(this.messageBlock, 7000);
   }
 
   revisionMessage() {
-    this._userMessage.open(`Verifique se o código escaneado está correto ou tente de um novo angulo e iluminação! 
-    Caso o erro persista dirija se ao atendimento para liberarem o acesso. Obrigado.`, '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration:  10000
-   });
+    this._messageService.showMessage(this.revisionMessage, 7000);
   }
 
   validateQrCode(qrCode: Object): any {
@@ -215,11 +209,11 @@ export class ScanPage implements OnInit {
     } 
     else 
       this.rejectExitCode();
-    
-  }
+    }
 
 
   rejectEntranceCode() {
+    this.router.navigate(['/tabs/QRCode']);
     if (this.activeEntrance && this.entranceQrCode != this.qrCode && !this.lease || 
       this.activeEntrance && this.entranceQrCode == this.qrCode && !this.lease)
       this.blockMessage()
@@ -229,6 +223,7 @@ export class ScanPage implements OnInit {
   }
 
   rejectExitCode() {
+    this.router.navigate(['/tabs/QRCode']);
     if (this.activeExit && this.exitQrCode  != this.qrCode && !this.lease ||
       this.activeExit && this.exitQrCode  == this.qrCode && !this.lease)
       this.blockMessage()

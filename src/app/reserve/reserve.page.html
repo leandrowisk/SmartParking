@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>
+      <div class="header-title">
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+      Vaga Reservada
+      </div>
+    </ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="reserve-title">
+   <h2>Vaga Reservada</h2>
+   <img src="../../assets/images/LeaseConfirm.jpg">
+  </div>
+   <p>O tempo de reserva de uma vaga é de 15 minutos, se após esse tempo sua entrada não for validada sua locação será encerrada.</p>
+   <button mat-raised-button class="qr-code" routerLink="/tabs/QRCode">Escanear QrCode</button>
+   <button mat-raised-button class="home" routerLink="/tabs/home">Voltar</button>
+
+</ion-content>

@@ -1,10 +1,8 @@
+import { MessageService }            from './../services/message.service';
 import { Component, OnInit }         from '@angular/core';
 import { ActivatedRoute, Router }    from '@angular/router';
 import { User }                      from '../interfaces/User';
 import { Location }                  from '@angular/common';
-import { MatSnackBar, 
-         MatSnackBarHorizontalPosition, 
-         MatSnackBarVerticalPosition }   from '@angular/material/snack-bar';
 import { FormBuilder, 
          FormGroup, 
          Validators,   
@@ -14,6 +12,7 @@ import { Camera,
          CameraOptions }     from '@ionic-native/camera/ngx';
 import { AlertController, 
          Platform }          from '@ionic/angular';
+import { ParkingService }    from '../services/Parking.service';
 
 
 @Component({
@@ -30,15 +29,14 @@ export class PerfilEditPage implements OnInit {
   public hide = true;
   public mobile: boolean = false;
   public mobileWeb: boolean = false;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  public sucessMessage: string = 'Dados atualizados com sucesso!'
   form: FormGroup;
   public emailValidator = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   constructor(private route: ActivatedRoute,
               private location: Location,
               private router: Router,
-              private _userMessage: MatSnackBar,
+              private _messageService: MessageService,
               private formBuilder: FormBuilder,
               private webView: WebView,
               private camera: Camera,
@@ -56,17 +54,39 @@ export class PerfilEditPage implements OnInit {
     this.validateFormFields();
   }
 
+  
+  initializeUser() {
+    this.user =  {
+      "id": 0,
+      "name": '',
+      "email": '',
+      "address": "",
+      "cpf": "",
+      "birthday": "",
+      "phone": '',
+      "sex": "",
+      "car":{
+        "color": "",
+        "category": '',
+        "brand": '',
+        "model": '',
+        'renavam': 0,
+        'plaque': '',
+        'chassi': ''
+    },
+      "password": ""
+  }
+  }
+ 
+public car: User;
+
   accept() {
     this.acess = false;
   }
 
   validateUser() {
     this.router.navigate(['/register-informations']);
-    this._userMessage.open('Dados atualizados com sucesso!', '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: 5000
-   });
+    this._messageService.showMessage(this.sucessMessage, 5000)
   }
 
   validateFormFields() {
@@ -78,7 +98,14 @@ export class PerfilEditPage implements OnInit {
       color: [this.user.car.color, Validators.required]
 
     });
+    // this.getUser();
   }
+
+  // getUser(): void{
+  //   this.parkingService.getUser().subscribe(response => {
+  //     this.user = response;
+  //   })
+  // }
 
   imageSelected(event) {
     this.selectedImage = event.target.files[0];

@@ -8,8 +8,9 @@ import { FormBuilder,
          FormControl, 
          FormGroup, 
          Validators, 
-         FormsModule }                from '@angular/forms';
-import {Location} from '@angular/common';
+         FormsModule }               from '@angular/forms';
+import { Location }                  from '@angular/common';
+import { MessageService }            from '../services/message.service';
 
 
 @Component({
@@ -24,10 +25,11 @@ export class RegisterPagePage implements OnInit {
               public location: Location,
               public router: Router,
               private formBuilder: FormBuilder,
-              private _userMessage: MatSnackBar) {}
+              private _messageService: MessageService) {}
 
   public user: User;
   public sex = '';
+  public invalidParamsMessage: string = 'Dados inválidos, verifique suas informações e tente novamente';
   hide = true;
   public params: any;
   form: FormGroup;
@@ -67,7 +69,7 @@ export class RegisterPagePage implements OnInit {
       email: [this.user.email, Validators.pattern(this.emailValidator)],
       endereco: [this.user.address, Validators.required],
       phone: [this.user.phone, this.user.phone],
-      birthday: [this.user.birthday, Validators.required,],
+      birthday: [this.user.birthday, Validators.required],
       sex: [this.user.sex, Validators.required]
     });
   }
@@ -80,16 +82,10 @@ export class RegisterPagePage implements OnInit {
       this.user = this.form.value;
       this.router.navigate(['/finish-register',  {user: JSON.stringify(this.user), skipLocationChange: true}]);
     }
-      
   }
   
   invalidParams() {
-    this._userMessage.open('Dados inválidos, verifique suas informações e tente novamente', '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: 5 * 1000,
-      panelClass: ['invalid-data-message']
-   });
+    this._messageService.showMessage(this.invalidParamsMessage, 5000)
   }
 
   goBack() {

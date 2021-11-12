@@ -90,6 +90,10 @@ const routes: Routes = [
   {
     path: 'forget-password',
     loadChildren: () => import('./forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
+  {
+    path: 'reserve',
+    loadChildren: () => import('./reserve/reserve.module').then( m => m.ReservePageModule)
   }
 ];
 @NgModule({

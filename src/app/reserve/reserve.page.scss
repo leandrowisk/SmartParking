@@ -1,0 +1,42 @@
+.reserve-title {
+    margin-top: 30%;
+}
+
+button {
+    display: flex;
+    align-items:center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    width: 80vw;
+    height: 48px;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.qr-code {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.home {
+    background-color: black;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+}
+
+p {
+    margin-top: 32px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+img {
+    width: 40%;
+    margin-left: 30%;
+}

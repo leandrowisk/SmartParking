@@ -13,33 +13,20 @@
 
 <ion-content>
   <form [formGroup]="form">
-  <mat-form-field appearance="outline" class="form-input">
-    <mat-select name="category" placeholder="Categoria do veiculo" formControlName="category" > 
-      <mat-option *ngFor="let category of categories" [value]="category.name">
-        {{category.name}}
-      </mat-option>
-    </mat-select>
+
+  <mat-form-field class="form-input" appearance='outline' color='primary'>
+    <mat-label>Modelo:</mat-label>
+    <input matInput  formControlName="model">
   </mat-form-field>
 
-  <mat-form-field appearance="outline"  class="form-input" *ngIf="form.value.category">
-    <mat-select name="model" placeholder="Modelo do veiculo" formControlName="model"> 
-      <mat-option *ngFor="let model of models" [value]="model.name">
-        {{model.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline" class="form-input">
-    <mat-select  name="brand" placeholder="Marca do veiculo" formControlName="brand"> 
-      <mat-option *ngFor="let brand of brands">
-        {{brand.name}}
-      </mat-option>
-    </mat-select>
+  <mat-form-field class="form-input" appearance='outline' color='primary'>
+    <mat-label>Marca:</mat-label>
+    <input matInput  formControlName="brand">
   </mat-form-field>
 
   <mat-form-field class="form-input" appearance='outline' color='primary'>
     <mat-label>Placa:</mat-label>
-    <input matInput  formControlName="plaque">
+    <input matInput formControlName="plaque">
   </mat-form-field>
 
   

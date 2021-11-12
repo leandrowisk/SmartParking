@@ -22,25 +22,40 @@ export class ParkingService {
                private _requests: RequestsService
    ){}
    
-//    getParkings(): Observable<Parking[]> {
-//        this.path = this._requests.api() + '/estacionamentos';
-//        return this.httpClient.get<Parking[]>(this.path);
-//    }
+    getParkings(): Observable<Parking[]> {
+        this.path = this._requests.api() + '/parkingLots';
+        return this.httpClient.get<Parking[]>(this.path);
+    }
 
-//    getParking(id: number): Observable<Parking> {
-//        this.path = this._requests.api() + '/estacionamento';
-//        let params = new HttpParams().set('id_estabelecimento', id)
-//        return this.httpClient.get<Parking>(this.path, { params })
-//    }
+    // getParking(id: number): Observable<any> {
+    //     this.path = this._requests.api() + '/parkingLotsById';
+    //     let params = new HttpParams().set('id_estabelecimento', id)
+    //     console.log(id);
+	//     return this.httpClient.get(this.path,{'params' : params})
+    // }
+
+    getParkingHistoric(): Observable<any> {
+        this.path = this._requests.api() + '/historic';
+        return this.httpClient.get(this.path);
+        //let params = new HttpParams().set('id_user', id)
+	    //return this.httpClient.get(this.path,{'params' : params})
+    }
+/*
 
    getParkings(): Observable<Parking[]> {
        return of(parkings);
    }
-
+*/
    getParking(id: number){
        const parking = parkings.find(park => park.id == id)
        return of(parking)
    }
+
+
+//    getUser(): Observable<User> {
+// 	this.path = this._requests.api() + '/user';
+//     return this.httpClient.get<User>(this.path);
+//    }
 
    public filter(filter: Filter) {
        const results = parkings.find(

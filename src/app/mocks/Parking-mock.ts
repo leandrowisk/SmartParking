@@ -70,18 +70,9 @@ export const user: User =
     "sex": "Masculino",
     "car": {
         "color": "Preto Fosco",
-        "brand": {
-            "id": 1,
-            "name": "Ford"
-        },
-        "model": {
-            "id": 4,
-            "name":"Mustang"
-        },
-        "category": {
-            "id":6,
-            "name": "pickup"
-        },
+        "brand": 'ford',
+        "model": "Mustang",
+        "category":  "pickup",
         "chassi": '78787',
         "renavam": 1245,
         "plaque": "123445"

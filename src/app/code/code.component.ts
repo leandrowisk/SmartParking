@@ -1,11 +1,9 @@
-import { MatSnackBar, 
-         MatSnackBarHorizontalPosition, 
-         MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Component, OnInit }           from '@angular/core';
 import { Location }                    from '@angular/common';
 import { ActivatedRoute, Router }      from '@angular/router';
 import { FinancialService }            from '../services/financial.service';
-import { UserService } from '../services/user.service';
+import { UserService }                 from '../services/user.service';
+import { MessageService }              from '../services/message.service';
 
 
 @Component({
@@ -23,13 +21,16 @@ export class CodeComponent implements OnInit {
   public lease: boolean = false;
   public code: number;
   public userId: number;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  public messageRevision = `Verifique se o código digitado está correto! Caso o erro persista dirija se ao 
+  atendimento para liberarem o acesso Obrigado.`;
+  public messageBlock = `Você não tem uma locação ativa, verifique seus dados!
+  no caso de mais 2 tentativas de acesso seu usuário será bloqueado por 15 dias`;
+  public tryNumber: number = 0;
 
   constructor(public location: Location,
               public route: ActivatedRoute,
               public router: Router,
-              private _userMessage: MatSnackBar,
+              private _messageService: MessageService,
               private _userService: UserService,
               private _financialService: FinancialService) { }
 
@@ -71,22 +72,14 @@ export class CodeComponent implements OnInit {
   // }
 
   blockMessage() {
-    this._userMessage.open(`Você não tem uma locação ativa, verifique seus dados!
-     no caso de mais 2 tentativas de acesso seu usuário será bloqueado por 15 dias`, '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration:  10000
-   });
+    this.router.navigate(['/tabs/QRCode']);
+    this.tryNumber += 1;
+    this._messageService.showMessage(this.messageBlock, 7000);
   }
 
   revisionMessage() {
-    this._userMessage.open(`Verifique se o código digitado está correto! Caso o erro persista dirija se ao atendimento para liberarem o acesso.
-    Obrigado.`, '',{
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration:  10000
-   });
-
+    this.router.navigate(['/tabs/QRCode']);
+    this._messageService.showMessage(this.messageRevision, 7000);
   }
  
   rejectEntranceCode() {

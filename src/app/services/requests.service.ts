@@ -6,16 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RequestsService {
-  public apiUrl: string = '';
+  public apiUrl: string = 'http://127.0.0.1:5000';
 
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit() {
-	this.api();
+	  this.api();
   }
 
   api(): string {
-	  this.apiUrl = ''
 	  return this.apiUrl;
   }
 

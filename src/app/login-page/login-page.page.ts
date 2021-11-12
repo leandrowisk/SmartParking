@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
+import { Router }            from '@angular/router';
+import { LoginService }      from '../services/login.service';
+import { MessageService }    from '../services/message.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,9 +14,11 @@ export class LoginPagePage implements OnInit {
   public params: Object;
   public email: string;
   public password: string;
+  public errorMessage: string = 'Usuário ou senha incorretos!';
 
   constructor(private loginService: LoginService,
-              private router: Router) { }
+              private router: Router,
+              private _messageService: MessageService) { }
   
 
   ngOnInit() {
@@ -23,15 +26,16 @@ export class LoginPagePage implements OnInit {
 
   login() {
     this.router.navigate(['/tabs/home']);
-  }
+ 
   //   this.params = JSON.stringify({'email': this.email, 'password': this.password})
   //   console.log('parametros enviados', this.params)
   //   this.loginService.login(this.params).subscribe(response => {
-  //       if(response == 'Logado!')
+  //       if(response['mensagem'] == 'true')
   //         this.router.navigate(['/tabs/home']);
   //       else
-  //         alert('Usuário ou senha incorretos!')
+  //         this._messageService.showMessage(this.errorMessage, 5000);
   //   });
   // }
  
+  }
 }

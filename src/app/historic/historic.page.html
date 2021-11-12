@@ -21,15 +21,15 @@
     <span class="header-collumn">Preço</span>
   </div>
 
-  <div class="line">
-      <span class="line-content">Estacionamento Sol nascente</span>
+  <div class="line" *ngFor="let historic of historics">
+      <span class="line-content">{{historic.parking_name}}</span>
       <div class="line-content date">
-        <span class="day">13/11/2021</span>
-        <span>20:30</span>
+        <span class="day">{{historic.date}}</span>
+        <span>{{historic.timeIn}}</span>
         <mat-icon>arrow_downward</mat-icon>
-        <span>20:30</span>
+        <span>{{historic.timeOut}}</span>
       </div>
-      <span class="line-content value">R$50</span>
+      <span class="line-content value">{{historic.price}}</span>
   </div>
 </div>
 

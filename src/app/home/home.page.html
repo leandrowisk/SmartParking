@@ -24,9 +24,9 @@
         <ion-icon class="tab-icon" name="home-outline"></ion-icon>
         <span>Todos</span>
       </ng-template>
-
+      <!-- (click)="getParking(parking.id)" -->
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" routerLink="/details/{{parking.id}}">
+        <div class="container"  routerLink="/details/{{parking.id}}">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
@@ -46,9 +46,9 @@
         <ion-icon class="tab-icon" name="calendar-outline"></ion-icon>
         <span>Mensais</span>
       </ng-template>
-
+      <!-- (click)="getParking(parking.id)" -->
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" routerLink="/details/{{parking.id}}" *ngIf="parking.monthly">
+        <div class="container"   routerLink="/details/{{parking.id}}" *ngIf="parking.monthly">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
@@ -70,7 +70,8 @@
       </ng-template>
 
       <ng-container *ngFor="let parking of parkings">
-        <div class="container" *ngIf="parking.user_avaliation == 5" routerLink="/details/{{parking.id}}">
+        <!-- (click)="getParking(parking.id)" -->
+        <div class="container" *ngIf="parking.user_avaliation == 5"  routerLink="/details/{{parking.id}}">
           <img src="{{parking.image_url}}">
           <div class="avaliation">
             <ion-icon *ngFor="let rating of rating(parking.user_avaliation)" class="star" name="star"></ion-icon>
