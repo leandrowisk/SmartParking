@@ -5,6 +5,7 @@ import { IonicModule }                   from '@ionic/angular';
 import { RegisterCardPageRoutingModule } from './register-card-routing.module';
 import { RegisterCardPage }              from './register-card.page';
 import { MaterialModule }                from '../material.module';
+import { NgxMaskModule, IConfig }          from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { MaterialModule }                from '../material.module';
     FormsModule,
     IonicModule,
     RegisterCardPageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [RegisterCardPage]
 })

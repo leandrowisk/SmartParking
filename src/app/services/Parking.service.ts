@@ -47,8 +47,9 @@ export class ParkingService {
    }
 
    getParking(id: number){
-       const parking = parkings.find(park => park.id == id)
-       return of(parking)
+        let params = new HttpParams().set('id', id)
+        this.path = this._requests.api() + '/parkingLotsById';
+        return this.httpClient.get<Parking>(this.path,{'params' : params});
    }
 */
 <<<<<<< Updated upstream
@@ -64,9 +65,36 @@ export class ParkingService {
     //return of(user);
     }
 
+<<<<<<< Updated upstream
     savePerfilEdits(params: Object){
         this.path = this._requests.api() + '/updateUserData';
         return this.httpClient.post(this.path, params);
+    }
+>>>>>>> Stashed changes
+=======
+   getMonthlyLease():Observable<any>{
+    this.path = this._requests.api() + '/monthlyLease';
+    return this.httpClient.get<User>(this.path);
+    }
+
+    addMonthlyLease(params: any):Observable<any>{
+        this.path = this._requests.api() + '/addMonthlyLease';  
+        return this.httpClient.post(this.path, params);
+    }
+
+    cancelMonthlyLease(params: any) {
+        this.path = this._requests.api() + '/cancelMonthlyLease';  
+        return this.httpClient.post(this.path, params);
+    }
+
+    scheduleRents(params: any) {
+        this.path = this._requests.api() + '/scheduleRents';  
+        return this.httpClient.post(this.path, params);
+    }
+
+    getUser(): Observable<User> {
+    this.path = this._requests.api() + '/user';
+     return this.httpClient.get<User>(this.path);
     }
 >>>>>>> Stashed changes
 

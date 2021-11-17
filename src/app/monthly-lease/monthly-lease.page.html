@@ -13,8 +13,24 @@
 </ion-header>
 
 <ion-content>
+
+  <form [formGroup]="form">
+    <div class="confirm-acess" *ngIf="!acess">
+      <h2 class="password-title">Insira a senha para prosseguir</h2>
+      <div class='password-container'>
+        <mat-form-field class="form-input" appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-icon class="confirm-password" (click)="save(id)">check_circle</mat-icon>
+      </div>
+    </div>
     
-  <mat-tab-group dynamicHeight mat-align-tabs="center" mat-stretch-tabs>
+  <mat-tab-group dynamicHeight mat-align-tabs="center" mat-stretch-tabs *ngIf="acess">
 
     <mat-tab>
 
@@ -26,19 +42,22 @@
       <h1>Contratos ativos</h1>
    
     <div *ngFor="let monthlyLease of monthlyLeases">
-      <mat-card>
+      <mat-card *ngIf="monthlyLease.ic_active == 1">
         <mat-card-title>{{monthlyLease.parkingName}}</mat-card-title>
-        <mat-card-content>
+        <mat-card-content >
           <div class="card-content">
             <span>Valido até:{{monthlyLease.expirationDate}}</span>
-            <span>Cartão final {{monthlyLease.lastNumberCreditCard}}</span>
-            <span class="value">R${{monthlyLease.value}}</span>
+            <span>Cartão final: {{monthlyLease.lastNumberCreditCard}}</span>
+            <span class="value">Valor: R${{monthlyLease.value}}</span>
           </div>
 
-
           <div class="buttons">
+<<<<<<< Updated upstream
           <button mat-button class="renew">Renovar Contrato </button>
           <button mat-button class="cancel">Cancelar Contrato</button>
+=======
+          <button mat-button class="cancel" (click)="accept(monthlyLease.id)">Cancelar Contrato</button>
+>>>>>>> Stashed changes
         </div>
         </mat-card-content>
       </mat-card>
@@ -56,13 +75,13 @@
       </div>
 
     <div *ngFor="let monthlyLease of monthlyLeases">
-      <mat-card>
+      <mat-card  *ngIf="monthlyLease.ic_active == 0">
         <mat-card-title>{{monthlyLease.parkingName}}</mat-card-title>
         <mat-card-content>
           <div class="card-content">
-            <span>Valido até:{{monthlyLease.expirationDate}}</span>
-            <span>Cartão final {{monthlyLease.lastNumberCreditCard}}</span>
-            <span class="value">R${{monthlyLease.value}}</span>
+            <span>Cancelado</span>
+            <span>Cartão final: {{monthlyLease.lastNumberCreditCard}}</span>
+            <span class="value">Valor: R${{monthlyLease.value}}</span>
           </div>
 
           <div class="buttons">
@@ -71,8 +90,8 @@
         </div>
         </mat-card-content>
       </mat-card>
-    </div>
-
+    </div>      
     </mat-tab>
   </mat-tab-group>
+</form>
 </ion-content>

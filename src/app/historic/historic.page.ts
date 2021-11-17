@@ -28,6 +28,7 @@ export class HistoricPage implements OnInit {
   getHistoric(): void{
     this.parkingService.getParkingHistoric().subscribe(response => {
       this.historics = response;
+      console.log(response); 
     })
   }
 

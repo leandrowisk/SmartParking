@@ -28,6 +28,7 @@ export class HomePage {
     this.getParkings();
   }
 
+<<<<<<< Updated upstream
   getParkings(): void{
     this.parkingService.getParkings().subscribe(response => {
     this.parkings = response;
@@ -40,6 +41,14 @@ export class HomePage {
   //      this.park = parking
   //   })
   // }
+=======
+
+  getParkings(): void{
+     this.parkingService.getParkings().subscribe(response => {
+     this.parkings = response;
+     })
+   }
+>>>>>>> Stashed changes
 
   getParking(parkingId : number) {
 <<<<<<< Updated upstream

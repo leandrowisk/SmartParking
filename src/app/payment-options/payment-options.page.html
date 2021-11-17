@@ -22,14 +22,15 @@
     <h2 class="title">Cartões cadastrados</h2>
   </div>
 
-    <ion-item class="credit-cards">
+    <ion-item class="credit-cards" *ngFor="let card of creditCards">
       <img src="../../assets/images/visa.png">
         <div class="card-name"> 
           <span class="flag-name">Mastercard</span>
-          <span>final: 5210</span>
+          <span>final: {{card.numberCard.substring(card.numberCard.length-4,card.numberCard.length)}}</span>
         </div>
-        <ion-checkbox class="checkbox" mode="ios"></ion-checkbox>
+        <ion-checkbox class="checkbox" mode="ios" (click)="setIdCreditCard(card.id_card)"></ion-checkbox>
       </ion-item>
+
   </div>
 
   <div class="add-new-card" routerLink="/register-card">
@@ -39,12 +40,16 @@
 
   <div class="default-card">
     <span>Salvar como Padrão</span>
-    <ion-toggle></ion-toggle>
+    <ion-toggle [(ngModel)]="asDefaultBoolean"></ion-toggle>
   </div>
 
   <button mat-button class="payment-button" routerLink="/paid">
     <span>Pagar</span>
+<<<<<<< Updated upstream
     <span class="value">R$100</span>
+=======
+    <span class="value">R$ {{leaseValue}}</span>
+>>>>>>> Stashed changes
   </button>
   
   

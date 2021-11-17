@@ -25,7 +25,18 @@
 
 <mat-form-field class="form-input" appearance='outline' color="primary">
     <mat-label>Endereço:</mat-label>
+<<<<<<< Updated upstream
     <input type="text" matInput [(ngModel)]="user.address">
+=======
+    <input type="text" matInput formControlName="address">
+</mat-form-field>
+
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+  <mat-label>Telefone:</mat-label>
+  <input matInput formControlName="phone" mask="(00) 00000-0000">
+  <mat-error *ngIf="form.get('phone').hasError('pattern')">Insira um telefone válido</mat-error>
+>>>>>>> Stashed changes
 </mat-form-field>
 
 

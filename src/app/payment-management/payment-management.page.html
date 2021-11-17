@@ -23,7 +23,7 @@
           <img src="../../assets/images/mastercard-logo-7.png" class="card-flag">
      
         <div class="name-container">
-          <span class="card-number">{{card.numberCard}}</span>
+          <span class="card-number" >{{card.numberCard}}</span>
           <span class="card-name">{{card.ownerName}}</span>
         </div>
         <div class="valid-container">
@@ -33,7 +33,7 @@
       </div>
     </ion-item>
 
-    <div class="remove-card" (click)="removeCardConfirmation()">
+    <div class="remove-card" (click)="removeCardConfirmation(card.id_card)">
       <mat-icon>remove_circle_outline</mat-icon>
       <span>Remover Cartão</span>
     </div>

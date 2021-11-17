@@ -13,6 +13,81 @@
 </ion-header>
 
 <ion-content>
+<<<<<<< Updated upstream
+=======
+
+<form [formGroup]="form">
+  <div class="confirm-acess" *ngIf="!acess">
+    <h2 class="password-title">Insira a senha para prosseguir</h2>
+    <div class='password-container'>
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keypress)="validateUser()">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-icon class="confirm-password" (click)="save()">check_circle</mat-icon>
+    </div>
+  </div>
+
+  <div class="perfil-image-container" *ngIf="mobileWeb">
+    <ion-avatar>
+      <img src="{{imageUrl}}">
+    </ion-avatar>
+    <h2 class="welcome-message">{{user.name}}</h2>
+    <input type="file" accept=".png, .jpg, .jpeg" (change)="imageSelected($event)" #imageUploadaccept>
+    <div class="add-image">
+      <span class="change-image" *ngIf="imageUrl" (click)="imageUploadaccept.click()">
+        Mudar imagem de perfil
+      </span>
+      <span class="change-image" *ngIf="!imageUrl" (click)="imageUploadaccept.click()">
+        Adicionar imagem de perfil
+      </span>
+      <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+    </div>
+  </div>
+
+  <div class="perfil-image-container" *ngIf="mobile">
+    <ion-avatar>
+      <img src="{{perfilImage}}">
+    </ion-avatar>
+    <h2 class="welcome-message">{{user.name}}</h2>
+    <div class="add-image">
+      <span class="change-image" *ngIf="imageUrl" (click)="chooseImage()">
+        Mudar imagem de perfil
+      </span>
+      <span class="change-image" *ngIf="!imageUrl" (click)="chooseImage()">
+        Adicionar imagem de perfil
+      </span>
+      <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+    </div>
+  </div>
+
+
+    <div class="container" *ngIf="acess">
+      <h2 class="title">Informações pessoais</h2>
+      <div class="form-container">
+        <mat-form-field class="form-input" appearance='outline' color="primary">
+          <mat-label>E-mail:</mat-label>
+          <input type="email" matInput formControlName="email">
+          <mat-error *ngIf="form.get('email').hasError('pattern')">Formato de email inválido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-input" appearance='outline' color="primary">
+          <mat-label>Endereço:</mat-label>
+          <input type="text" matInput formControlName="address">
+          <mat-error *ngIf="form.get('address').hasError('required')">Este campo é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-input" appearance='outline' color="primary">
+          <mat-label>Telefone:</mat-label>
+          <input type="text" matInput formControlName="phone" mask="(00) 00000-0000">
+          <mat-error *ngIf="form.get('phone').hasError('required')">Este campo é obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+>>>>>>> Stashed changes
 
 <h2 class="title">Informações pessoais</h2>
 <div class="form-container">

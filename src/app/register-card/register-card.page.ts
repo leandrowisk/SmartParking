@@ -26,6 +26,7 @@ export class RegisterCardPage implements OnInit {
   }
 
   save(){
+<<<<<<< Updated upstream
     this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
     console.log('parametros enviados', this.params)
     this.userService.addCreditCards(this.params).subscribe(response => {
@@ -34,6 +35,19 @@ export class RegisterCardPage implements OnInit {
         else
           alert('Erro ao inserir')
     });
+=======
+     this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
+     console.log('parametros enviados', this.params)
+     this.userService.addCreditCards(this.params).subscribe(response => {
+      if (response["mensagem"]=="true"){
+        this.router.navigate(['/tabs/options']);
+        this._messageService.showMessage(this.sucessMessage, 5000)
+      }else{
+        console.log(response["mensagem"]);
+        this._messageService.showMessage(response["mensagem"], 5000);
+      }
+     });
+>>>>>>> Stashed changes
   }
   goBack() {
     this.location.back();
@@ -41,7 +55,7 @@ export class RegisterCardPage implements OnInit {
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+    if (charCode > 32 && (charCode < 48 || charCode > 57)) {
       return false;
     }
     return true;

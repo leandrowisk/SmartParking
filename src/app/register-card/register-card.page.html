@@ -27,7 +27,7 @@
           <mat-icon>credit_card</mat-icon>
           Numero
         </mat-label>
-        <input matInput (keypress)="numberOnly($event)" [(ngModel)]="numberCard">
+        <input matInput (keypress)="numberOnly($event)" [(ngModel)]="numberCard" mask="0000 0000 0000 0000">
       </mat-form-field>
 
       <div class="flex-container">

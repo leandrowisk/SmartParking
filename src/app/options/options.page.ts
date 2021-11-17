@@ -19,6 +19,7 @@ export class OptionsPage implements OnInit {
     private router: Router
     ) { }
 
+<<<<<<< Updated upstream
 	public user: User =
 		{
 		"name": '',
@@ -42,11 +43,52 @@ export class OptionsPage implements OnInit {
       this.user = response;
     })
   }
+=======
+    initializeUser() {
+      this.user =  {
+        "id": 0,
+        "name": '',
+        "email": '',
+        "address": "",
+        "cpf": "",
+        "birthday": "",
+        "phone": '',
+        "sex": "",
+        "car":{
+          "color": "",
+          "category": '',
+          "brand": '',
+          "model": '',
+          'renavam': 0,
+          'plaque': '',
+          'chassi': ''
+      },
+        "password": ""
+    }
+    }
+   
+
+  ngOnInit() {
+    this.initializeUser();
+	  this.getUser();
+  }
+  
+   getUser(): void{
+     this.parkingService.getUser().subscribe(response => {
+       this.user = response;
+     })
+   }
+>>>>>>> Stashed changes
   
   async logoutConfirmationMessage() {
    const alert = await this.alertController.create({
       message: 'Tem certeza que deseja sair',
-      buttons: ['Cancelar', 'Sair']
+      buttons: ['Cancelar', {
+        text: 'Sim',
+        handler: (data: any) => {
+          this.router.navigate(['/login-page']);
+        }
+      }]
     });
     alert.present();
   }
