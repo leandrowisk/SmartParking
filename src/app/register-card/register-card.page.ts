@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
 import { UserService }       from '../services/user.service';
 import { Router }            from '@angular/router';
-import { MessageService }    from '../services/message.service';
 
 @Component({
   selector: 'app-register-card',
@@ -14,8 +13,7 @@ export class RegisterCardPage implements OnInit {
   constructor(
     private location: Location,
     private userService : UserService,
-    private router : Router,
-    private _messageService: MessageService
+    private router : Router
   ) { }
 
   ownerName: String;
@@ -23,21 +21,33 @@ export class RegisterCardPage implements OnInit {
   expirationDate: Date;
   secCode : number
   public params: Object;
-  public sucessMessage: string = 'Cartão Adicionado';
-  public errorMessage: string = 'Erro ao inserir';
 
   ngOnInit() {
   }
 
   save(){
-    // this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
-    // console.log('parametros enviados', this.params)
-    // this.userService.addCreditCards(this.params).subscribe(response => {
-    //     if(response['mensagem'] == 'true')
-    //        this._messageService.showMessage(this.sucessMessage, 5000)
-    //     else
-    //       this._messageService.showMessage(this.errorMessage, 5000)
-    // });
+<<<<<<< Updated upstream
+    this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
+    console.log('parametros enviados', this.params)
+    this.userService.addCreditCards(this.params).subscribe(response => {
+        if(response['mensagem'] == 'true')
+        alert('Cartão Adicionado')
+        else
+          alert('Erro ao inserir')
+    });
+=======
+     this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
+     console.log('parametros enviados', this.params)
+     this.userService.addCreditCards(this.params).subscribe(response => {
+      if (response["mensagem"]=="true"){
+        this.router.navigate(['/tabs/options']);
+        this._messageService.showMessage(this.sucessMessage, 5000)
+      }else{
+        console.log(response["mensagem"]);
+        this._messageService.showMessage(response["mensagem"], 5000);
+      }
+     });
+>>>>>>> Stashed changes
   }
   goBack() {
     this.location.back();
@@ -45,7 +55,7 @@ export class RegisterCardPage implements OnInit {
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+    if (charCode > 32 && (charCode < 48 || charCode > 57)) {
       return false;
     }
     return true;

@@ -1,5 +1,6 @@
 export interface Lease{
-    user_id: number;
+    id_establishment: number;
+    creditCard: any;
     monthly: boolean;
     monthly_price?: number;
     hour: boolean;

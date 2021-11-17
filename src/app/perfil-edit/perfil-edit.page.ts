@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute }    from '@angular/router';
+import { User }              from '../interfaces/User';
+import { Location }          from '@angular/common';
+import { ParkingService }    from '../services/Parking.service';
+=======
 import { MessageService }            from './../services/message.service';
 import { Component, OnInit }         from '@angular/core';
 import { ActivatedRoute, Router }    from '@angular/router';
@@ -12,8 +19,8 @@ import { Camera,
          CameraOptions }     from '@ionic-native/camera/ngx';
 import { AlertController, 
          Platform }          from '@ionic/angular';
-import { ParkingService }    from '../services/Parking.service';
-
+import { UserService }       from './../services/user.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-perfil-edit',
@@ -21,36 +28,55 @@ import { ParkingService }    from '../services/Parking.service';
   styleUrls: ['./perfil-edit.page.scss'],
 })
 export class PerfilEditPage implements OnInit {
-  public user: User;
-  public acess: boolean;
-  public selectedImage;
-  public perfilImage: any = "";
-  public imageUrl: string = '../../assets/images/slack perfil.jpeg';
-  public hide = true;
-  public mobile: boolean = false;
-  public mobileWeb: boolean = false;
-  public sucessMessage: string = 'Dados atualizados com sucesso!'
-  form: FormGroup;
-  public emailValidator = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   constructor(private route: ActivatedRoute,
               private location: Location,
+<<<<<<< Updated upstream
+              private parkingService: ParkingService,) { }
+<<<<<<< Updated upstream
+
+=======
+              
+  public params: Object;
+>>>>>>> Stashed changes
+  public user: User =
+  {
+  "name": '',
+  "email": '',
+  "address": "",
+  "cpf": "",
+  "birthday": "",
+  "sex": "",
+  "car":{
+      "color": "",
+      "brand": "",
+      "model": "" },
+  "password": ""};
+
+public car: User;
+
+  ngOnInit() {
+    if (JSON.parse(this.route.snapshot.params['user']))
+      this.user = JSON.parse(this.route.snapshot.params['user']);
+    this.getUser();
+=======
               private router: Router,
               private _messageService: MessageService,
               private formBuilder: FormBuilder,
               private webView: WebView,
               private camera: Camera,
               private alertctrl: AlertController,
+              private userService: UserService,
               private platform: Platform) { }
 
   ngOnInit() {
+    this.initializeUser();
     if (this.platform.is('mobileweb'))
-      this.mobileWeb == true;
+      this.mobileWeb = true;
     else
       this.mobile = true;
     this.acess = true;
-    if (JSON.parse(this.route.snapshot.params['user']))
-      this.user = JSON.parse(this.route.snapshot.params['user']);
+    this.user = JSON.parse(this.route.snapshot.params['user']);
     this.validateFormFields();
   }
 
@@ -75,18 +101,28 @@ export class PerfilEditPage implements OnInit {
         'chassi': ''
     },
       "password": ""
-  }
-  }
- 
-public car: User;
-
-  accept() {
-    this.acess = false;
+>>>>>>> Stashed changes
   }
 
+  getUser(): void{
+    this.parkingService.getUser().subscribe(response => {
+      this.user = response;
+    })
+<<<<<<< Updated upstream
+=======
+  }
+
+<<<<<<< Updated upstream
+  savePerfilEdits(): void{
+    this.params = JSON.stringify(this.user);
+    this.parkingService.savePerfilEdits(this.params).subscribe(response => {
+      console.log(response);
+    })
+>>>>>>> Stashed changes
+  }
+
+=======
   validateUser() {
-    this.router.navigate(['/register-informations']);
-    this._messageService.showMessage(this.sucessMessage, 5000)
   }
 
   validateFormFields() {
@@ -95,8 +131,9 @@ public car: User;
       address: [this.user.address, Validators.required],
       brand: [this.user.car.brand, Validators.required],
       model: [this.user.car.model, Validators.required],
-      color: [this.user.car.color, Validators.required]
-
+      color: [this.user.car.color, Validators.required],
+      phone: [this.user.phone, Validators.required],
+      password: [this.user.password, Validators.required]
     });
     // this.getUser();
   }
@@ -106,6 +143,26 @@ public car: User;
   //     this.user = response;
   //   })
   // }
+
+  save():void{
+    this.user.password      = this.form.value.password;
+    this.user.phone         = this.form.value.phone;
+    this.user.email			    = this.form.value.email
+    this.user.address       = this.form.value.address
+    this.user.car.brand     = this.form.value.brand
+    this.user.car.model     = this.form.value.model
+    this.user.car.color     = this.form.value.color
+    
+    this.userService.updateUser(this.user).subscribe(response => {
+      if (response["mensagem"]=="true"){
+        this.router.navigate(['/tabs/options']);
+        this._messageService.showMessage(this.sucessMessage, 5000)
+      }else{
+        console.log(response["mensagem"]);
+        this._messageService.showMessage(response["mensagem"], 5000);
+      }
+    })
+  }
 
   imageSelected(event) {
     this.selectedImage = event.target.files[0];
@@ -145,6 +202,7 @@ async chooseImage() {
 }
 
   
+>>>>>>> Stashed changes
   goBack() {
     this.location.back();
   }

@@ -72,3 +72,11 @@ mat-icon {
         margin-left: 10vw;
     }
 }
+
+.month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+.month-picker .mat-calendar-arrow {
+    display: none;
+  }

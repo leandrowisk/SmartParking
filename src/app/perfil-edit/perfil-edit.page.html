@@ -1,28 +1,34 @@
 <ion-header>
   <ion-toolbar>
+   
     <ion-title>
       <div class="header-title">
-        <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
-        </ion-icon>
-        Editar Informações
+      <ion-icon name="arrow-back-outline" class="arrow-back" (click)="goBack()">
+      </ion-icon>
+       Editar Informações
       </div>
     </ion-title>
+ 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<<<<<<< Updated upstream
+=======
+
+<form [formGroup]="form">
   <div class="confirm-acess" *ngIf="!acess">
     <h2 class="password-title">Insira a senha para prosseguir</h2>
     <div class='password-container'>
       <mat-form-field class="form-input" appearance="outline">
         <mat-label>Senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [ngModel]="password" (keypress)="validateUser()">
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keypress)="validateUser()">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <mat-icon class="confirm-password">check_circle</mat-icon>
+      <mat-icon class="confirm-password" (click)="save()">check_circle</mat-icon>
     </div>
   </div>
 
@@ -59,7 +65,7 @@
     </div>
   </div>
 
-  <form [formGroup]="form">
+
     <div class="container" *ngIf="acess">
       <h2 class="title">Informações pessoais</h2>
       <div class="form-container">
@@ -74,31 +80,69 @@
           <input type="text" matInput formControlName="address">
           <mat-error *ngIf="form.get('address').hasError('required')">Este campo é obrigatório</mat-error>
         </mat-form-field>
-      </div>
 
-      <h2 class="title">Informações do veículo</h2>
-
-      <div class="form-container">
-        <mat-form-field class="form-input" appearance='outline' color='primary'>
-          <mat-label>Marca do carro:</mat-label>
-          <input matInput formControlName="brand">
-          <mat-error *ngIf="form.get('brand').hasError('required')">Este campo é obrigatório</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="form-input" appearance='outline' color='primary'>
-          <mat-label>Modelo do carro:</mat-label>
-          <input matInput formControlName="model">
-          <mat-error *ngIf="form.get('model').hasError('required')">Este campo é obrigatório</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="form-input" appearance='outline' color='primary'>
-          <mat-label>Cor do carro:</mat-label>
-          <input matInput formControlName="color">
-          <mat-error *ngIf="form.get('color').hasError('required')">Este campo é obrigatório</mat-error>
+        <mat-form-field class="form-input" appearance='outline' color="primary">
+          <mat-label>Telefone:</mat-label>
+          <input type="text" matInput formControlName="phone" mask="(00) 00000-0000">
+          <mat-error *ngIf="form.get('phone').hasError('required')">Este campo é obrigatório</mat-error>
         </mat-form-field>
       </div>
+>>>>>>> Stashed changes
 
-      <button mat-raised-button class="edit-button" (click)="accept()">Salvar</button>
-    </div>
-  </form>
+<h2 class="title">Informações pessoais</h2>
+<div class="form-container">
+  <mat-form-field class="form-input name" appearance='outline' color="primary">
+    <mat-label>Nome:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.name">
+</mat-form-field> 
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>E-mail:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.email">
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>Endereço:</mat-label>
+    <input type="text" matInput [(ngModel)]="user.address">
+</mat-form-field>
+
+
+<mat-form-field class="form-input" appearance='outline' color="primary">
+    <mat-label>CPF:</mat-label>
+    <input type="email" matInput [(ngModel)]="user.cpf">
+</mat-form-field>
+
+<mat-form-field appearance="outline" color="primary">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="user.birthday">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [color]="brown"></mat-datepicker>
+</mat-form-field>
+
+</div>
+
+
+<h2 class="title">Informações do veículo</h2>
+
+<div class="form-container">
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Marca do carro:</mat-label>
+  <input matInput [(ngModel)]="user.car.brand"> 
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Modelo do carro:</mat-label>
+  <input matInput [(ngModel)]="user.car.model">
+</mat-form-field>
+
+<mat-form-field class="form-input" appearance='outline' color='primary'>
+  <mat-label>Cor do carro:</mat-label>
+  <input matInput [(ngModel)]="user.car.color">
+</mat-form-field>
+
+</div>
+
+<button mat-raised-button class="edit-button" (click)="savePerfilEdits()">Salvar</button>
+  
+
 </ion-content>

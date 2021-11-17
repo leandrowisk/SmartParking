@@ -11,7 +11,6 @@ import { Router }            from '@angular/router';
   styleUrls: ['./options.page.scss'],
 })
 export class OptionsPage implements OnInit {
-  public user: User;
 
   constructor(
 	private alertController: AlertController,
@@ -20,6 +19,31 @@ export class OptionsPage implements OnInit {
     private router: Router
     ) { }
 
+<<<<<<< Updated upstream
+	public user: User =
+		{
+		"name": '',
+		"email": '',
+		"address": "",
+		"cpf": "",
+		"birthday": "",
+		"sex": "",
+		"car":{
+			"color": "",
+			"brand": "",
+			"model": "" },
+		"password": ""};
+		
+  ngOnInit() {
+	  this.getUser();
+  }
+  
+  getUser(): void{
+    this.parkingService.getUser().subscribe(response => {
+      this.user = response;
+    })
+  }
+=======
     initializeUser() {
       this.user =  {
         "id": 0,
@@ -43,21 +67,28 @@ export class OptionsPage implements OnInit {
     }
     }
    
-		
+
   ngOnInit() {
-	  // this.getUser();
+    this.initializeUser();
+	  this.getUser();
   }
   
-  // getUser(): void{
-  //   this.parkingService.getUser().subscribe(response => {
-  //     this.user = response;
-  //   })
-  // }
+   getUser(): void{
+     this.parkingService.getUser().subscribe(response => {
+       this.user = response;
+     })
+   }
+>>>>>>> Stashed changes
   
   async logoutConfirmationMessage() {
    const alert = await this.alertController.create({
       message: 'Tem certeza que deseja sair',
-      buttons: ['Cancelar', 'Sair']
+      buttons: ['Cancelar', {
+        text: 'Sim',
+        handler: (data: any) => {
+          this.router.navigate(['/login-page']);
+        }
+      }]
     });
     alert.present();
   }
