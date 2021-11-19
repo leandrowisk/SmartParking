@@ -18,13 +18,13 @@ disponíveis na cidade de São Paulo.</p>
 <p>- realizados os passos acima com sucesso, inicie o servidor local do ionic atráves do comando "ionic serve"</p>
 <p>- caso o browser não abra automaticamente navegue até https://localhost:8100</p>
 
-<img src="https://user-images.githubusercontent.com/48762418/142703179-f895180b-ce79-420b-b137-04242f7d73df.PNG" height="500px" width="350px">
-![Cadastro](https://user-images.githubusercontent.com/48762418/142703206-2f938180-4a96-4b49-b427-acece3190b6b.PNG)
-![cadastro(2)](https://user-images.githubusercontent.com/48762418/142703268-fc3905dd-ad12-462c-add6-4cd4881ff5fc.PNG)
-![Login](https://user-images.githubusercontent.com/48762418/142703273-ce4d709d-9d8f-4e68-b55e-db0016531c4b.PNG)
-![home](https://user-images.githubusercontent.com/48762418/142703279-cbe8c6c3-a660-4e3f-9a09-5cde2f742319.PNG)
-![Detalhes Mensal](https://user-images.githubusercontent.com/48762418/142703407-0a62f249-8cb3-44b8-a6b6-976ea1abb35d.PNG)
-![qrCode](https://user-images.githubusercontent.com/48762418/142703312-df9ba116-9195-4217-8485-a99504e99668.PNG)
-![Filtro](https://user-images.githubusercontent.com/48762418/142703325-dff2af8b-7056-4478-9e65-a878c3aaa4be.PNG)
-![configurações](https://user-images.githubusercontent.com/48762418/142703444-7a8d97cc-830c-490b-94f5-5aa94ae775f2.PNG)
+<img src="https://user-images.githubusercontent.com/48762418/142703179-f895180b-ce79-420b-b137-04242f7d73df.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703206-2f938180-4a96-4b49-b427-acece3190b6b.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703268-fc3905dd-ad12-462c-add6-4cd4881ff5fc.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703273-ce4d709d-9d8f-4e68-b55e-db0016531c4b.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703279-cbe8c6c3-a660-4e3f-9a09-5cde2f742319.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703407-0a62f249-8cb3-44b8-a6b6-976ea1abb35d.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703312-df9ba116-9195-4217-8485-a99504e99668.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703325-dff2af8b-7056-4478-9e65-a878c3aaa4be.PNG" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/142703444-7a8d97cc-830c-490b-94f5-5aa94ae775f2.PNG" height="550px" width="350px">
 
