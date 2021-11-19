@@ -18,7 +18,7 @@ disponíveis na cidade de São Paulo.</p>
 <p>- realizados os passos acima com sucesso, inicie o servidor local do ionic atráves do comando "ionic serve"</p>
 <p>- caso o browser não abra automaticamente navegue até https://localhost:8100</p>
 
-<img src="https://user-images.githubusercontent.com/48762418/142703179-f895180b-ce79-420b-b137-04242f7d73df.PNG" height="300px" width="250px">
+<img src="https://user-images.githubusercontent.com/48762418/142703179-f895180b-ce79-420b-b137-04242f7d73df.PNG" height="500px" width="350px">
 ![Cadastro](https://user-images.githubusercontent.com/48762418/142703206-2f938180-4a96-4b49-b427-acece3190b6b.PNG)
 ![cadastro(2)](https://user-images.githubusercontent.com/48762418/142703268-fc3905dd-ad12-462c-add6-4cd4881ff5fc.PNG)
 ![Login](https://user-images.githubusercontent.com/48762418/142703273-ce4d709d-9d8f-4e68-b55e-db0016531c4b.PNG)
