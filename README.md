@@ -1,3 +1,3 @@
 <div>
-<h2>Teste</h2>
+  <h2 style="text-align:center">SmartParking</h2>
 </div>
