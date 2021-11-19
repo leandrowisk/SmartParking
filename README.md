@@ -8,3 +8,12 @@
 <p>Com foco em motoristas que buscam vagas de estacionamento 
 disponíveis na cidade de São Paulo.</p>
 <p>Lista estacionamentos cadastrados e realiza a locação de vagas com serviços inclusos caso cadastrado.</p>
+
+<h2>Passos para instalar dependencias e rodar o app localmente via terminal: </h2>
+<p>- Navegue até a pasta do projeto: /SmartParking</p>
+<p>- realize o donwload do NodeJs juntamente com o npm (gerenciador de pacotes do node) atráves do comando: "npm install -g npm"</p>
+<p>- realize a instalação do angular framework atráves do comando: "npm install -g @angular/cli"</p>
+<p>- realize a instalação do ionic framework atráves do comando: "npm install -g @ionic/cli"</p>
+<p>- realize a adição da biblioteca angular material atráves do comando: "ng add @angular/material"</p>
+<p>- realizados os passos acima com sucesso, inicie o servidor local do ionic atráves do comando "ionic serve"</p>
+<p>- caso o browser não abra automaticamente navegue até https://localhost:8100</p>
