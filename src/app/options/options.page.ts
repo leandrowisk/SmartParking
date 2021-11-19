@@ -11,7 +11,7 @@ import { Router }            from '@angular/router';
   styleUrls: ['./options.page.scss'],
 })
 export class OptionsPage implements OnInit {
-
+  public user: User;
   constructor(
 	private alertController: AlertController,
     private parkingService: ParkingService,
@@ -19,31 +19,6 @@ export class OptionsPage implements OnInit {
     private router: Router
     ) { }
 
-<<<<<<< Updated upstream
-	public user: User =
-		{
-		"name": '',
-		"email": '',
-		"address": "",
-		"cpf": "",
-		"birthday": "",
-		"sex": "",
-		"car":{
-			"color": "",
-			"brand": "",
-			"model": "" },
-		"password": ""};
-		
-  ngOnInit() {
-	  this.getUser();
-  }
-  
-  getUser(): void{
-    this.parkingService.getUser().subscribe(response => {
-      this.user = response;
-    })
-  }
-=======
     initializeUser() {
       this.user =  {
         "id": 0,
@@ -78,7 +53,6 @@ export class OptionsPage implements OnInit {
        this.user = response;
      })
    }
->>>>>>> Stashed changes
   
   async logoutConfirmationMessage() {
    const alert = await this.alertController.create({

@@ -1,3 +1,4 @@
+import { UserService }       from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User }              from '../interfaces/User';
 import { ParkingService }    from '../services/Parking.service';
@@ -11,38 +12,19 @@ import { Router }            from '@angular/router';
   styleUrls: ['./register-informations.page.scss'],
 })
 export class RegisterInformationsPage implements OnInit {
-<<<<<<< Updated upstream
-=======
   public user: any;
   public car: User;
   public perfilImage: any = "";
   public imageUrl: string = '../../assets/images/slack perfil.jpeg';
   public selectedImage;
->>>>>>> Stashed changes
 
   constructor(
+    private userService: UserService,
     private parkingService: ParkingService,
     private location: Location,
     private router: Router
     ) { }
 
-<<<<<<< Updated upstream
-  public user: User =
-    {
-    "name": '',
-    "email": '',
-    "address": "",
-    "cpf": "",
-    "birthday": "",
-    "sex": "",
-    "car":{
-        "color": "",
-        "brand": "",
-        "model": "" },
-    "password": ""};
-	
-  public car: User;
-=======
     
     initializeUser() {
       this.user =  {
@@ -66,20 +48,14 @@ export class RegisterInformationsPage implements OnInit {
         "password": ""
     }
   }
->>>>>>> Stashed changes
 
   ngOnInit() {
     this.initializeUser();
     this.getUser();
   }
 
-<<<<<<< Updated upstream
-  getUser(): void{
-    this.parkingService.getUser().subscribe(response => {
-=======
   getUser() {
     this.userService.getUser().subscribe(response => {
->>>>>>> Stashed changes
       this.user = response;
     })
   }

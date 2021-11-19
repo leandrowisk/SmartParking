@@ -14,21 +14,30 @@
 
   <h2 class="parking-name">{{parking.name}}</h2>
 
-<<<<<<< Updated upstream
-=======
   <div class="location">
     <mat-icon class="location-icon">location_on</mat-icon>
      <span class="address">{{parking.address}} ({{parking.reference_point}})</span>
   </div>
->>>>>>> Stashed changes
   <ion-item-divider></ion-item-divider>
 
   <div class="vacancies-title">
   <mat-icon class="car-icon"> directions_car_filled</mat-icon>
   <h2 class="disponible-vacancies">
-    Vagas disponíveis: {{parking. available_vacancies}}</h2>
+    Vagas disponíveis: {{parking.available_vacancies}}</h2>
   </div>
 
+  <div class="hour-price">
+    <mat-icon class="money-icon">paid</mat-icon>
+    <h2>Valor da hora: R${{parking.hour_price}}</h2>
+  </div>
+
+  <div class="monthly-price" *ngIf="parking.monthly">
+    <div class="monthly-value-title">
+      <img class="monthly-icon" src="../../assets/images/montly.png">
+      <h2>Valor da mensalidade: R${{parking.monthly_price}}</h2>
+    </div>
+    <mat-checkbox color="primary" (change)="addMonthly($event)" value="parking.monthly_price"></mat-checkbox>
+  </div>
   <ion-item-divider></ion-item-divider>
 
   <div class="services-title">
@@ -44,12 +53,31 @@
   </div>
 
   <ion-item-divider></ion-item-divider>
-  <div class="value">
-    <h2 class="total-value">Valor Total:</h2>
-    <h2 class="price"><span class="prefix">R$</span>{{totalValue}}</h2>
-  </div>
+  <div class="value-description">
 
-  <button mat-raised-button class="rent" routerLink="/payment-options">Alugar Vaga</button>
+    <h2 class="description">Descrição dos itens</h2>
+
+    <div class="vacancy-price" *ngIf="!monthly">
+      <ion-icon name="caret-forward-outline"></ion-icon>
+      <span>Valor da vaga/hora: <span class="prefix">R$</span> <span>{{parking.hour_price}}</span></span>
+    </div>
+
+    <div class="vacancy-price" *ngIf="monthly">
+      <ion-icon name="caret-forward-outline"></ion-icon>
+      <span>Valor vaga/mês: <span class="prefix">R$</span> <span>{{parking.monthly_price}}</span></span>
+    </div>
+
+    <div class="services-price">
+      <ion-icon name="caret-forward-outline"></ion-icon>
+      <span>Serviços: <span class="prefix">R$</span> <span>{{totalServiceValue}}</span></span>
+      </div>
+    </div>
+ 
+    <div class="subtotal">
+      <h2>Subtotal <span class="prefix price">R$</span> <span class="price">{{subtotal}}</span></h2>
+    </div>
+
+  <button mat-raised-button class="rent" (click)="rentVacancy()">Alugar Vaga</button>
 
 </div>
   

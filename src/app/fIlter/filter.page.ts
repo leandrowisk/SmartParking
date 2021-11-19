@@ -29,6 +29,7 @@ export class FilterPage {
   ) {}
 
   ngOnInit() {
+    this.initFilterValues();
   }
 
   public subtractMinValue() {
@@ -49,15 +50,20 @@ export class FilterPage {
     this.maxValue = this.maxValue + 10;
   }
 
-  // public initFilterValues() {
-  //   this.filterValues.name = '';
-  //   this.filterValues.price = 0;
-  //   this.filterValues.user_avaliation = 0;
-  //   this.filterValues.zone = '';
-  // }
+   public initFilterValues() {
+     this.filterValues.name = '';
+     this.filterValues.price = 0;
+     this.filterValues.user_avaliation = 0;
+   }
 
   public filter() {
-    this._parkingService.filter(this.filterValues).subscribe(results => {
+    let param: any = {
+        "currentRate" : this.currentRate,
+        "minValue": this.minValue,
+        "maxValue": this.maxValue,
+        "parkingNameSearch": this.parkingNameSearch
+    }
+    this._parkingService.filter(param).subscribe(results => {
         this.router.navigate(['/filter-result', {parkings: results}]);
     })
   }

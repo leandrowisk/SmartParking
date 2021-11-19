@@ -24,14 +24,6 @@ export class PaymentManagementPage implements OnInit {
     public sucessMessage: string = 'Dados atualizados com sucesso!';
     
   ngOnInit() {
-<<<<<<< Updated upstream
-    this.getCreditCard();
-  }
-
-  getCreditCard(): void{
-    this.userService.getCreditCards().subscribe(response => {
-      this.cards = response;
-=======
      this.getCreditCard();
   }
 
@@ -50,7 +42,6 @@ export class PaymentManagementPage implements OnInit {
         console.log(response["mensagem"]);
         this._messageService.showMessage(response["mensagem"], 5000);
       }
->>>>>>> Stashed changes
     })
   }
 

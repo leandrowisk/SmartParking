@@ -28,33 +28,13 @@ export class HomePage {
     this.getParkings();
   }
 
-<<<<<<< Updated upstream
-  getParkings(): void{
-    this.parkingService.getParkings().subscribe(response => {
-    this.parkings = response;
-	console.log("Liga só: ", this.parkings);
-    })
-  }
-
-  // getParking() {
-  //   this.parkingService.getParking(this.parkings['id']).subscribe(parking => {
-  //      this.park = parking
-  //   })
-  // }
-=======
-
   getParkings(): void{
      this.parkingService.getParkings().subscribe(response => {
      this.parkings = response;
      })
    }
->>>>>>> Stashed changes
 
   getParking(parkingId : number) {
-<<<<<<< Updated upstream
-    console.log("Id do home, está triste: ", parkingId)
-=======
->>>>>>> Stashed changes
     this.parkingService.getParking(parkingId).subscribe(response =>{
       this.park = response;
 	  this.router.navigate(["/details",{parking:JSON.stringify(this.park)}])

@@ -1,7 +1,14 @@
 import { Component, OnInit }                from '@angular/core';
+
 import { ActivatedRoute, Router }           from '@angular/router';
 import { User }                             from '../interfaces/User';
-import { UserService } from '../services/user.service';
+import { UserService }                      from '../services/user.service';
+import { FormBuilder, 
+         FormControl, 
+         FormGroup, 
+         Validators, 
+         FormsModule }                      from '@angular/forms';
+import { MessageService }                   from '../services/message.service';
 
 @Component({
   selector: 'app-finish-register',
@@ -13,25 +20,26 @@ export class FinishRegisterPage implements OnInit {
   public user: User;
   public hide: boolean = true;
   public checked: boolean = false;
+  public selectedCategory: string;
+  public selectedModel: string;
+  public selectedBrand: string;
+  public validatePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+  public form: FormGroup;
+  public erroMessage: string = 'Dados inválidos verifique os campos e tente novamente';
+  public registerErrorMessage = 'Erro ao cadastrar! Revise suas informações'
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private _userService: UserService
+              private _userService: UserService,
+              private formBuilder: FormBuilder,
+              private _messageService: MessageService
     ) { }
 
   ngOnInit() {
     this.user = JSON.parse(this.route.snapshot.params['user']);
     this.user.password = '';
-<<<<<<< Updated upstream
-    this.user.car = {
-      model: '',
-      color: '',
-      brand:  ''
-    }
-=======
     this.initializeCar();
     this.validateFormFields();
-   // getCategories();
 }
 
 
@@ -46,33 +54,6 @@ export class FinishRegisterPage implements OnInit {
     plaque: '',
   }
  }
-
-  
-  // categories: carCategory[] = [
-  //   { id: 1, name: 'Sedan' },
-  //   { id: 2, name: 'Picape' },
-  // ]
-
-  // models: carModel[] = [
-  //   { id: 1, name: 'Mustang' },
-  //   { id: 2, name: 'Hilux' }
-  // ]
-
-  // brands: carBrand[] = [
-  //   { id: 1, name: 'Chevrolet' },
-  //   { id: 2, name: 'Fiat' }
-  // ]
-
-  // getCategories() {
-  //   this._userService.getCarCategories().subscribe(categories =>{
-  //     this.categories.forEach(category =>
-  //       this.categories.push(category))
-  //   });
-  // }
-
-  getModel(category: any) {
-    console.log('category', category)
-  }
 
   validateFormFields() {
     this.form = this.formBuilder.group({
@@ -90,34 +71,14 @@ export class FinishRegisterPage implements OnInit {
   errorMessage() {
     this._messageService.showMessage(this.erroMessage, 5000);
   }
-/*
-  finishRegister() {
-    this.validateFormFields();
-    if(this.form.status == 'VALID') 
-      this.router.navigate(['/tabs/home']);
-    else
-      this.errorMessage();
-  }
-*/
+
   chooseCategory(category) {
     if (category)
       this.selectedCategory = category;
->>>>>>> Stashed changes
   }
   
    
-   finishRegister() {
-     this._userService.register(this.user).subscribe(response => {
-     if (response['mensagem'] == 'true') {
-        this.router.navigate(['/tabs/home']);
-     }
-     else
-        alert(response['mensagem']);
-     })
-   }
-
- 
-   finishRegister() {
+finishRegister() {
     this.user.password      = this.form.value.password;
     this.user.car.model	  	= this.form.value.model
     this.user.car.brand     = this.form.value.brand
@@ -129,21 +90,10 @@ export class FinishRegisterPage implements OnInit {
 
      this._userService.register(this.user).subscribe(response => {
      if (response['mensagem'] == 'true') {
-        this.router.navigate(['/login-page']);
+		this.router.navigate(['/login-page']);
      }
      else
-<<<<<<< Updated upstream
-        alert('erro ao cadastrar');
-     })
-   }
-*/
- // finishRegister() {
- //   this.router.navigate(['/tabs/home']);
- // }
-=======
         this._messageService.showMessage(response['mensagem'], 5000);
      })
    }
- 
->>>>>>> Stashed changes
 }

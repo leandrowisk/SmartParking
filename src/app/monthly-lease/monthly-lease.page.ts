@@ -33,14 +33,6 @@ export class MonthlyLeasePage implements OnInit {
   public mLeases: any;
 
   ngOnInit() {
-<<<<<<< Updated upstream
-    this.getCreditCard();
-  }
-
-  getCreditCard(){
-    this.userService.getMonthlyLease().subscribe(response => {
-      this.monthlyLeases = response;
-=======
     this.getMonthlyLease();
     this.acess = true;
     this.validateFormFields();
@@ -73,7 +65,6 @@ export class MonthlyLeasePage implements OnInit {
         console.log(response["mensagem"]);
         this._messageService.showMessage(response["mensagem"], 5000);
       }
->>>>>>> Stashed changes
     })
   }
 

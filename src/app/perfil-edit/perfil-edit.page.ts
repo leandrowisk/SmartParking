@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute }    from '@angular/router';
-import { User }              from '../interfaces/User';
-import { Location }          from '@angular/common';
-import { ParkingService }    from '../services/Parking.service';
-=======
 import { MessageService }            from './../services/message.service';
 import { Component, OnInit }         from '@angular/core';
 import { ActivatedRoute, Router }    from '@angular/router';
@@ -20,7 +13,10 @@ import { Camera,
 import { AlertController, 
          Platform }          from '@ionic/angular';
 import { UserService }       from './../services/user.service';
->>>>>>> Stashed changes
+import { ParkingService }    from '../services/Parking.service';
+import { Parking }           from '../interfaces/Parking';
+import { MatCheckbox }       from '@angular/material/checkbox';
+import { Lease }             from '../interfaces/Lease';
 
 @Component({
   selector: 'app-perfil-edit',
@@ -28,100 +24,84 @@ import { UserService }       from './../services/user.service';
   styleUrls: ['./perfil-edit.page.scss'],
 })
 export class PerfilEditPage implements OnInit {
+  public user: User;
+  public acess: boolean;
+  public selectedImage;
+  public perfilImage: any = "";
+  public imageUrl: string = '../../assets/images/slack perfil.jpeg';
+  public hide = true;
+  public mobile: boolean = false;
+  public mobileWeb: boolean = false;
+  public sucessMessage: string = 'Dados atualizados com sucesso!'
+  public form: FormGroup;
+  public emailValidator = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  public car: User;
+  public params:any;
+  public password:string;
 
   constructor(private route: ActivatedRoute,
-              private location: Location,
-<<<<<<< Updated upstream
-              private parkingService: ParkingService,) { }
-<<<<<<< Updated upstream
+    private location: Location,
+    private parkingService: ParkingService,
+    private router: Router,
+    private _messageService: MessageService,
+    private formBuilder: FormBuilder,
+    private webView: WebView,
+    private camera: Camera,
+    private alertctrl: AlertController,
+    private userService: UserService,
+    private platform: Platform) { }
 
-=======
-              
-  public params: Object;
->>>>>>> Stashed changes
-  public user: User =
-  {
-  "name": '',
-  "email": '',
-  "address": "",
-  "cpf": "",
-  "birthday": "",
-  "sex": "",
-  "car":{
-      "color": "",
-      "brand": "",
-      "model": "" },
-  "password": ""};
-
-public car: User;
-
-  ngOnInit() {
-    if (JSON.parse(this.route.snapshot.params['user']))
+    ngOnInit() {
+      this.initializeUser();
+      if (this.platform.is('mobileweb'))
+        this.mobileWeb = true;
+      else
+        this.mobile = true;
+      this.acess = true;
       this.user = JSON.parse(this.route.snapshot.params['user']);
-    this.getUser();
-=======
-              private router: Router,
-              private _messageService: MessageService,
-              private formBuilder: FormBuilder,
-              private webView: WebView,
-              private camera: Camera,
-              private alertctrl: AlertController,
-              private userService: UserService,
-              private platform: Platform) { }
+      this.validateFormFields();
+      this.getUser();
+    }
 
-  ngOnInit() {
-    this.initializeUser();
-    if (this.platform.is('mobileweb'))
-      this.mobileWeb = true;
-    else
-      this.mobile = true;
-    this.acess = true;
-    this.user = JSON.parse(this.route.snapshot.params['user']);
-    this.validateFormFields();
-  }
-
-  
-  initializeUser() {
-    this.user =  {
-      "id": 0,
-      "name": '',
-      "email": '',
-      "address": "",
-      "cpf": "",
-      "birthday": "",
-      "phone": '',
-      "sex": "",
-      "car":{
-        "color": "",
-        "category": '',
-        "brand": '',
-        "model": '',
-        'renavam': 0,
-        'plaque': '',
-        'chassi': ''
-    },
-      "password": ""
->>>>>>> Stashed changes
+    initializeUser() {
+      this.user =  {
+        "id": 0,
+        "name": '',
+        "email": '',
+        "address": "",
+        "cpf": "",
+        "birthday": "",
+        "phone": '',
+        "sex": "",
+        "car":{
+          "color": "",
+          "category": '',
+          "brand": '',
+          "model": '',
+          'renavam': 0,
+          'plaque': '',
+          'chassi': ''
+      },
+        "password": ""};
   }
 
   getUser(): void{
     this.parkingService.getUser().subscribe(response => {
       this.user = response;
-    })
-<<<<<<< Updated upstream
-=======
+    });
   }
 
-<<<<<<< Updated upstream
+  accept() {
+    this.acess = false;
+  }
+
   savePerfilEdits(): void{
     this.params = JSON.stringify(this.user);
     this.parkingService.savePerfilEdits(this.params).subscribe(response => {
       console.log(response);
     })
->>>>>>> Stashed changes
   }
 
-=======
   validateUser() {
   }
 
@@ -135,17 +115,10 @@ public car: User;
       phone: [this.user.phone, Validators.required],
       password: [this.user.password, Validators.required]
     });
-    // this.getUser();
   }
 
-  // getUser(): void{
-  //   this.parkingService.getUser().subscribe(response => {
-  //     this.user = response;
-  //   })
-  // }
-
   save():void{
-    this.user.password      = this.form.value.password;
+    this.user.password      = this.password;
     this.user.phone         = this.form.value.phone;
     this.user.email			    = this.form.value.email
     this.user.address       = this.form.value.address
@@ -202,9 +175,8 @@ async chooseImage() {
 }
 
   
->>>>>>> Stashed changes
+
   goBack() {
     this.location.back();
   }
-
 }

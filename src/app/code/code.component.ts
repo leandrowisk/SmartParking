@@ -4,7 +4,10 @@ import { ActivatedRoute, Router }      from '@angular/router';
 import { FinancialService }            from '../services/financial.service';
 import { UserService }                 from '../services/user.service';
 import { MessageService }              from '../services/message.service';
-
+import { ParkingService }              from '../services/Parking.service';
+import { NavController }               from '@ionic/angular';
+import { FormsModule, 
+  ReactiveFormsModule }             from '@angular/forms';
 
 @Component({
   selector: 'app-code',
@@ -32,6 +35,8 @@ export class CodeComponent implements OnInit {
               public router: Router,
               private _messageService: MessageService,
               private _userService: UserService,
+              public parkingService:ParkingService,
+              public navCtrl: NavController,
               private _financialService: FinancialService) { }
 
   ngOnInit() {
@@ -46,16 +51,28 @@ export class CodeComponent implements OnInit {
   }
 
   acceptCode() {
-    if (this.activeEntrance && this.code == this.entranceCode)
-      this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
-    else
-      this.rejectEntranceCode();
-    if (this.activeExit && this.code == this.exitCode)
-        this.router.navigate(['/rating-page', { exit: true, skipLocationChange: true }]);
-    else 
-      this.rejectExitCode();
-  }
+    if (this.activeEntrance) {
+      this.parkingService.codeToEnter(this.code).subscribe(response => {
+        if (response['mensagem'] == "true") {
+          this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
+        }
+        else {
+          this._messageService.showMessage(response['mensagem'], 7000);
+        }
+      });
+    }
+    if (this.activeExit) {
+      this.parkingService.codeToExit(this.code).subscribe(response => {
+        if (response['mensagem'] == "true") {
+          this.router.navigate(['/rating-page', { exit: true, skipLocationChange: true }]);
+        }
+        else {
+          this._messageService.showMessage(response['mensagem'], 7000);
+        }
+      });
+    }
 
+  }
   // getLease() {
   //   this._financialService.getLease(this.userId).subscribe(lease => {
   //     if (lease) 

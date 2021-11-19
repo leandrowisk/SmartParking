@@ -40,38 +40,12 @@ export class ParkingService {
         //let params = new HttpParams().set('id_user', id)
 	    //return this.httpClient.get(this.path,{'params' : params})
     }
-/*
 
-   getParkings(): Observable<Parking[]> {
-       return of(parkings);
-   }
-
-   getParking(id: number){
-        let params = new HttpParams().set('id', id)
-        this.path = this._requests.api() + '/parkingLotsById';
-        return this.httpClient.get<Parking>(this.path,{'params' : params});
-   }
-*/
-<<<<<<< Updated upstream
-   getUser(): Observable<User> {
-	this.path = this._requests.api() + '/user';
-    return this.httpClient.get<User>(this.path);
-    //return of(user);
-}
-=======
-    getUser(): Observable<User> {
-    this.path = this._requests.api() + '/user';
-    return this.httpClient.get<User>(this.path);
-    //return of(user);
-    }
-
-<<<<<<< Updated upstream
     savePerfilEdits(params: Object){
         this.path = this._requests.api() + '/updateUserData';
         return this.httpClient.post(this.path, params);
     }
->>>>>>> Stashed changes
-=======
+
    getMonthlyLease():Observable<any>{
     this.path = this._requests.api() + '/monthlyLease';
     return this.httpClient.get<User>(this.path);
@@ -94,19 +68,34 @@ export class ParkingService {
 
     getUser(): Observable<User> {
     this.path = this._requests.api() + '/user';
-     return this.httpClient.get<User>(this.path);
+    return this.httpClient.get<User>(this.path);
     }
->>>>>>> Stashed changes
 
    public filter(filter: Filter) {
        const results = parkings.find(
            parking => {
             parking.name == filter.name ||
-            parking.price == filter.price ||
-            parking.zone == filter.zone || 
+            parking.hour_price == filter.price ||
             parking.user_avaliation == filter.user_avaliation
            }
        )
        return of(results)
    }
+
+   codeToEnter(params: any) {
+    this.path = this._requests.api() + '/codeToEnter';  
+    return this.httpClient.post(this.path, params);
+}
+
+    codeToExit(params: any) {
+    this.path = this._requests.api() + '/codeToExit';  
+    return this.httpClient.post(this.path, params);
+}
+
+    publishRating(params: any) {
+    this.path = this._requests.api() + '/rating';  
+    return this.httpClient.post(this.path, params);
+}
+
+
 }

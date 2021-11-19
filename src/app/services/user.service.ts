@@ -24,19 +24,6 @@ export class UserService {
     //return null
   }
 
-  addCreditCards(params: Object): Observable<any> {
-    this.path = this._requests.api() + '/addCreditCard';  
-    return this.httpClient.post(this.path, params);
-  }
-
-<<<<<<< Updated upstream
-  getMonthlyLease(): Observable<any> {
-    this.path = this._requests.api() + '/monthlyLease';  
-    return this.httpClient.get(this.path);
-  }
-
-}
-=======
   getUser(): Observable<any>{
     this.path = this._requests.api() + '/user';
     return this.httpClient.get(this.path);
@@ -46,11 +33,6 @@ export class UserService {
     this.path = this._requests.api() + '/updateUser';  
     return this.httpClient.post(this.path, params);
   }
-
-   getCreditCards(): Observable<any> {
-     this.path = this._requests.api() + '/creditCard';  
-     return this.httpClient.get(this.path);
-   }
 
    removeCreditCard(params: any) {
     this.path = this._requests.api() + '/removeCreditCard';  
@@ -62,4 +44,3 @@ export class UserService {
      return this.httpClient.post(this.path, params);
    }
 }
->>>>>>> Stashed changes

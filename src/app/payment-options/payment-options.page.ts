@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
-<<<<<<< Updated upstream
-=======
 import { ActivatedRoute, Router }    from '@angular/router';
 import { Lease }             from '../interfaces/Lease';
 import { UserService } from '../services/user.service';
 import { ParkingService }    from '../services/Parking.service';
 import { MessageService }            from './../services/message.service';
->>>>>>> Stashed changes
 
 
 @Component({
@@ -16,12 +13,6 @@ import { MessageService }            from './../services/message.service';
   styleUrls: ['./payment-options.page.scss'],
 })
 export class PaymentOptionsPage implements OnInit {
-<<<<<<< Updated upstream
-
-  constructor(private location: Location) { }
-
-  ngOnInit() {
-=======
   public monthly: boolean = false;
   public userId: number;
   public lease: Lease;
@@ -101,7 +92,6 @@ export class PaymentOptionsPage implements OnInit {
     this._userService.getUser().subscribe(user => {
       this.userId = user.id
     })
->>>>>>> Stashed changes
   }
 
   addMonthlyLease(){

@@ -5,12 +5,10 @@ import { IonicModule }                  from '@ionic/angular';
 import { PerfilEditPageRoutingModule }  from './perfil-edit-routing.module';
 import { PerfilEditPage }               from './perfil-edit.page';
 import { MaterialModule }               from '../material.module';
-<<<<<<< Updated upstream
-=======
 import { NgxMaskModule }                from 'ngx-mask';
 import { WebView }                      from '@ionic-native/ionic-webview/ngx';
-import { Camera,  CameraOptions }     from '@ionic-native/camera/ngx';
->>>>>>> Stashed changes
+import { Camera,  CameraOptions }       from '@ionic-native/camera/ngx';
+import { ReactiveFormsModule }          from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,6 +17,8 @@ import { Camera,  CameraOptions }     from '@ionic-native/camera/ngx';
     IonicModule,
     PerfilEditPageRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [PerfilEditPage],
   providers:[Camera,WebView]

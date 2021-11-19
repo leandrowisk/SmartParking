@@ -1,15 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute }    from '@angular/router';
+import { ActivatedRoute, Router }    from '@angular/router';
 import { Parking }           from '../interfaces/Parking';
 import { ParkingService }    from '../services/Parking.service';
 import { Location }          from '@angular/common';
 import { MatCheckbox }       from '@angular/material/checkbox';
-<<<<<<< Updated upstream
-=======
 import { UserService }       from '../services/user.service';
 import { Lease }             from '../interfaces/Lease';
 import { MessageService }            from './../services/message.service';
->>>>>>> Stashed changes
 
 
 @Component({
@@ -22,14 +19,6 @@ export class ParkingDetailsPage implements OnInit {
 
   constructor(public route: ActivatedRoute,
               public parkingService:ParkingService,
-<<<<<<< Updated upstream
-              public location: Location) { }
-
-  public rent: boolean = false;
-  public parking: Parking;
-  public totalValue: number;
-  public rating;
-=======
               private _messageService: MessageService,
               public location: Location,
               private router: Router) { }
@@ -71,45 +60,33 @@ export class ParkingDetailsPage implements OnInit {
     this.subtotal = 0;
     this.totalServiceValue = 0;
   }
->>>>>>> Stashed changes
 
   rentSpace() {
     this.rent = true;
   }
-/*
+
   getParking() {
     const id : number = Number (this.route.snapshot.paramMap.get('id'));
-<<<<<<< Updated upstream
-    this.parkingService.getParking(id).subscribe(response => {this.parking = response;});
-	console.log(this.parking);
-    this.rating = new Array(this.parking.user_avaliation);
-    this.totalValue = this.parking.price;
-=======
     this.parkingService.getParking(id).subscribe(parking => {
         this.parking = parking; 
         this.rating = new Array(this.parking.user_avaliation)
     });
     this.totalServiceValue = 0;
     this.subtotal = this.parking.hour_price;
->>>>>>> Stashed changes
   }
-*/  
-  ngOnInit() {
-  //  this.getParking();
-	if (this.route.snapshot.params['parking']) 
-      this.parking = JSON.parse(this.route.snapshot.params['parking']);
-      this.rating = new Array(this.parking.user_avaliation);
-      this.totalValue = this.parking.price;
-	console.log('parking detail: ',this.parking);
+  
+  addMonthly(event) {
+    this.checked = true;
+    if (event && event.checked)
+      this.monthly = true;
+    else
+      this.monthly = false;
+  //   this.parkingService.getParking(id).subscribe(response => {this.parking = response;});
+	// console.log(this.parking);
+  //   this.rating = new Array(this.parking.user_avaliation);
+  //   this.totalValue = this.parking.price;
   }
 
-<<<<<<< Updated upstream
-  addService($event) {
-    if($event && $event.checked)
-      this.totalValue = this.totalValue + parseFloat($event.source.value);
-    else
-      this.totalValue = this.totalValue - parseFloat($event.source.value);
-=======
   addService(event,service) {
     this.checked = true;
     if(event && event.checked) {
@@ -123,15 +100,12 @@ export class ParkingDetailsPage implements OnInit {
       this.totalServiceValue = this.totalServiceValue - parseFloat(service.service_price);
       this.subtotal -= parseFloat(service.service_price);
     } 
->>>>>>> Stashed changes
   }
 
   goBack(): void {
     this.location.back();
   }
 
-<<<<<<< Updated upstream
-=======
   rentVacancy() {
     if (this.monthly)
       this.router.navigate(['/payment-options', { 
@@ -171,5 +145,4 @@ export class ParkingDetailsPage implements OnInit {
     }
   }
  
->>>>>>> Stashed changes
 }

@@ -32,11 +32,8 @@
     "@capacitor/haptics": "1.0.2",
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
-<<<<<<< Updated upstream
-=======
     "@ionic-native/camera": "^5.36.0",
     "@ionic-native/camera-preview": "^5.36.0",
->>>>>>> Stashed changes
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/ionic-webview": "^5.36.0",
     "@ionic-native/native-page-transitions": "^5.36.0",

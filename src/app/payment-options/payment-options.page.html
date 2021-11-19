@@ -43,13 +43,9 @@
     <ion-toggle [(ngModel)]="asDefaultBoolean"></ion-toggle>
   </div>
 
-  <button mat-button class="payment-button" routerLink="/paid">
+  <button mat-button class="payment-button" (click)="pay()">
     <span>Pagar</span>
-<<<<<<< Updated upstream
-    <span class="value">R$100</span>
-=======
-    <span class="value">R$ {{leaseValue}}</span>
->>>>>>> Stashed changes
+    <span class="value" >R$ {{leaseValue}}</span>
   </button>
   
   
