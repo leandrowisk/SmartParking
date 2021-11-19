@@ -17,6 +17,7 @@ disponíveis na cidade de São Paulo.</p>
 <p>- realize a adição da biblioteca angular material atráves do comando: "ng add @angular/material"</p>
 <p>- realizados os passos acima com sucesso, inicie o servidor local do ionic atráves do comando "ionic serve"</p>
 <p>- caso o browser não abra automaticamente navegue até https://localhost:8100</p>
+<p>- redimensione a página para o tamanho mobile</p>
 
 <img src="https://user-images.githubusercontent.com/48762418/142703179-f895180b-ce79-420b-b137-04242f7d73df.PNG" height="550px" width="350px">
 <img src="https://user-images.githubusercontent.com/48762418/142703206-2f938180-4a96-4b49-b427-acece3190b6b.PNG" height="550px" width="350px">
