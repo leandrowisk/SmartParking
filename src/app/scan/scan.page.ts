@@ -46,6 +46,7 @@ export class ScanPage implements OnInit {
               public _user: UserService,
               private _messageService: MessageService,
               private apiService: RequestsService,
+              public parkingService:ParkingService,
               private httpClient: HttpClient,
               private _financialService: FinancialService
   ) { }
@@ -130,7 +131,6 @@ export class ScanPage implements OnInit {
       if (qrCode) {
         this.qrCode = qrCode.data;
         let scanDate = new Date();
-        console.log('data do scan', scanDate)
         let QRData = {
           'user_id': this.userId,
           'date': scanDate,
@@ -139,7 +139,7 @@ export class ScanPage implements OnInit {
         this.scanResult = qrCode.data;
         this.reset();
         if (this.validateQrCode(QRData)) {
-          this.acceptQrCode();
+          this.acceptQrCode(qrCode.data);
         }
       } else {
         requestAnimationFrame(this.scan.bind(this))
@@ -192,25 +192,28 @@ export class ScanPage implements OnInit {
     return true;
   }
 
-  acceptQrCode() {
-    if (this.activeEntrance && this.qrCode == this.entranceQrCode && this.lease) {
-      this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
-      this.activeEntrance = false;
-      this.entrance = true;
-      this.stopScan();
+  acceptQrCode(data) {
+    if (this.activeEntrance) {
+      this.parkingService.codeToEnter(data).subscribe(response => {
+        if (response['mensagem'] == "true") {
+          this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
+        }
+        else {
+          this._messageService.showMessage(response['mensagem'], 7000);
+        }
+      });
     }
-    else
-      this.rejectEntranceCode();
-    if (this.activeExit && this.qrCode == this.exitQrCode && this.lease) { 
-      this.activeExit = false;
-      this.exit = true;
-      this.router.navigate(['/rating-page', { exit: true, skipLocationChange: true }]);
-      this.stopScan();
-    } 
-    else 
-      this.rejectExitCode();
+    if (this.activeExit) { 
+      this.parkingService.codeToExit(data).subscribe(response => {
+        if (response['mensagem'] == "true") {
+          this.router.navigate(['/rating-page', { exit: true, skipLocationChange: true }]);
+        }
+        else {
+          this._messageService.showMessage(response['mensagem'], 7000);
+        }
+      });
     }
-
+  }
 
   rejectEntranceCode() {
     this.router.navigate(['/tabs/QRCode']);

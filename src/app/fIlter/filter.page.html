@@ -6,7 +6,7 @@
 <div class="filter-container">
 <div class="search-container">
 <mat-label>Nome do estacionamento</mat-label>
-<ion-searchbar animated="true"></ion-searchbar>
+<ion-searchbar animated="true" [(ngModel)]="filterValues.name"></ion-searchbar>
 </div>
 
   <div class="price-container">
@@ -30,7 +30,7 @@
   <mat-form-field>
     <mat-label>Preço Máximo</mat-label>
     <input matInput currencyMask [(ngModel)]="maxValue" name="maxValue" ngDefaultControl
-          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: 499, allowNegative: false}">
   </mat-form-field>
 
   <mat-icon (click)="subtractMaxValue()" class="circle-button minus">remove_circle</mat-icon>

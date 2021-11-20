@@ -17,6 +17,7 @@ export class ParkingService {
 
    public parkings: Array<Parking>;
    public path: string;
+   public params:any;
 
    constructor(private httpClient: HttpClient,
                private _requests: RequestsService
@@ -30,7 +31,6 @@ export class ParkingService {
     getParking(id: number): Observable<any> {
         this.path = this._requests.api() + '/parkingLotsById';
         let params = new HttpParams().set('id_estabelecimento', id)
-        console.log(id);
 	    return this.httpClient.get(this.path,{'params' : params})
     }
 
@@ -71,15 +71,10 @@ export class ParkingService {
     return this.httpClient.get<User>(this.path);
     }
 
-   public filter(filter: Filter) {
-       const results = parkings.find(
-           parking => {
-            parking.name == filter.name ||
-            parking.hour_price == filter.price ||
-            parking.user_avaliation == filter.user_avaliation
-           }
-       )
-       return of(results)
+   public filter(filter: any) {
+        this.path = this._requests.api() + '/filter';
+        this.params = new HttpParams().set('filter', filter)
+        return this.httpClient.get(this.path,{'params' : this.params})
    }
 
    codeToEnter(params: any) {

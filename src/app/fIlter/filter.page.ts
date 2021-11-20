@@ -58,12 +58,12 @@ export class FilterPage {
 
   public filter() {
     let param: any = {
-        "currentRate" : this.currentRate,
+        "user_avaliation" : this.filterValues.user_avaliation,
         "minValue": this.minValue,
         "maxValue": this.maxValue,
-        "parkingNameSearch": this.parkingNameSearch
+        "parkingNameSearch": this.filterValues.name
     }
-    this._parkingService.filter(param).subscribe(results => {
+    this._parkingService.filter(JSON.stringify(param)).subscribe(results => {
         this.router.navigate(['/filter-result', {parkings: results}]);
     })
   }
