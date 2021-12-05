@@ -59,3 +59,49 @@ p {
     padding-left: 8px;
     font-size: 16px;
 }
+
+.price {
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.monthly-icon {
+    height: 24px;
+    width: 24px;
+    margin-left: auto;
+    margin-right: 8px;
+    margin-top: 2px;
+}
+
+
+.caracteristics {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.star {
+    color: brown;
+    margin-left: 1px;
+}
+
+.avaliation {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 2px;
+
+    p {
+        margin-right: 5px;
+    }
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}

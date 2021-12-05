@@ -19,7 +19,7 @@
       <mat-form-field>
         <mat-label>Preço Mínimo</mat-label>
         <input matInput currencyMask [(ngModel)]="minValue" name="minValue" ngDefaultControl
-              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: '499', allowNegative: 'false'}">
+              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', max: 499, allowNegative: false}">
       </mat-form-field>
       
       <mat-icon (click)="subtractMinValue()" class="circle-button minus">remove_circle</mat-icon>

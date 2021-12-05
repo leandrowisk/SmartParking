@@ -64,7 +64,7 @@ export class FilterPage {
         "parkingNameSearch": this.filterValues.name
     }
     this._parkingService.filter(JSON.stringify(param)).subscribe(results => {
-        this.router.navigate(['/filter-result', {parkings: results}]);
+        this.router.navigate(['/filter-result'], { state: { example: results } });
     })
   }
 

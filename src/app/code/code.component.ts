@@ -53,7 +53,9 @@ export class CodeComponent implements OnInit {
   acceptCode() {
     if (this.activeEntrance) {
       this.parkingService.codeToEnter(this.code).subscribe(response => {
+        console.log("teste 1",response)
         if (response['mensagem'] == "true") {
+          console.log("chegou",response)
           this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
         }
         else {

@@ -11,9 +11,10 @@
 </ion-header>
 
 <ion-content>
-  <h1>Nenhum estacionamento foi encontrado para sua pesquisa</h1>
-   <img src="../../assets/images/not-found.PNG" class="not-found-image">
-
+  <div *ngIf="parkings.length == 0">
+    <h1>Nenhum estacionamento foi encontrado para sua pesquisa</h1>
+    <img src="../../assets/images/not-found.PNG" class="not-found-image">
+  </div>
    <ng-container *ngFor="let parking of parkings">
     <div class="container"  routerLink="/details/{{parking.id}}">
       <img src="{{parking.image_url}}">
@@ -27,5 +28,5 @@
         <p class="price"><b>R$ {{parking.hour_price}}/hora</b></p>
       </div>
     </div>
-  </ng-container>
+  </ng-container> 
 </ion-content>

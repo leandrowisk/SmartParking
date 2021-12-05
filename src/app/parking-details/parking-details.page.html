@@ -42,9 +42,9 @@
 
   <div class="services-title">
     <mat-icon class="car-icon"> local_car_wash </mat-icon>
-  <h2 class="disponible-services">Serviços dísponíveis:</h2>
+    <h2 class="disponible-services">Serviços dísponíveis:</h2>
 </div>
-
+<p *ngIf="parking.services_available.length == 0" style="margin-left:40px;">Sem serviços disponíveis.</p>
   <div class="services-container" *ngFor="let service of parking.services_available">
     <mat-icon class="vertical-line">horizontal_rule</mat-icon>
     <span class="service-title">{{service.service_name}} - R$ {{service.service_price}}</span>

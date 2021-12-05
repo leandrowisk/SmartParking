@@ -117,7 +117,7 @@ export class ParkingDetailsPage implements OnInit {
     else {
       this.reserveStart = new Date();
       this.reserveEnd = new Date();
-      this.reserveEnd.setMinutes(this.reserveStart.getMinutes() + 15);
+      this.reserveEnd.setMinutes(this.reserveStart.getMinutes() + 30);
 
       let reserveLease = {
         'id_establishment':this.parking.id,
