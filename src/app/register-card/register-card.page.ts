@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
 import { UserService }       from '../services/user.service';
-import { Router }            from '@angular/router';
 import { MessageService }    from '../services/message.service';
 
 @Component({
@@ -11,12 +10,9 @@ import { MessageService }    from '../services/message.service';
 })
 export class RegisterCardPage implements OnInit {
 
-  constructor(
-    private location: Location,
-    private userService : UserService,
-    private router : Router,
-    private _messageService: MessageService
-  ) { }
+  constructor(private location: Location,
+              private userService : UserService,
+              private _messageService: MessageService) { }
 
   ownerName: String;
   numberCard: String;
@@ -30,8 +26,8 @@ export class RegisterCardPage implements OnInit {
   }
 
   save(){
-     this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,'expirationDate':this.expirationDate,'secCode':this.secCode})
-     console.log('parametros enviados', this.params)
+     this.params = JSON.stringify({'ownerName': this.ownerName, 'numberCard': this.numberCard,
+                                   'expirationDate':this.expirationDate,'secCode':this.secCode})
      this.userService.addCreditCards(this.params).subscribe(response => {
          if(response['mensagem'] == 'true')
             this._messageService.showMessage(this.sucessMessage, 5000)
@@ -39,6 +35,7 @@ export class RegisterCardPage implements OnInit {
            this._messageService.showMessage(this.errorMessage, 5000)
      });
   }
+
   goBack() {
     this.location.back();
   }

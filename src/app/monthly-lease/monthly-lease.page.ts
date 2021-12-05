@@ -1,13 +1,11 @@
-import { MessageService }            from './../services/message.service';
+import { MessageService }    from './../services/message.service';
 import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
-import { UserService }       from '../services/user.service';
 import { ParkingService }    from '../services/Parking.service';
 import { Router }            from '@angular/router';
 import { FormBuilder, 
-  FormGroup, 
-  Validators,   
-  FormControl }                   from '@angular/forms';
+         FormGroup, 
+         Validators }        from '@angular/forms';
 
 @Component({
   selector: 'app-monthly-lease',
@@ -58,11 +56,10 @@ export class MonthlyLeasePage implements OnInit {
     this.mLeases.idLease = this.idLease;
     this.mLeases.password = this.form.value.password;
     this.parkingService.cancelMonthlyLease(this.mLeases).subscribe(response => {
-      if (response["mensagem"]=="true"){
+      if (response["mensagem"]=="true") {
         this.router.navigate(['/tabs/options']);
         this._messageService.showMessage(this.sucessMessage, 5000)
-      }else{
-        console.log(response["mensagem"]);
+      }else {
         this._messageService.showMessage(response["mensagem"], 5000);
       }
     })

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location }          from '@angular/common';
 import { UserService }       from '../services/user.service';
 import { Router }            from '@angular/router';
-import { MessageService }            from './../services/message.service';
+import { MessageService }    from './../services/message.service';
 
 @Component({
   selector: 'app-payment-management',
@@ -38,8 +38,7 @@ export class PaymentManagementPage implements OnInit {
       if (response["mensagem"]=="true"){
         this.router.navigate(['/tabs/options']);
         this._messageService.showMessage(this.sucessMessage, 5000)
-      }else{
-        console.log(response["mensagem"]);
+      }else {
         this._messageService.showMessage(response["mensagem"], 5000);
       }
     })

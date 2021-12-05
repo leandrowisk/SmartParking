@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController }   from '@ionic/angular';
 import { User }              from '../interfaces/User';
 import { ParkingService }    from '../services/Parking.service';
-import { Location }          from '@angular/common';
 import { Router }            from '@angular/router';
 
 @Component({
@@ -12,12 +11,16 @@ import { Router }            from '@angular/router';
 })
 export class OptionsPage implements OnInit {
   public user: User;
-  constructor(
-	private alertController: AlertController,
-    private parkingService: ParkingService,
-    private location: Location,
-    private router: Router
+
+  constructor(private alertController: AlertController,
+              private parkingService: ParkingService,
+              private router: Router
     ) { }
+
+    ngOnInit() {
+      this.initializeUser();
+      this.getUser();
+    }
 
     initializeUser() {
       this.user =  {
@@ -41,12 +44,6 @@ export class OptionsPage implements OnInit {
         "password": ""
     }
     }
-   
-
-  ngOnInit() {
-    this.initializeUser();
-	  this.getUser();
-  }
   
    getUser(): void{
      this.parkingService.getUser().subscribe(response => {

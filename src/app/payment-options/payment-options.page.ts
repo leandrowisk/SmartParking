@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, 
+         OnInit }            from '@angular/core';
 import { Location }          from '@angular/common';
-import { ActivatedRoute, Router }    from '@angular/router';
+import { ActivatedRoute, 
+         Router }            from '@angular/router';
 import { Lease }             from '../interfaces/Lease';
-import { UserService } from '../services/user.service';
+import { UserService }       from '../services/user.service';
 import { ParkingService }    from '../services/Parking.service';
-import { MessageService }            from './../services/message.service';
+import { MessageService }    from './../services/message.service';
 
 
 @Component({
@@ -98,8 +100,7 @@ export class PaymentOptionsPage implements OnInit {
     this.parkingService.addMonthlyLease(this.lease).subscribe(response => {
       if (response["mensagem"]=="true"){
          this.router.navigate(['/paid']);
-    }else{
-      console.log(response["mensagem"]);
+    }else {
       this._messageService.showMessage(response["mensagem"], 5000);
       }
     }

@@ -1,14 +1,13 @@
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { Component, OnInit }        from '@angular/core';
-import { User }                     from '../interfaces/User';
-import { ParkingService }           from '../services/Parking.service';
-import { Router }                   from '@angular/router';
-import { UserService }              from '../services/user.service';
+import { MatSnackBarHorizontalPosition, 
+         MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Component, OnInit }           from '@angular/core';
+import { User }                        from '../interfaces/User';
+import { ParkingService }              from '../services/Parking.service';
+import { Router }                      from '@angular/router';
+import { UserService }                 from '../services/user.service';
 import { FormBuilder, 
-         FormControl, 
          FormGroup, 
-         Validators, 
-         FormsModule }               from '@angular/forms';
+         Validators }                from '@angular/forms';
 import { Location }                  from '@angular/common';
 import { MessageService }            from '../services/message.service';
 
@@ -75,7 +74,6 @@ export class RegisterPagePage implements OnInit {
   }
 
   next() {
-    console.log('form',this.form)
     if (this.form.status == 'INVALID')
       this.invalidParams();
     else {

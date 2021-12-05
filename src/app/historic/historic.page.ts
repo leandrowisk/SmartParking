@@ -1,8 +1,7 @@
 import { Component, OnInit }     from '@angular/core';
 import { Location }              from '@angular/common';
-import { Historic, ELEMENT_DATA} from '../interfaces/User';
-import { ParkingService }    from '../services/Parking.service';
-import { Router }            from '@angular/router';
+import { ParkingService }        from '../services/Parking.service';
+
 
 
 @Component({
@@ -12,13 +11,9 @@ import { Router }            from '@angular/router';
 })
 export class HistoricPage implements OnInit {
   
-  constructor(
-    private parkingService: ParkingService,
-    private location: Location,
-    private router: Router
-    ) { }
+  constructor(private parkingService: ParkingService,
+              private location: Location) { }
   
-  public teste : String = "oi"
   public historics : String[];
 
   ngOnInit() {
@@ -28,7 +23,6 @@ export class HistoricPage implements OnInit {
   getHistoric(): void{
     this.parkingService.getParkingHistoric().subscribe(response => {
       this.historics = response;
-      console.log(response); 
     })
   }
 

@@ -97,9 +97,7 @@ export class PerfilEditPage implements OnInit {
 
   savePerfilEdits(): void{
     this.params = JSON.stringify(this.user);
-    this.parkingService.savePerfilEdits(this.params).subscribe(response => {
-      console.log(response);
-    })
+    this.parkingService.savePerfilEdits(this.params);
   }
 
   validateUser() {
@@ -130,8 +128,7 @@ export class PerfilEditPage implements OnInit {
       if (response["mensagem"]=="true"){
         this.router.navigate(['/tabs/options']);
         this._messageService.showMessage(this.sucessMessage, 5000)
-      }else{
-        console.log(response["mensagem"]);
+      }else {
         this._messageService.showMessage(response["mensagem"], 5000);
       }
     })

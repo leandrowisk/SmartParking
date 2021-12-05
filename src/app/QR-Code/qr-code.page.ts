@@ -2,7 +2,7 @@ import { Component }               from '@angular/core';
 import { Location }                from '@angular/common';
 import { ActivatedRoute, Router }  from '@angular/router';
 import { NavController }           from '@ionic/angular';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA }               from '@angular/material/dialog';
+import { MatDialog }               from '@angular/material/dialog';
 import { ValidationChoicesModalComponent } from '../validation-choices-modal/validation-choices-modal.component';
 
 @Component({

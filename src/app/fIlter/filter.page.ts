@@ -1,10 +1,8 @@
 import { Router }                   from '@angular/router';
 import { ParkingService }           from './../services/Parking.service';
 import { Component }                from '@angular/core';
-import { CurrencyMaskConfig }       from 'ngx-currency/src/currency-mask.config';
 import { NativePageTransitions,
          NativeTransitionOptions  } from '@ionic-native/native-page-transitions/ngx';
-import { FilterResultPage }         from '../filter-result/filter-result.page';
 import { NavController }            from '@ionic/angular';
 import { Filter }                   from '../interfaces/Parking';
 

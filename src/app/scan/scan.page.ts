@@ -183,12 +183,6 @@ export class ScanPage implements OnInit {
   }
 
   validateQrCode(qrCode: Object): any {
-    // this._financialService.validateQrCode(qrCode).subscribe(accept => {
-    //   if (accept)
-    //     return true
-    //   else
-    //     return false
-    // });
     return true;
   }
 

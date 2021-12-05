@@ -1,12 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router }    from '@angular/router';
-import { Parking }           from '../interfaces/Parking';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,
+         Router }            from '@angular/router';
 import { ParkingService }    from '../services/Parking.service';
 import { Location }          from '@angular/common';
-import { MatCheckbox }       from '@angular/material/checkbox';
-import { UserService }       from '../services/user.service';
 import { Lease }             from '../interfaces/Lease';
-import { MessageService }            from './../services/message.service';
+import { MessageService }    from './../services/message.service';
 
 
 @Component({
@@ -37,6 +35,14 @@ export class ParkingDetailsPage implements OnInit {
   public servicesSelected: number[];
 
   ngOnInit() {
+    this.initParking();
+    this.getParking();
+    this.servicesSelected = [];
+    this.subtotal = 0;
+    this.totalServiceValue = 0;
+  }
+
+  initParking() {
     this.parking = {
       "id":0,
       "name":"",
@@ -55,12 +61,7 @@ export class ParkingDetailsPage implements OnInit {
          }
       ]
    };
-    this.getParking();
-    this.servicesSelected = [];
-    this.subtotal = 0;
-    this.totalServiceValue = 0;
   }
-
   rentSpace() {
     this.rent = true;
   }
@@ -81,10 +82,6 @@ export class ParkingDetailsPage implements OnInit {
       this.monthly = true;
     else
       this.monthly = false;
-  //   this.parkingService.getParking(id).subscribe(response => {this.parking = response;});
-	// console.log(this.parking);
-  //   this.rating = new Array(this.parking.user_avaliation);
-  //   this.totalValue = this.parking.price;
   }
 
   addService(event,service) {
@@ -129,8 +126,7 @@ export class ParkingDetailsPage implements OnInit {
       this.parkingService.scheduleRents(reserveLease).subscribe(response => {
         if (response["mensagem"]=="true"){
           this.router.navigate(['/reserve']);
-        }else{
-          console.log(response["mensagem"]);
+        }else {
           this._messageService.showMessage(response["mensagem"], 5000);
         }
       })

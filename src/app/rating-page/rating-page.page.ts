@@ -1,10 +1,9 @@
 import { Component }                                from '@angular/core';
 import { Router }                                   from '@angular/router';
-import { MatSnackBar, 
-         MatSnackBarHorizontalPosition, 
+import { MatSnackBarHorizontalPosition, 
          MatSnackBarVerticalPosition }              from '@angular/material/snack-bar';
-import { MessageService } from '../services/message.service';
-import { ParkingService }    from '../services/Parking.service';
+import { MessageService }                           from '../services/message.service';
+import { ParkingService }                           from '../services/Parking.service';
 
 @Component({
   selector: 'app-rating-page',

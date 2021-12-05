@@ -12,7 +12,7 @@ import { HttpClientModule }                from '@angular/common/http';
 import { CodeComponent }                   from './code/code.component';
 import { MaterialModule }                  from './material.module';
 import { FormsModule, 
-  ReactiveFormsModule }             from '@angular/forms';
+         ReactiveFormsModule }             from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, CodeComponent],

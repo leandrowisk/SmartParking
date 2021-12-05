@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Parking } from '../interfaces/Parking';
-import { Router } from  '@angular/router';
+import { ActivatedRoute }    from '@angular/router';
+import { Parking }           from '../interfaces/Parking';
+import { Router }            from  '@angular/router';
 
 @Component({
   selector: 'app-filter-result',

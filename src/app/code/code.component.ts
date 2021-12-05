@@ -6,8 +6,6 @@ import { UserService }                 from '../services/user.service';
 import { MessageService }              from '../services/message.service';
 import { ParkingService }              from '../services/Parking.service';
 import { NavController }               from '@ionic/angular';
-import { FormsModule, 
-  ReactiveFormsModule }             from '@angular/forms';
 
 @Component({
   selector: 'app-code',
@@ -53,9 +51,7 @@ export class CodeComponent implements OnInit {
   acceptCode() {
     if (this.activeEntrance) {
       this.parkingService.codeToEnter(this.code).subscribe(response => {
-        console.log("teste 1",response)
         if (response['mensagem'] == "true") {
-          console.log("chegou",response)
           this.router.navigate(['/tabs/QRCode', { entrance: true, skipLocationChange: true }]);
         }
         else {
@@ -75,20 +71,20 @@ export class CodeComponent implements OnInit {
     }
 
   }
-  // getLease() {
-  //   this._financialService.getLease(this.userId).subscribe(lease => {
-  //     if (lease) 
-  //       this.lease = true;
-  //     else
-  //       this.lease = false;
-  //   })
-  // }
+  getLease() {
+    this._financialService.getLease(this.userId).subscribe(lease => {
+      if (lease) 
+        this.lease = true;
+      else
+        this.lease = false;
+    })
+  }
 
-  // getUser() {
-  //   this._userService.getUser().subscribe(user => {
-  //     this.userId = user.id;
-  //   })
-  // }
+  getUser() {
+    this._userService.getUser().subscribe(user => {
+      this.userId = user.id;
+    })
+  }
 
   blockMessage() {
     this.router.navigate(['/tabs/QRCode']);

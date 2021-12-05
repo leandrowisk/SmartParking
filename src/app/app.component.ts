@@ -8,11 +8,9 @@ import { Platform }  from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    public router: Router,
-    private platform: Platform) 
+  constructor(public router: Router,
+              private platform: Platform) 
   {
-
     this.initializeApp();
   }
 

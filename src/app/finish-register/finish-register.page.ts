@@ -3,11 +3,9 @@ import { Component, OnInit }                from '@angular/core';
 import { ActivatedRoute, Router }           from '@angular/router';
 import { User }                             from '../interfaces/User';
 import { UserService }                      from '../services/user.service';
-import { FormBuilder, 
-         FormControl, 
+import { FormBuilder,
          FormGroup, 
-         Validators, 
-         FormsModule }                      from '@angular/forms';
+         Validators }                       from '@angular/forms';
 import { MessageService }                   from '../services/message.service';
 
 @Component({
@@ -79,19 +77,18 @@ export class FinishRegisterPage implements OnInit {
   
    
 finishRegister() {
-    this.user.password      = this.form.value.password;
-    this.user.car.model	  	= this.form.value.model
-    this.user.car.brand     = this.form.value.brand
-    this.user.car.color     = this.form.value.color
-    this.user.car.category  = this.form.value.category
-    this.user.car.chassi    = this.form.value.chassi
-    this.user.car.renavam   = this.form.value.renavam
-    this.user.car.plaque    = this.form.value.plaque
+    this.user.password = this.form.value.password;
+    this.user.car.model = this.form.value.model
+    this.user.car.brand = this.form.value.brand
+    this.user.car.color = this.form.value.color
+    this.user.car.category = this.form.value.category
+    this.user.car.chassi = this.form.value.chassi
+    this.user.car.renavam = this.form.value.renavam
+    this.user.car.plaque = this.form.value.plaque
 
-     this._userService.register(this.user).subscribe(response => {
-     if (response['mensagem'] == 'true') {
-		this.router.navigate(['/login-page']);
-     }
+    this._userService.register(this.user).subscribe(response => {
+     if (response['mensagem'] == 'true')
+	    	this.router.navigate(['/login-page']);
      else
         this._messageService.showMessage(response['mensagem'], 5000);
      })

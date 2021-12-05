@@ -1,13 +1,10 @@
-import { Component, OnInit }          from '@angular/core';
+import { Component, OnInit }           from '@angular/core';
 import { FormBuilder, 
-         FormControl, 
          FormGroup, 
-         Validators, 
-         FormsModule }                from '@angular/forms';
-import { MatSnackBar, 
-         MatSnackBarHorizontalPosition, 
+         Validators }                  from '@angular/forms';
+import { MatSnackBarHorizontalPosition, 
          MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { MessageService } from '../services/message.service';
+import { MessageService }              from '../services/message.service';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.page.html',
