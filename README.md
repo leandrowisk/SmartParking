@@ -28,4 +28,7 @@ disponíveis na cidade de São Paulo.</p>
 <img src="https://user-images.githubusercontent.com/48762418/142703312-df9ba116-9195-4217-8485-a99504e99668.PNG" height="550px" width="350px">
 <img src="https://user-images.githubusercontent.com/48762418/142703325-dff2af8b-7056-4478-9e65-a878c3aaa4be.PNG" height="550px" width="350px">
 <img src="https://user-images.githubusercontent.com/48762418/142703444-7a8d97cc-830c-490b-94f5-5aa94ae775f2.PNG" height="550px" width="350px">
-
+<img src="https://user-images.githubusercontent.com/48762418/144732402-482abc31-9ebb-4c81-b04c-3562f7cddb52.jpeg" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/144732405-033ea8ca-3bc1-4df0-9b7a-53cb19e11b39.jpeg" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/144732412-308d3fb8-eb54-48fd-af43-7338b3b364d1.jpeg" height="550px" width="350px">
+<img src="https://user-images.githubusercontent.com/48762418/144732414-1182094b-9ded-4e5f-accc-22ad82ce7d88.jpeg" height="550px" width="350px">
